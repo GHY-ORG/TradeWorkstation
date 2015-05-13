@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="GHYUser">
+  <DataContextMoniker Name="/GHYUserDataContext" />
+  <nestedChildShapes>
+    <classShape Id="31fab7e0-a531-478a-a3cc-b2fc7961a249" absoluteBounds="0.75, 0.75, 2, 1.1677168782552085">
+      <DataClassMoniker Name="/GHYUserDataContext/role" />
+      <nestedChildShapes>
+        <elementListCompartment Id="247f0fb9-3745-4132-9524-372737df3046" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.60771687825520826" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="dbd48158-fdcf-4abb-88ea-1801c5d1b140" absoluteBounds="0.75, 2.75, 2, 3.3852461751302076">
+      <DataClassMoniker Name="/GHYUserDataContext/user" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9935f108-dce4-4e4c-b365-60aa2b9948c0" absoluteBounds="0.765, 3.21, 1.9700000000000002, 2.825246175130208" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="29508ebc-36bd-4028-b113-262626a66f29" absoluteBounds="3.75, 0.75, 2, 1.3525109863281251">
+      <DataClassMoniker Name="/GHYUserDataContext/user_role" />
+      <nestedChildShapes>
+        <elementListCompartment Id="da47db8c-764d-404b-ba14-c8bbf7637575" absoluteBounds="3.765, 1.21, 1.9700000000000002, 0.792510986328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,7 @@
+F:\visual studio 2013\Projects\TradeWorkstation\DAL\bin\Debug\DAL.dll
+F:\visual studio 2013\Projects\TradeWorkstation\DAL\bin\Debug\DAL.pdb
+F:\visual studio 2013\Projects\TradeWorkstation\DAL\bin\Debug\DataSource.dll
+F:\visual studio 2013\Projects\TradeWorkstation\DAL\bin\Debug\DataSource.pdb
+F:\visual studio 2013\Projects\TradeWorkstation\DAL\obj\Debug\DAL.csprojResolveAssemblyReference.cache
+F:\visual studio 2013\Projects\TradeWorkstation\DAL\obj\Debug\DAL.dll
+F:\visual studio 2013\Projects\TradeWorkstation\DAL\obj\Debug\DAL.pdb
