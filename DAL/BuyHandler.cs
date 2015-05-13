@@ -15,6 +15,9 @@ namespace DAL
             {
                 using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
                 {
+                    item.IID = Guid.NewGuid();
+                    item.PostTime = DateTime.Now;
+                    item.UpdateTime = DateTime.Now;
                     item.Status = 202;
                     db.Item.InsertOnSubmit(item);
                     db.SubmitChanges();

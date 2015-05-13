@@ -1,0 +1,5 @@
+F:\visual studio 2013\Projects\TradeWorkstation\Common\bin\Debug\Common.dll
+F:\visual studio 2013\Projects\TradeWorkstation\Common\bin\Debug\Common.pdb
+F:\visual studio 2013\Projects\TradeWorkstation\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
+F:\visual studio 2013\Projects\TradeWorkstation\Common\obj\Debug\Common.dll
+F:\visual studio 2013\Projects\TradeWorkstation\Common\obj\Debug\Common.pdb

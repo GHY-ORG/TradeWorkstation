@@ -54,11 +54,16 @@
     <Compile Include="IUserHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SellHandler.cs" />
+    <Compile Include="UserHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{1d9afaa0-1ef2-494a-a12b-095d86cd4f6c}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataSource\DataSource.csproj">
       <Project>{ef008d5c-fdb0-4404-89ea-c14b93f653cc}</Project>
       <Name>DataSource</Name>

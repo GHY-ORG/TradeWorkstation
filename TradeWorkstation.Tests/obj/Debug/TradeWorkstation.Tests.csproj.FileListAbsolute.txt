@@ -35,3 +35,5 @@ F:\visual studio 2013\Projects\TradeWorkstation\TradeWorkstation.Tests\bin\Debug
 F:\visual studio 2013\Projects\TradeWorkstation\TradeWorkstation.Tests\obj\Debug\TradeWorkstation.Tests.csprojResolveAssemblyReference.cache
 F:\visual studio 2013\Projects\TradeWorkstation\TradeWorkstation.Tests\obj\Debug\TradeWorkstation.Tests.dll
 F:\visual studio 2013\Projects\TradeWorkstation\TradeWorkstation.Tests\obj\Debug\TradeWorkstation.Tests.pdb
+F:\visual studio 2013\Projects\TradeWorkstation\TradeWorkstation.Tests\bin\Debug\Common.dll
+F:\visual studio 2013\Projects\TradeWorkstation\TradeWorkstation.Tests\bin\Debug\Common.pdb

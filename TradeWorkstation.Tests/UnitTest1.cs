@@ -14,10 +14,17 @@ namespace TradeWorkstation.Tests
             BuyHandler buy = new BuyHandler();
 
             var item2 = new Item {
-                IID=new Guid(),
-                Title="Test"
+                IID=Guid.NewGuid(),
+                Title="Test",
+                CID=6,
+                UID = Guid.NewGuid(),
+                Type=1,
+                Detail="Test.....",
+                Bargain=0,
+                Priority=0,
+                EndTime=DateTime.Now
             };
-            buy.Create(item2);
+            Console.WriteLine(buy.Create(item2));
         }
     }
 }
