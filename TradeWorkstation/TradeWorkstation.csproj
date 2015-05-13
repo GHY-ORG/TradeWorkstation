@@ -93,12 +93,57 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CSS\bootstrap.css" />
+    <Content Include="CSS\common.css" />
+    <Content Include="CSS\index.css" />
+    <Content Include="CSS\main.css">
+      <DependentUpon>main.css.bundle</DependentUpon>
+    </Content>
+    <Content Include="CSS\main.min.css">
+      <DependentUpon>main.css</DependentUpon>
+    </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="image\adv.png" />
+    <Content Include="image\banner.png" />
+    <Content Include="image\change-head.png" />
+    <Content Include="image\erhuo-image-big.png" />
+    <Content Include="image\erhuo-image.png" />
+    <Content Include="image\fabu-top.png" />
+    <Content Include="image\fb-ershou.png" />
+    <Content Include="image\fb-pinqita.png" />
+    <Content Include="image\fb-qiugou.png" />
+    <Content Include="image\footer_image.png" />
+    <Content Include="image\ghy-logo.png" />
+    <Content Include="image\head-image-erhuo.png" />
+    <Content Include="image\head-image.png" />
+    <Content Include="image\head-userhead-qiugou.png" />
+    <Content Include="image\head-userhead.png" />
+    <Content Include="image\right-bottom.png" />
+    <Content Include="image\right-top.png" />
+    <Content Include="image\totop.png" />
+    <Content Include="image\user-head.png" />
+    <Content Include="image\welcome-head.png" />
+    <Content Include="image\xiangxi-big.png" />
+    <Content Include="JS\bootstrap-datepicker.min.js" />
+    <Content Include="JS\bootstrap.js" />
+    <Content Include="JS\datepicker.config.js" />
+    <Content Include="JS\jquery.js" />
+    <Content Include="JS\jquery.request.js" />
+    <Content Include="JS\jquery.scrollLoading.js" />
+    <Content Include="JS\main.js">
+      <DependentUpon>main.js.bundle</DependentUpon>
+    </Content>
+    <Content Include="JS\main.min.js">
+      <DependentUpon>main.js</DependentUpon>
+    </Content>
+    <Content Include="JS\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -107,6 +152,19 @@
   <ItemGroup>
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="JS\main.js.bundle" />
+    <Content Include="JS\main.min.js.map">
+      <DependentUpon>main.min.js</DependentUpon>
+    </Content>
+    <Content Include="CSS\main.css.bundle" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -116,7 +174,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>

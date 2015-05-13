@@ -1,0 +1,49 @@
+﻿@charset "utf-8";
+/* CSS Document */
+a{color:#000;}
+
+#banner{margin-bottom:60px;background-color:#fbfbfb;}
+#banner-area{height:200px;background-image:url(../image/banner.png);text-align:center;}
+.button-banner{display:inline-block;padding:6px 30px;color:#fab614;border:1px solid #fab614;border-radius:3px;font-weight:700;line-height:normal;text-decoration:none;text-transform:uppercase;margin-top:140px;}
+.button-banner:hover{color:#FFF;background-color:#fab614;}
+#login{float:left;margin-left:330px;}
+#register{float:right;margin-right:330px;}
+
+header{margin:20px auto;}
+#head-ul{padding:15px 0 0 20px;}
+#head-ul a{padding:0 15px;color:#fab614;border:1px solid #ffffff;border-radius:3px;}
+#head-ul a:hover{border:1px solid #fab614;}
+#search{color:#fab614;font-size:1.125em;font-weight: 100;}
+#head-search{padding:5px 0 0 200px;}
+#head-search p{color:#fab614;font-size:.75em;margin:5px 0 0;}
+
+#main{padding-right:50px;}
+h4{font-size:1.125em;color:#fab614;}
+h5{font-size:.875em;border-bottom:1px solid #ededed;padding-bottom:5px;}
+#study h5{color:#a2e084;}
+#life h5{color:#7ddaf0;}
+#relax h5{color:#f49a9a;}
+.erhuo-left{padding:10px 0 0 10px;}
+.row-new{padding:0 18px;}
+#erhuo-content{padding:5px 10px 0 7px;}
+.erhuo-block{margin:20px 0 10px 0;}
+.pic-box{padding: 0 9px 10px 8px;position: relative;}
+.mask{background-color:#666;width:125px;height:20px;position:absolute;bottom:10px;left:8px;opacity: .7;filter: alpha(opacity=70);padding:0 5%;}
+.mask p{color:#FFF;line-height:20px;margin-bottom:0;font-size:.75em;}
+.user-head{padding:2px 0 0 0;}
+.user-head img{margin:0 0;}
+.user-message p{margin-bottom:0;font-size:.75em;}
+.price{color:#f94044;font-size:1.125em;padding-top:5px;}
+#all-sort{border-bottom:2px solid #d0d0d0;margin-bottom:40px;padding-bottom:30px;}
+#all-sort h5{color:#fab614;}
+.all-sort-linkitem1{font-weight:800;padding:0 20px 0 0;}
+.all-sort-linkitem2{padding:0 10px 0 0;}
+
+#qiugou ul li,#aipin ul li,#erhuo-content ul li,#pinche ul li{display: block;height: 24px;line-height: 24px;vertical-align: bottom;font-size:.75em;}
+#qiugou,#aipin,#pinche{padding:5px 10px 20px 15px;}
+#aipin,#pinche{border-top: 1px solid #eeeeee;}
+.classname{color:#fab614;float:left;}
+.linkitem{color:#999999;float:left;}
+.datatime{color:#999999;float:right;}
+.pinche-linkitem{font-size:14px;font-weight:600;padding:0 10px 0 0;}
+#adv{width:240px;height:180px;border-radius:10px;overflow:hidden;margin-bottom:15px;margin-top:39px;}

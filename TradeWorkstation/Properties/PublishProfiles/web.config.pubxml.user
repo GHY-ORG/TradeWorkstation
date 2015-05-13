@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+您 Web 项目的发布/打包进程将使用此文件。您可以通过编辑此 MSBuild 文件
+来自定义该进程的行为。若要了解与此相关的详细信息，请访问 http://go.microsoft.com/fwlink/?LinkID=208121。
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>F:\IISweb\zzqTest\TradeWorkstation</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>05/13/2015 13:51:48</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>05/13/2015 13:51:50</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>05/13/2015 13:51:48</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>05/13/2015 13:51:50</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>05/13/2015 13:51:50</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>05/13/2015 13:51:48</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>05/13/2015 13:51:48</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Deployment.dll">
+      <publishTime>05/13/2015 13:51:48</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.dll">
+      <publishTime>05/13/2015 13:51:48</publishTime>
+    </File>
+    <File Include="bin/System.Web.Webpages.Razor.dll">
+      <publishTime>05/13/2015 13:51:48</publishTime>
+    </File>
+    <File Include="bin/TradeWorkstation.dll">
+      <publishTime>05/13/2015 21:22:53</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Net.Http.Formatting.resources.dll">
+      <publishTime>05/13/2015 13:51:50</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Helpers.resources.dll">
+      <publishTime>05/13/2015 13:51:48</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Http.resources.dll">
+      <publishTime>05/13/2015 13:51:52</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Http.WebHost.resources.dll">
+      <publishTime>05/13/2015 13:51:52</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Mvc.resources.dll">
+      <publishTime>05/13/2015 13:51:48</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Razor.resources.dll">
+      <publishTime>05/13/2015 13:51:48</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Webpages.Deployment.resources.dll">
+      <publishTime>05/13/2015 13:51:48</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Webpages.Razor.resources.dll">
+      <publishTime>05/13/2015 13:51:48</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Web.Webpages.resources.dll">
+      <publishTime>05/13/2015 13:51:48</publishTime>
+    </File>
+    <File Include="CSS/bootstrap.css">
+      <publishTime>05/13/2015 21:04:29</publishTime>
+    </File>
+    <File Include="CSS/common.css">
+      <publishTime>05/13/2015 21:13:50</publishTime>
+    </File>
+    <File Include="CSS/index.css">
+      <publishTime>05/13/2015 21:14:02</publishTime>
+    </File>
+    <File Include="CSS/main.css">
+      <publishTime>05/13/2015 21:14:28</publishTime>
+    </File>
+    <File Include="CSS/main.css.bundle">
+      <publishTime>05/13/2015 21:14:28</publishTime>
+    </File>
+    <File Include="CSS/main.min.css">
+      <publishTime>05/13/2015 21:14:29</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>05/13/2015 21:22:46</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>05/13/2015 21:22:46</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>05/13/2015 21:22:46</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>05/13/2015 21:22:46</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>05/13/2015 21:22:46</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>05/13/2015 13:51:52</publishTime>
+    </File>
+    <File Include="image/adv.png">
+      <publishTime>05/13/2015 21:22:46</publishTime>
+    </File>
+    <File Include="image/banner.png">
+      <publishTime>05/13/2015 21:22:46</publishTime>
+    </File>
+    <File Include="image/change-head.png">
+      <publishTime>05/13/2015 21:22:46</publishTime>
+    </File>
+    <File Include="image/erhuo-image-big.png">
+      <publishTime>05/13/2015 21:22:46</publishTime>
+    </File>
+    <File Include="image/erhuo-image.png">
+      <publishTime>05/13/2015 21:22:47</publishTime>
+    </File>
+    <File Include="image/fabu-top.png">
+      <publishTime>05/13/2015 21:22:47</publishTime>
+    </File>
+    <File Include="image/fb-ershou.png">
+      <publishTime>05/13/2015 21:22:47</publishTime>
+    </File>
+    <File Include="image/fb-pinqita.png">
+      <publishTime>05/13/2015 21:22:47</publishTime>
+    </File>
+    <File Include="image/fb-qiugou.png">
+      <publishTime>05/13/2015 21:22:47</publishTime>
+    </File>
+    <File Include="image/footer_image.png">
+      <publishTime>05/13/2015 21:22:47</publishTime>
+    </File>
+    <File Include="image/ghy-logo.png">
+      <publishTime>05/13/2015 21:22:47</publishTime>
+    </File>
+    <File Include="image/head-image-erhuo.png">
+      <publishTime>05/13/2015 21:22:47</publishTime>
+    </File>
+    <File Include="image/head-image.png">
+      <publishTime>05/13/2015 21:22:47</publishTime>
+    </File>
+    <File Include="image/head-userhead-qiugou.png">
+      <publishTime>05/13/2015 21:22:47</publishTime>
+    </File>
+    <File Include="image/head-userhead.png">
+      <publishTime>05/13/2015 21:22:47</publishTime>
+    </File>
+    <File Include="image/right-bottom.png">
+      <publishTime>05/13/2015 21:22:47</publishTime>
+    </File>
+    <File Include="image/right-top.png">
+      <publishTime>05/13/2015 21:22:47</publishTime>
+    </File>
+    <File Include="image/totop.png">
+      <publishTime>05/13/2015 21:22:47</publishTime>
+    </File>
+    <File Include="image/user-head.png">
+      <publishTime>05/13/2015 21:22:47</publishTime>
+    </File>
+    <File Include="image/welcome-head.png">
+      <publishTime>05/13/2015 21:22:47</publishTime>
+    </File>
+    <File Include="image/xiangxi-big.png">
+      <publishTime>05/13/2015 21:22:47</publishTime>
+    </File>
+    <File Include="JS/bootstrap-datepicker.min.js">
+      <publishTime>05/13/2015 21:03:33</publishTime>
+    </File>
+    <File Include="JS/bootstrap.js">
+      <publishTime>05/13/2015 21:03:33</publishTime>
+    </File>
+    <File Include="JS/datepicker.config.js">
+      <publishTime>05/13/2015 21:03:33</publishTime>
+    </File>
+    <File Include="JS/jquery.js">
+      <publishTime>05/13/2015 21:03:34</publishTime>
+    </File>
+    <File Include="JS/jquery.request.js">
+      <publishTime>05/13/2015 21:03:34</publishTime>
+    </File>
+    <File Include="JS/jquery.scrollLoading.js">
+      <publishTime>05/13/2015 21:07:16</publishTime>
+    </File>
+    <File Include="JS/main.js">
+      <publishTime>05/13/2015 21:10:55</publishTime>
+    </File>
+    <File Include="JS/main.js.bundle">
+      <publishTime>05/13/2015 21:10:55</publishTime>
+    </File>
+    <File Include="JS/main.min.js">
+      <publishTime>05/13/2015 21:10:58</publishTime>
+    </File>
+    <File Include="JS/main.min.js.map">
+      <publishTime>05/13/2015 21:10:58</publishTime>
+    </File>
+    <File Include="JS/modernizr-2.8.3.js">
+      <publishTime>05/13/2015 21:03:33</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>05/13/2015 13:51:52</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>05/13/2015 21:33:06</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>05/13/2015 21:41:05</publishTime>
+    </File>
+    <File Include="Views/web.config">
+      <publishTime>05/13/2015 13:51:48</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>05/13/2015 21:20:22</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>05/13/2015 21:21:22</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

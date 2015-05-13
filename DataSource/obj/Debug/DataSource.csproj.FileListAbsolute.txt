@@ -1,6 +1,0 @@
-F:\visual studio 2013\Projects\TradeWorkstation\DataSource\bin\Debug\DataSource.dll.config
-F:\visual studio 2013\Projects\TradeWorkstation\DataSource\bin\Debug\DataSource.dll
-F:\visual studio 2013\Projects\TradeWorkstation\DataSource\bin\Debug\DataSource.pdb
-F:\visual studio 2013\Projects\TradeWorkstation\DataSource\obj\Debug\DataSource.csprojResolveAssemblyReference.cache
-F:\visual studio 2013\Projects\TradeWorkstation\DataSource\obj\Debug\DataSource.dll
-F:\visual studio 2013\Projects\TradeWorkstation\DataSource\obj\Debug\DataSource.pdb

@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/CSS/main.min.css">
+    @foreach (var i in ViewBag.Css ?? new string[] { })
+    {
+        <link href="@i" rel="stylesheet" />
+    }
+    <script src="@Url.Content("~/JS/modernizr-2.8.3.js")"></script>
+</head>
+
+<body>
+    <!--Top-->
+    <nav>
+        <ul>
+            <li><a href="" title="光华园首页">光华园首页</a></li>
+            <li><a href="" title="柴火">柴火</a></li>
+            <li><a href="" title="新闻网">新闻网</a></li>
+            <li><a href="" title="思想网">思想网</a></li>
+            <li><a href="" title="学网习">学习网</a></li>
+            <li><a href="" title="生活网">生活网</a></li>
+            <li><a href="" title="音乐网">音乐网</a></li>
+            <li><a href="" title="电影网">电影网</a></li>
+            <li><a href="" title="软件园">软件园</a></li>
+            <li><a href="" title="文苑">文苑</a></li>
+            <li><a href="" title="草堂茗香">草堂茗香</a></li>
+        </ul>
+    </nav>
+    <!--Main-->
+    @RenderBody()
+    <!--Footer-->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9" id="footer-left">
+                    <div id="ghy-logo"></div>
+                    <p>Copyright ©2001-2015 GHY.cn All rights reserved. 蜀ICP备07004602号</p>
+                    <p>
+                        西南财经大学党委宣传统战部 前进动力工作室
+                    </p>
+                </div>
+                <div class="col-md-3" id="footer-right">
+                    <div id="footer-right-left">
+                        <p><span>Tel:</span></p>
+                        <p><span>Email:</span></p>
+                        <p><span>Address:</span></p>
+                    </div>
+                    <div>
+                        <p>028-87092700</p>
+                        <p>ghyers@ghy.cn</p>
+                        <p>成都市柳台大道555号</p>
+                        <p>西南财经大学 腾骧楼422</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="@Url.Content("~/JS/main.min.js")"></script>
+    @foreach (var i in ViewBag.Js ?? new string[] { })
+    {
+        <script src="@i"></script>
+    }
+    <script>
+    $(function () {
+        $(".scrollLoading").scrollLoading();
+    });
+    </script>
+</body>
+</html>
