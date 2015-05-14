@@ -7,7 +7,7 @@ using DataSource;
 
 namespace DAL
 {
-    class SellHandler:ISellHandler
+    public class OtherPoolHandler:IOtherPoolHandler
     {
         public int Create(DataSource.Item item)
         {
@@ -18,7 +18,7 @@ namespace DAL
                     item.IID = Guid.NewGuid();
                     item.PostTime = DateTime.Now;
                     item.UpdateTime = DateTime.Now;
-                    item.Status = 102;
+                    item.Status = 402;
                     db.Item.InsertOnSubmit(item);
                     db.SubmitChanges();
                 }
@@ -36,7 +36,7 @@ namespace DAL
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.Item
-                             where o.Type == 1 && o.Status == 102
+                             where o.Type == 4 && o.Status == 402
                              select o;
                 return result.ToList<Item>();
             }
@@ -47,18 +47,7 @@ namespace DAL
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.Item
-                             where o.UID == uid && o.Type == 1 && o.Status == 102
-                             select o;
-                return result.ToList<Item>();
-            }
-        }
-
-        public List<DataSource.Item> ShowItemByCID(int cid)
-        {
-            using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
-            {
-                var result = from o in db.Item
-                             where o.CID == cid && o.Type == 1 && o.Status == 102
+                             where o.UID == uid && o.Type == 4 && o.Status == 402
                              select o;
                 return result.ToList<Item>();
             }
@@ -69,7 +58,7 @@ namespace DAL
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.Item
-                             where o.IID == iid && o.Status == 102
+                             where o.IID == iid && o.Status == 402
                              select o;
                 return result.Single();
             }
@@ -82,9 +71,9 @@ namespace DAL
                 using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
                 {
                     var result = from o in db.Item
-                                 where o.IID == iid && o.Status == 102
+                                 where o.IID == iid && o.Status == 402
                                  select o;
-                    result.Single().Status = 103;
+                    result.Single().Status = 403;
                     db.SubmitChanges();
                 }
                 return 1;
@@ -103,39 +92,12 @@ namespace DAL
                 using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
                 {
                     var result = from o in db.Item
-                                 where o.Type == 1 && DateTime.Compare(DateTime.Now, o.EndTime) > 0 && o.Status == 102
+                                 where o.Type == 4 && DateTime.Compare(DateTime.Now, o.EndTime) > 0 && o.Status == 402
                                  select o;
                     foreach (Item o in result)
                     {
-                        o.Status = 101;
+                        o.Status = 401;
                     }
-                    db.SubmitChanges();
-                }
-                return 1;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-                return 0;
-            }
-        }
-
-        public int UpdateItem(Item item)
-        {
-            try
-            {
-                using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
-                {
-                    var result = from o in db.Item
-                                 where o.IID == item.IID && o.Status == 102
-                                 select o;
-                    result.Single().Title = item.Title;
-                    result.Single().Price = item.Price;
-                    result.Single().Detail = item.Detail;
-                    result.Single().Tel = item.Tel;
-                    result.Single().QQ = item.QQ;
-                    result.Single().Way = item.Way;
-                    result.Single().UpdateTime = DateTime.Now;
                     db.SubmitChanges();
                 }
                 return 1;

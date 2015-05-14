@@ -36,7 +36,7 @@ namespace DAL
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.Item
-                             where o.Type == 2
+                             where o.Type == 2 && o.Status == 202
                              select o;
                 return result.ToList<Item>();
             }
@@ -47,7 +47,7 @@ namespace DAL
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.Item
-                             where o.UID == uid && o.Type == 2
+                             where o.UID == uid && o.Type == 2 && o.Status == 202
                              select o;
                 return result.ToList<Item>();
             }
@@ -58,7 +58,7 @@ namespace DAL
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.Item
-                             where o.CID == cid && o.Type == 2
+                             where o.CID == cid && o.Type == 2 && o.Status == 202
                              select o;
                 return result.ToList<Item>();
             }
@@ -69,7 +69,7 @@ namespace DAL
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.Item
-                             where o.IID == iid
+                             where o.IID == iid && o.Status == 202
                              select o;
                 return result.Single();
             }
@@ -82,7 +82,7 @@ namespace DAL
                 using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
                 {
                     var result = from o in db.Item
-                                 where o.IID == iid
+                                 where o.IID == iid && o.Status == 202
                                  select o;
                     result.Single().Status = 203;
                     db.SubmitChanges();
@@ -103,7 +103,7 @@ namespace DAL
                 using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
                 {
                     var result = from o in db.Item
-                                 where o.Type == 2 && DateTime.Compare(DateTime.Now, o.EndTime) > 0
+                                 where o.Type == 2 && DateTime.Compare(DateTime.Now, o.EndTime) > 0 && o.Status == 202
                                  select o;
                     foreach(Item o in result)
                     {

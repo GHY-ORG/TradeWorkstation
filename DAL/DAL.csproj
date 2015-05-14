@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="BlackListHandler.cs" />
     <Compile Include="BuyHandler.cs" />
+    <Compile Include="CarPoolHandler.cs" />
     <Compile Include="IBlackListHandler.cs" />
     <Compile Include="IBuyHandler.cs" />
     <Compile Include="ICarPoolHandler.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="ISellHandler.cs" />
     <Compile Include="IStoreHandler.cs" />
     <Compile Include="IUserHandler.cs" />
+    <Compile Include="OtherPoolHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SellHandler.cs" />
     <Compile Include="UserHandler.cs" />

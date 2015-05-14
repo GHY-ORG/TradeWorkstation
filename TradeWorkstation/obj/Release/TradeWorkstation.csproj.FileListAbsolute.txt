@@ -32,3 +32,4 @@ F:\visual studio 2013\Projects\TradeWorkstation\TradeWorkstation\bin\zh-Hans\Sys
 F:\visual studio 2013\Projects\TradeWorkstation\TradeWorkstation\bin\zh-Hans\System.Web.Http.WebHost.resources.dll
 F:\visual studio 2013\Projects\TradeWorkstation\TradeWorkstation\obj\Release\TradeWorkstation.dll
 F:\visual studio 2013\Projects\TradeWorkstation\TradeWorkstation\obj\Release\TradeWorkstation.pdb
+F:\visual studio 2013\Projects\TradeWorkstation\TradeWorkstation\obj\Release\TradeWorkstation.csprojResolveAssemblyReference.cache

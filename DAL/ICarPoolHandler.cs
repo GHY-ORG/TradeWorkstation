@@ -35,13 +35,13 @@ namespace DAL
         /// </summary>
         /// <param name="from"></param>
         /// <returns></returns>
-        List<Item> ShowItemByFrom(string from);
+        List<Item> ShowItemByFrom(string carfrom);
         /// <summary>
         /// 根据目的地查询拼车信息
         /// </summary>
-        /// <param name="to"></param>
+        /// <param name="carto"></param>
         /// <returns></returns>
-        List<Item> ShowItemByTo(string to);
+        List<Item> ShowItemByTo(string carto);
         /// <summary>
         /// 根据出发时间查询拼车信息
         /// </summary>
