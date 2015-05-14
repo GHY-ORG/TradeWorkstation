@@ -9,7 +9,7 @@ namespace DAL
 {
     public class BlackListHandler : IBlackListHandler
     {
-        public int Create(DataSource.BlackList blacklist)
+        public int Create(BlackList blacklist)
         {
             try
             {
