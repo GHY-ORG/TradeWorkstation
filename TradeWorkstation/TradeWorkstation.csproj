@@ -93,8 +93,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CSS\bootstrap.css" />
+    <Content Include="CSS\bootstrap-datetimepicker.min.css" />
+    <Content Include="CSS\bootstrap.min.css" />
     <Content Include="CSS\common.css" />
+    <Content Include="CSS\form.css" />
     <Content Include="CSS\index.css" />
     <Content Include="CSS\main.css">
       <DependentUpon>main.css.bundle</DependentUpon>
@@ -125,9 +127,9 @@
     <Content Include="image\user-head.png" />
     <Content Include="image\welcome-head.png" />
     <Content Include="image\xiangxi-big.png" />
-    <Content Include="JS\bootstrap-datepicker.min.js" />
+    <Content Include="JS\bootstrap-datetimepicker.min.js" />
     <Content Include="JS\bootstrap.js" />
-    <Content Include="JS\datepicker.config.js" />
+    <Content Include="JS\datetimepicker.config.js" />
     <Content Include="JS\jquery.js" />
     <Content Include="JS\jquery.request.js" />
     <Content Include="JS\jquery.scrollLoading.js" />
@@ -152,6 +154,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CarForm.cs" />
     <Compile Include="Models\LoginForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -171,6 +174,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
+    <Content Include="Views\Car\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -181,7 +185,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Buy\" />
-    <Folder Include="Views\Car\" />
     <Folder Include="Views\Center\" />
     <Folder Include="Views\Other\" />
     <Folder Include="Views\Sell\" />

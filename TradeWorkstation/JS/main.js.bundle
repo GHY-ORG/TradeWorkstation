@@ -14,7 +14,7 @@
     <file>/JS/bootstrap.js</file>
     <file>/JS/jquery.request.js</file>
     <file>/JS/jquery.scrollLoading.js</file>
-    <file>/JS/bootstrap-datepicker.min.js</file>
-    <file>/JS/datepicker.config.js</file>
+    <file>/JS/bootstrap-datetimepicker.min.js</file>
+    <file>/JS/datetimepicker.config.js</file>
   </files>
 </bundle>

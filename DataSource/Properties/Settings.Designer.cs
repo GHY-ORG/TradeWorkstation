@@ -27,7 +27,7 @@ namespace DataSource.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.123.41;Initial Catalog=TradeWorkstation;User ID=TradeWorkstat" +
-            "ion")]
+            "ion;Password=ghy2015)^)^")]
         public string TradeWorkstationConnectionString {
             get {
                 return ((string)(this["TradeWorkstationConnectionString"]));
@@ -37,7 +37,7 @@ namespace DataSource.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.123.41;Initial Catalog=ghyusers;User ID=TradeWorkstation")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.123.41;Initial Catalog=ghyusers;User ID=TradeWorkstation;Password=ghy2015)^)^")]
         public string ghyusersConnectionString {
             get {
                 return ((string)(this["ghyusersConnectionString"]));

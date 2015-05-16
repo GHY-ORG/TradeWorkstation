@@ -12,7 +12,8 @@
   </settings>
   <!--The order of the <file> elements determines the order of the files in the bundle.-->
   <files>
-    <file>/CSS/bootstrap.css</file>
+    <file>/CSS/bootstrap.min.css</file>
+    <file>/CSS/bootstrap-datetimepicker.min.css</file>
     <file>/CSS/common.css</file>
   </files>
 </bundle>
