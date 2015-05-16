@@ -40,7 +40,7 @@
       <publishTime>05/13/2015 13:51:48</publishTime>
     </File>
     <File Include="bin/TradeWorkstation.dll">
-      <publishTime>05/13/2015 23:35:56</publishTime>
+      <publishTime>05/16/2015 17:59:23</publishTime>
     </File>
     <File Include="bin/zh-Hans/System.Net.Http.Formatting.resources.dll">
       <publishTime>05/13/2015 13:51:50</publishTime>
@@ -73,19 +73,19 @@
       <publishTime>05/13/2015 21:04:29</publishTime>
     </File>
     <File Include="CSS/common.css">
-      <publishTime>05/13/2015 21:13:50</publishTime>
+      <publishTime>05/16/2015 17:56:15</publishTime>
     </File>
     <File Include="CSS/index.css">
       <publishTime>05/13/2015 21:14:02</publishTime>
     </File>
     <File Include="CSS/main.css">
-      <publishTime>05/13/2015 21:14:28</publishTime>
+      <publishTime>05/16/2015 17:56:15</publishTime>
     </File>
     <File Include="CSS/main.css.bundle">
       <publishTime>05/13/2015 21:14:28</publishTime>
     </File>
     <File Include="CSS/main.min.css">
-      <publishTime>05/13/2015 21:14:29</publishTime>
+      <publishTime>05/16/2015 17:56:12</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.eot">
       <publishTime>05/13/2015 21:22:46</publishTime>
@@ -205,10 +205,10 @@
       <publishTime>05/13/2015 13:51:52</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>05/13/2015 21:33:06</publishTime>
+      <publishTime>05/16/2015 18:01:05</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>05/13/2015 21:41:05</publishTime>
+      <publishTime>05/16/2015 18:00:26</publishTime>
     </File>
     <File Include="Views/web.config">
       <publishTime>05/13/2015 13:51:48</publishTime>

@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using TradeWorkstation.Models;
 
 namespace TradeWorkstation.Controllers
 {
-    [RoutePrefix("Home")]
-    public class HomeController : Controller
+    public class BuyController : Controller
     {
-        // GET: Home
-        //[Route("Index/{id:int}")]
+        // GET: Buy
         public ActionResult Index()
         {
             return View();

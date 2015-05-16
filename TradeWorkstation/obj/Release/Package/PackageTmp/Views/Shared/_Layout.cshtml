@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="~/CSS/main.min.css">
     @foreach (var i in ViewBag.Css ?? new string[] { })
     {
-        <link href="@i" rel="stylesheet" />
+        <link href="@Url.Content(i)" rel="stylesheet" />
     }
     <script src="@Url.Content("~/JS/modernizr-2.8.3.js")"></script>
 </head>
@@ -31,6 +31,33 @@
             <li><a href="" title="草堂茗香">草堂茗香</a></li>
         </ul>
     </nav>
+    <!--Header-->
+    <header class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <a href="#"><img class="scrollLoading" data-url="http://@Request.Url.Host:@Request.Url.Port/TradeWorkstation/image/head-image.png" /></a>
+            </div>
+            <div class="col-md-3" id="head-ul">
+                <a href="erhuo.html">二货</a><a href="#">爱拼</a>
+            </div>
+            <div class="col-md-7" id="head-search">
+                <div class="input-group">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">选择分类 <span class="caret"></span></button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">二货</a></li>
+                            <li><a href="#">爱拼</a></li>
+                        </ul>
+                    </div><!-- /btn-group -->
+                    <input type="text" class="form-control" aria-label="...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" id="search"></span></button>
+                    </span>
+                </div><!-- /input-group -->
+                <p>热搜 ： XXX XXX XXX XXX XXX</p>
+            </div>
+        </div>
+    </header>
     <!--Main-->
     @RenderBody()
     <!--Footer-->
@@ -63,7 +90,7 @@
     <script src="@Url.Content("~/JS/main.min.js")"></script>
     @foreach (var i in ViewBag.Js ?? new string[] { })
     {
-        <script src="@i"></script>
+        <script src="@Url.Content(i)"></script>
     }
     <script>
     $(function () {
