@@ -7,7 +7,7 @@ using DataSource;
 
 namespace DAL
 {
-    class SellHandler:ISellHandler
+   public  class SellHandler:ISellHandler
     {
         public bool Create(Item item)
         {
@@ -144,6 +144,28 @@ namespace DAL
             {
                 Console.WriteLine(ex);
                 return false;
+            }
+        }
+       //用于search
+        public List<user_item_pic> GetSellList(int order,int cid,int page)
+        {
+            using(TradeWorkstationDataContext db =new TradeWorkstationDataContext()){
+                using(GHYUserDataContext gdc =new GHYUserDataContext()){
+                    var result = from a in db.Item
+                                 join b in db.Pic on a.IID equals b.IID
+                                 join c in gdc.user on a.UID equals c.uID
+                                 where (b.Order == 1) && (a.CID == cid) &&(a.Type ==1)
+                                 select new user_item_pic
+                                 {
+                                     uName = c.uName,
+                                     Title = a.Title,
+                                     Url = b.Url,
+                                     Price = a.Price.ToString(),
+                                     PostTime = a.PostTime,
+                                     Detail = a.Detail
+                                 };
+                    return result.Skip((page-1)*5).Take(5).ToList<user_item_pic>();
+                }
             }
         }
     }

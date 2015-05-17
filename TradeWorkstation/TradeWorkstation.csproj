@@ -154,8 +154,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\BuyForm.cs" />
     <Compile Include="Models\CarForm.cs" />
     <Compile Include="Models\LoginForm.cs" />
+    <Compile Include="Models\SellForm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -184,6 +186,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="UpLoadFiles\" />
     <Folder Include="Views\Buy\" />
     <Folder Include="Views\Center\" />
     <Folder Include="Views\Other\" />

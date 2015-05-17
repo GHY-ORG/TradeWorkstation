@@ -54,6 +54,7 @@
     <Compile Include="IStoreHandler.cs" />
     <Compile Include="IUserHandler.cs" />
     <Compile Include="OtherPoolHandler.cs" />
+    <Compile Include="PicHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SellHandler.cs" />
     <Compile Include="UserHandler.cs" />
