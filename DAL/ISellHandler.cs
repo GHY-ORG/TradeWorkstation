@@ -10,7 +10,7 @@ namespace DAL
     /// <summary>
     /// 二手数据处理层接口
     /// </summary>
-    interface ISellHandler
+    public interface ISellHandler
     {
         /// <summary>
         /// 用户发布一条二手信息
@@ -63,5 +63,6 @@ namespace DAL
         /// <param name="iid"></param>
         /// <returns></returns>
         int UpdateItem(Item item);
+        List<user_item_pic> GetSellList(int order,int cid, int page);
     }
 }

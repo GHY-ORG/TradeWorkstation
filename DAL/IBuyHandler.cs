@@ -10,7 +10,7 @@ namespace DAL
     /// <summary>
     /// 求购数据处理层接口
     /// </summary>
-    interface IBuyHandler
+   public interface IBuyHandler
     {
         /// <summary>
         /// 用户发布一条求购信息
@@ -53,5 +53,6 @@ namespace DAL
         /// <param name="iid"></param>
         /// <returns></returns>
         int ItemOverdue();
+        List<user_item_pic> GetBuyList(int order,int cid,int page);
     }
 }

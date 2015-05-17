@@ -18,6 +18,7 @@ namespace DAL
                     item.IID = Guid.NewGuid();
                     item.PostTime = DateTime.Now;
                     item.UpdateTime = DateTime.Now;
+                    item.EndTime = DateTime.Now.AddMonths(2);
                     item.Status = 202;
                     db.Item.InsertOnSubmit(item);
                     db.SubmitChanges();
@@ -117,6 +118,27 @@ namespace DAL
             {
                 Console.WriteLine(ex);
                 return 0;
+            }
+        }
+        public List<user_item_pic> GetBuyList(int order,int cid,int page)
+        { 
+            using(TradeWorkstationDataContext db =new TradeWorkstationDataContext()){
+                using(GHYUserDataContext gdc =new GHYUserDataContext()){
+                    var result = from a in db.Item
+                                 join b in db.Pic on a.IID equals b.IID
+                                 join c in gdc.user on a.UID equals c.uID
+                                 where (b.Order == 1) && (a.CID == cid) &&(a.Type==2)
+                                 select new user_item_pic
+                                 {
+                                     uName = c.uName,
+                                     Title = a.Title,
+                                     Url = b.Url,
+                                     Price = a.Price.ToString(),
+                                     PostTime = a.PostTime,
+                                     Detail = a.Detail
+                                 };
+                    return result.Skip((page-1)*5).Take(5).ToList<user_item_pic>();
+                }
             }
         }
     }

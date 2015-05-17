@@ -18,6 +18,14 @@ namespace TradeWorkstation
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            #region 用户查询求购二级搜索路由配置
+            routes.MapRoute(
+                name: "BuySearch",
+                url: "Buy/search/Order/{order}/Type/{type}/Page/{page}",
+                defaults: new { controller ="Buy",action="Index"},
+                 constraints: new { order = @"\d", page = @"[1-9][0-9]*" }
+                );
+            #endregion
         }
     }
 }
