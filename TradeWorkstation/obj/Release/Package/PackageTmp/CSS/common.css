@@ -64,3 +64,5 @@ footer{padding:10px 0 5px;background-color:#4f4f4f;color:#FFF;font-size:.75em;}
 #footer-right p{margin:0 0 5px;}
 #footer-right div{float:left;}
 #footer-right-left{padding-right:5%;}
+
+.error-text{color:#ff0000;}

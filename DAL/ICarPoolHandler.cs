@@ -17,37 +17,37 @@ namespace DAL
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        int Create(Item item);
+        bool Create(Item item);
 
         /// <summary>
         /// 显示所有拼车信息
         /// </summary>
         /// <returns></returns>
-        List<Item> Show();
+        IQueryable<Item> Show();
         /// <summary>
         /// 显示用户自己的拼车信息
         /// </summary>
         /// <param name="uid"></param>
         /// <returns></returns>
-        List<Item> ShowItemByUID(Guid uid);
+        IQueryable<Item> ShowItemByUID(Guid uid);
         /// <summary>
         /// 根据出发地查询拼车信息
         /// </summary>
         /// <param name="from"></param>
         /// <returns></returns>
-        List<Item> ShowItemByFrom(string carfrom);
+        IQueryable<Item> ShowItemByFrom(string carfrom);
         /// <summary>
         /// 根据目的地查询拼车信息
         /// </summary>
         /// <param name="carto"></param>
         /// <returns></returns>
-        List<Item> ShowItemByTo(string carto);
+        IQueryable<Item> ShowItemByTo(string carto);
         /// <summary>
         /// 根据出发时间查询拼车信息
         /// </summary>
         /// <param name="runtime"></param>
         /// <returns></returns>
-        List<Item> ShowItemByTime(DateTime runtime);
+        IQueryable<Item> ShowItemByTime(DateTime runtime);
         /// <summary>
         /// 查看具体的求购信息
         /// </summary>
@@ -59,12 +59,12 @@ namespace DAL
         /// </summary>
         /// <param name="iid"></param>
         /// <returns></returns>
-        int DelItem(Guid iid);
+        bool DelItem(Guid iid);
         /// <summary>
         /// 拼车信息过期，系统自动将状态改为 303
         /// </summary>
         /// <param name="iid"></param>
         /// <returns></returns>
-        int ItemOverdue();
+        bool ItemOverdue();
     }
 }

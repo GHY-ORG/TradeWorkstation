@@ -16,23 +16,23 @@ namespace DAL
         /// 用户添加举报
         /// </summary>
         /// <returns></returns>
-        int Create(BlackList blacklist);
+        bool Create(BlackList blacklist);
         /// <summary>
         /// 后台查看所有举报记录
         /// </summary>
         /// <returns></returns>
-        List<BlackList> Show();
+        IQueryable<BlackList> Show();
         /// <summary>
         /// 后台查看特定用户举报记录
         /// </summary>
         /// <param name="uid"></param>
         /// <returns></returns>
-        List<BlackList> ShowByUID(Guid uid);
+        IQueryable<BlackList> ShowByUID(Guid uid);
         /// <summary>
         /// 后台查看特定商品被举报记录
         /// </summary>
         /// <param name="iid"></param>
         /// <returns></returns>
-        List<BlackList> ShowByIID(Guid iid);
+        IQueryable<BlackList> ShowByIID(Guid iid);
     }
 }

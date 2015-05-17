@@ -9,7 +9,7 @@ namespace DAL
 {
     public class BlackListHandler : IBlackListHandler
     {
-        public int Create(BlackList blacklist)
+        public bool Create(BlackList blacklist)
         {
             try
             {
@@ -18,35 +18,46 @@ namespace DAL
                     db.BlackList.InsertOnSubmit(blacklist);
                     db.SubmitChanges();
                 }
-                return 1;
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
-                return 0;
+                return false;
             }
 
         }
 
-        public List<DataSource.BlackList> Show()
+        public IQueryable<BlackList> Show()
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.BlackList
                              select o;
-                return result.ToList<BlackList>();
+                return result;
             }
-
         }
 
-        public List<DataSource.BlackList> ShowByUID(Guid uid)
+        public IQueryable<BlackList> ShowByUID(Guid uid)
         {
-            throw new NotImplementedException();
+            using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
+            {
+                var result = from o in db.BlackList
+                             where o.UID == uid
+                             select o;
+                return result;
+            }
         }
 
-        public List<DataSource.BlackList> ShowByIID(Guid iid)
+        public IQueryable<BlackList> ShowByIID(Guid iid)
         {
-            throw new NotImplementedException();
+            using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
+            {
+                var result = from o in db.BlackList
+                             where o.IID == iid
+                             select o;
+                return result;
+            }
         }
     }
 }

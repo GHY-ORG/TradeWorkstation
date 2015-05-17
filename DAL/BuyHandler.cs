@@ -9,7 +9,7 @@ namespace DAL
 {
     public class BuyHandler:IBuyHandler
     {
-        public int Create(DataSource.Item item)
+        public bool Create(DataSource.Item item)
         {
             try
             {
@@ -22,45 +22,45 @@ namespace DAL
                     db.Item.InsertOnSubmit(item);
                     db.SubmitChanges();
                 }
-                return 1;
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
-                return 0;
+                return false;
             }
         }
 
-        public List<Item> Show()
+        public IQueryable<Item> Show()
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.Item
                              where o.Type == 2 && o.Status == 202
                              select o;
-                return result.ToList<Item>();
+                return result;
             }
         }
 
-        public List<Item> ShowItemByUID(Guid uid)
+        public IQueryable<Item> ShowItemByUID(Guid uid)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.Item
                              where o.UID == uid && o.Type == 2 && o.Status == 202
                              select o;
-                return result.ToList<Item>();
+                return result;
             }
         }
 
-        public List<Item> ShowItemByCID(int cid)
+        public IQueryable<Item> ShowItemByCID(int cid)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.Item
                              where o.CID == cid && o.Type == 2 && o.Status == 202
                              select o;
-                return result.ToList<Item>();
+                return result;
             }
         }
 
@@ -75,7 +75,7 @@ namespace DAL
             }
         }
 
-        public int ItemComplete(Guid iid)
+        public bool ItemComplete(Guid iid)
         {
             try
             {
@@ -87,16 +87,16 @@ namespace DAL
                     result.Single().Status = 203;
                     db.SubmitChanges();
                 }
-                return 1;
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
-                return 0;
+                return false;
             }
         }
 
-        public int ItemOverdue()
+        public bool ItemOverdue()
         {
             try
             {
@@ -111,12 +111,12 @@ namespace DAL
                     }
                     db.SubmitChanges();
                 }
-                return 1;
+                return false;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
-                return 0;
+                return true;
             }
         }
     }

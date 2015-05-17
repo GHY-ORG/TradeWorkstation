@@ -174,7 +174,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
-    <Content Include="Views\Car\Index.cshtml" />
+    <Content Include="Views\Car\Add.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -188,6 +188,16 @@
     <Folder Include="Views\Center\" />
     <Folder Include="Views\Other\" />
     <Folder Include="Views\Sell\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{4bd99b63-a6c1-402c-aab7-5a8e6b1d3f97}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataSource\DataSource.csproj">
+      <Project>{ef008d5c-fdb0-4404-89ea-c14b93f653cc}</Project>
+      <Name>DataSource</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

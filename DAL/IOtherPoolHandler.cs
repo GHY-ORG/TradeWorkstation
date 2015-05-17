@@ -17,18 +17,18 @@ namespace DAL
         /// </summary>
         /// <param name="item"></param>
         /// <returns></returns>
-        int Create(Item item);
+        bool Create(Item item);
         /// <summary>
         /// 显示所有拼其他信息
         /// </summary>
         /// <returns></returns>
-        List<Item> Show();
+        IQueryable<Item> Show();
         /// <summary>
         /// 显示用户自己的拼其他信息
         /// </summary>
         /// <param name="uid"></param>
         /// <returns></returns>
-        List<Item> ShowItemByUID(Guid uid);
+        IQueryable<Item> ShowItemByUID(Guid uid);
         /// <summary>
         /// 查看具体的拼其他信息
         /// </summary>
@@ -40,12 +40,12 @@ namespace DAL
         /// </summary>
         /// <param name="iid"></param>
         /// <returns></returns>
-        int ItemComplete(Guid iid);
+        bool ItemComplete(Guid iid);
         /// <summary>
         /// 拼其他信息过期，系统自动将状态改为401
         /// </summary>
         /// <param name="iid"></param>
         /// <returns></returns>
-        int ItemOverdue();
+        bool ItemOverdue();
     }
 }

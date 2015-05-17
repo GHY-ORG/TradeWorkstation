@@ -33,3 +33,11 @@ F:\visual studio 2013\Projects\TradeWorkstation\TradeWorkstation\bin\zh-Hans\Sys
 F:\visual studio 2013\Projects\TradeWorkstation\TradeWorkstation\obj\Release\TradeWorkstation.dll
 F:\visual studio 2013\Projects\TradeWorkstation\TradeWorkstation\obj\Release\TradeWorkstation.pdb
 F:\visual studio 2013\Projects\TradeWorkstation\TradeWorkstation\obj\Release\TradeWorkstation.csprojResolveAssemblyReference.cache
+F:\visual studio 2013\Projects\TradeWorkstation\TradeWorkstation\bin\BLL.dll
+F:\visual studio 2013\Projects\TradeWorkstation\TradeWorkstation\bin\DataSource.dll
+F:\visual studio 2013\Projects\TradeWorkstation\TradeWorkstation\bin\DAL.dll
+F:\visual studio 2013\Projects\TradeWorkstation\TradeWorkstation\bin\Common.dll
+F:\visual studio 2013\Projects\TradeWorkstation\TradeWorkstation\bin\BLL.pdb
+F:\visual studio 2013\Projects\TradeWorkstation\TradeWorkstation\bin\DataSource.pdb
+F:\visual studio 2013\Projects\TradeWorkstation\TradeWorkstation\bin\DAL.pdb
+F:\visual studio 2013\Projects\TradeWorkstation\TradeWorkstation\bin\Common.pdb

@@ -9,6 +9,18 @@
     <_PublishTargetUrl>F:\IISweb\zzqTest\TradeWorkstation</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
+    <File Include="bin/BLL.dll">
+      <publishTime>05/18/2015 01:21:05</publishTime>
+    </File>
+    <File Include="bin/Common.dll">
+      <publishTime>05/18/2015 01:18:44</publishTime>
+    </File>
+    <File Include="bin/DAL.dll">
+      <publishTime>05/18/2015 01:21:05</publishTime>
+    </File>
+    <File Include="bin/DataSource.dll">
+      <publishTime>05/18/2015 01:18:43</publishTime>
+    </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>05/13/2015 13:51:48</publishTime>
     </File>
@@ -40,7 +52,7 @@
       <publishTime>05/13/2015 13:51:48</publishTime>
     </File>
     <File Include="bin/TradeWorkstation.dll">
-      <publishTime>05/16/2015 22:02:25</publishTime>
+      <publishTime>05/18/2015 03:02:55</publishTime>
     </File>
     <File Include="bin/zh-Hans/System.Net.Http.Formatting.resources.dll">
       <publishTime>05/13/2015 13:51:50</publishTime>
@@ -85,7 +97,7 @@
       <publishTime>05/16/2015 20:51:15</publishTime>
     </File>
     <File Include="CSS/common.css">
-      <publishTime>05/16/2015 20:32:09</publishTime>
+      <publishTime>05/18/2015 02:51:54</publishTime>
     </File>
     <File Include="CSS/form.css">
       <publishTime>05/16/2015 20:51:35</publishTime>
@@ -94,13 +106,13 @@
       <publishTime>05/16/2015 20:32:57</publishTime>
     </File>
     <File Include="CSS/main.css">
-      <publishTime>05/16/2015 21:56:51</publishTime>
+      <publishTime>05/18/2015 02:51:54</publishTime>
     </File>
     <File Include="CSS/main.css.bundle">
       <publishTime>05/16/2015 21:56:51</publishTime>
     </File>
     <File Include="CSS/main.min.css">
-      <publishTime>05/16/2015 21:56:51</publishTime>
+      <publishTime>05/18/2015 02:51:55</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.eot">
       <publishTime>05/13/2015 21:22:46</publishTime>
@@ -225,8 +237,11 @@
     <File Include="packages.config">
       <publishTime>05/13/2015 13:51:52</publishTime>
     </File>
+    <File Include="Views/Car/Add.cshtml">
+      <publishTime>05/18/2015 03:20:42</publishTime>
+    </File>
     <File Include="Views/Car/Index.cshtml">
-      <publishTime>05/16/2015 22:22:47</publishTime>
+      <publishTime>05/18/2015 02:19:42</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
       <publishTime>05/16/2015 18:01:05</publishTime>

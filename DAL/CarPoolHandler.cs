@@ -9,7 +9,7 @@ namespace DAL
 {
     public class CarPoolHandler:ICarPoolHandler
     {
-        public int Create(DataSource.Item item)
+        public bool Create(Item item)
         {
             try
             {
@@ -22,71 +22,71 @@ namespace DAL
                     db.Item.InsertOnSubmit(item);
                     db.SubmitChanges();
                 }
-                return 1;
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
-                return 0;
+                return false;
             }
         }
 
-        public List<DataSource.Item> Show()
+        public IQueryable<Item> Show()
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.Item
                              where o.Type == 3 && o.Status == 302
                              select o;
-                return result.ToList<Item>();
+                return result;
             }
         }
 
-        public List<DataSource.Item> ShowItemByUID(Guid uid)
+        public IQueryable<Item> ShowItemByUID(Guid uid)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.Item
                              where o.UID == uid && o.Type == 3 && o.Status == 302
                              select o;
-                return result.ToList<Item>();
+                return result;
             }
         }
 
-        public List<DataSource.Item> ShowItemByFrom(string carfrom)
+        public IQueryable<Item> ShowItemByFrom(string carfrom)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.Item
                              where o.From == carfrom && o.Type == 3 && o.Status == 302
                              select o;
-                return result.ToList<Item>();
+                return result;
             }
         }
 
-        public List<DataSource.Item> ShowItemByTo(string carto)
+        public IQueryable<Item> ShowItemByTo(string carto)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.Item
                              where o.To == carto && o.Type == 3 && o.Status == 302
                              select o;
-                return result.ToList<Item>();
+                return result;
             }
         }
 
-        public List<DataSource.Item> ShowItemByTime(DateTime runtime)
+        public IQueryable<Item> ShowItemByTime(DateTime runtime)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.Item
                              where o.RunTime == runtime && o.Type == 3 && o.Status == 302
                              select o;
-                return result.ToList<Item>();
+                return result;
             }
         }
 
-        public DataSource.Item ShowItemInfo(Guid iid)
+        public Item ShowItemInfo(Guid iid)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
@@ -97,7 +97,7 @@ namespace DAL
             }
         }
 
-        public int DelItem(Guid iid)
+        public bool DelItem(Guid iid)
         {
             try
             {
@@ -109,16 +109,16 @@ namespace DAL
                     result.Single().Status = 301;
                     db.SubmitChanges();
                 }
-                return 1;
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
-                return 0;
+                return false;
             }
         }
 
-        public int ItemOverdue()
+        public bool ItemOverdue()
         {
             try
             {
@@ -133,12 +133,12 @@ namespace DAL
                     }
                     db.SubmitChanges();
                 }
-                return 1;
+                return true;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
-                return 0;
+                return false;
             }
         }
     }

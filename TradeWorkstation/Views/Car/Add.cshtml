@@ -1,0 +1,95 @@
+﻿@model TradeWorkstation.Models.CarForm
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "拼车表单-柳交所";
+    ViewBag.Css = new string[]{
+        "~/CSS/form.css"
+    };
+}
+
+<div class="container" id="location">
+    <span>您的位置 >>  </span><a href="#">发布</a>
+</div>
+
+<div class="container" id="title-top"><h5>发布拼出行信息</h5></div>
+<div class="container">
+    <div class="row">
+        @using (Html.BeginForm(new{@class="form-horizontal"}))
+        {
+            <div class="col-md-8 col-md-offset-2" id="fb-top">
+                <div class="form-group row">
+                    @Html.LabelFor(x => x.title, new { @class = "col-md-2 control-label label-list" })
+                    <div class="col-md-9">
+                        @Html.TextBoxFor(x => x.title, new { @class = "form-control", placeholder = "请输入标题" })
+                    </div>
+                    <div class="col-md-9 col-md-offset-2 error-text">
+                        @Html.ValidationMessageFor(x => x.title)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.LabelFor(x => x.runtime, new { @class = "col-md-2 control-label label-list" })
+                    <div class="input-group date form_datetime col-md-9" data-date="1979-09-16T05:25:07Z" data-date-format="yyyy-mm-dd HH:ii p" data-link-field="dtp_input1">
+                        @Html.TextBoxFor(x => x.runtime, new { @class = "form-control" })
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                    </div>
+                    <div class="col-md-9 col-md-offset-2 error-text">
+                        @Html.ValidationMessageFor(x => x.runtime)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.LabelFor(x => x.carFrom, new { @class = "col-md-2 control-label label-list" })
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(x => x.carFrom, new { @class = "form-control", placeholder = "请输入出发地" })
+                    </div>
+                    @Html.LabelFor(x => x.carTo, new { @class = "col-md-2  col-md-offset-1 control-label label-list" })
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(x => x.carTo, new { @class = "form-control", placeholder = "请输入目的地" })
+                    </div>
+                    <div class="col-md-3 col-md-offset-2 error-text">
+                        @Html.ValidationMessageFor(x => x.carFrom)
+                    </div>
+                    <div class="col-md-3  col-md-offset-3 error-text">
+                        @Html.ValidationMessageFor(x => x.carTo)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.LabelFor(x => x.detail, new { @class = "col-md-2 control-label label-list" })
+                    <div class="col-md-9">
+                        @Html.TextAreaFor(x => x.detail, new { @class = "form-control", placeholder = "请输入详细信息", rows = "6" })
+                    </div>
+                    <div class="col-md-9 col-md-offset-2 error-text">
+                        @Html.ValidationMessageFor(x => x.detail)
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-md-offset-4" id="form-bottom">
+                <div class="col=md-12" id="title-bottom">联系方式（至少填一项）</div>
+                <div class="form-group row">
+                    @Html.LabelFor(x => x.qq, new { @class = "col-md-2 control-label label-list" })
+                    <div class="col-md-8 col-md-offset-1">
+                        @Html.TextBoxFor(x => x.qq, new { @class = "form-control", placeholder = "请输入QQ号" })
+                    </div>
+                    <div class="col-md-8 col-md-offset-3 error-text">
+                        @Html.ValidationMessageFor(x => x.qq)
+                    </div>
+                </div>
+                <div class="form-group row">
+                    @Html.LabelFor(x => x.tel, new { @class = "col-md-2 control-label label-list" })
+                    <div class="col-md-8 col-md-offset-1">
+                        @Html.TextBoxFor(x => x.tel, new { @class = "form-control", placeholder = "请输入手机号" })
+                    </div>
+                    <div class="col-md-8 col-md-offset-3 error-text">
+                        @Html.ValidationMessageFor(x => x.tel)
+                    </div>
+                </div>
+                <div class="col-md-offset-3">
+                    <label id="checkbox">
+                        <input type="checkbox">我已同意柳交所协议
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-fb col-md-offset-4">OK我要发布</button>
+            </div>
+        }
+    </div>
+</div>

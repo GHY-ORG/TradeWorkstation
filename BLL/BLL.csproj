@@ -39,7 +39,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CarPoolHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{1d9afaa0-1ef2-494a-a12b-095d86cd4f6c}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{c8502580-f2c2-4d2b-8fbc-03fa88249548}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataSource\DataSource.csproj">
+      <Project>{ef008d5c-fdb0-4404-89ea-c14b93f653cc}</Project>
+      <Name>DataSource</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
