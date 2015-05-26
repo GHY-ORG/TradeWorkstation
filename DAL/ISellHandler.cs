@@ -18,32 +18,32 @@ namespace DAL
         /// <param name="item"></param>
         /// <returns></returns>
         bool Create(Item item);
-
         /// <summary>
         /// 显示所有二手信息
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        IQueryable<Item> Show();
+        List<user_item_pic> Show(int page);
+        /// <summary>
+        /// 显示二手详情
+        /// </summary>
+        /// <param name="iid"></param>
+        /// <returns></returns>
+        user_item_pic ShowDetail(Guid iid);
         /// <summary>
         /// 显示用户所有二手信息
         /// </summary>
         /// <param name="uid"></param>
+        /// <param name="page"></param>
         /// <returns></returns>
-        IQueryable<Item> ShowItemByUID(Guid uid);
+        List<user_item_pic> ShowItemByUID(Guid uid, int page);
         /// <summary>
         /// 显示对应分类的二手信息
         /// </summary>
         /// <param name="cid"></param>
+        /// <param name="page"></param>
         /// <returns></returns>
-        IQueryable<Item> ShowItemByCID(int cid);
-        /// <summary>
-        /// 显示二手商品具体信息
-        /// </summary>
-        /// <param name="iid"></param>
-        /// <returns></returns>
-        Item ShowItemInfo(Guid iid);
-
+        List<user_item_pic> ShowItemByCID(int cid, int page);
         /// <summary>
         /// 用户将二手信息的状态改为完成 103
         /// </summary>
@@ -55,14 +55,12 @@ namespace DAL
         /// </summary>
         /// <param name="iid"></param>
         /// <returns></returns>
-        bool ItemOverdue();
-
+        int ItemOverdue();
         /// <summary>
         /// 用户更新二手商品信息(Title Price Detail Tel QQ Way UpdateTime)
         /// </summary>
         /// <param name="iid"></param>
         /// <returns></returns>
         int UpdateItem(Item item);
-        List<user_item_pic> GetSellList(int order,int cid, int page);
     }
 }

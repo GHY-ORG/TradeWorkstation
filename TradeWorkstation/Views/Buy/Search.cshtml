@@ -1,0 +1,154 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "二货求购-柳交所";
+    ViewBag.Css = new string[]{
+      "~/CSS/show.css"
+    };
+    ViewBag.Js = new string[] { "~/Js/ShowBuy.js" };
+}
+<div class="container" id="button-area">
+    <a href="~/Sell/Search/Page/1" class="btn btn-primary">二手商品区</a><a href="~/Buy/Search/Page/1" class="btn btn-success">二手求购区</a>
+    <a class="btn btn-warning float-r" href="~/Home/Publish"><span class="glyphicon glyphicon-plus"></span> 我 要 发 布</a>
+</div>
+
+<div class="container">
+    <div class="row">
+        <h5>| 二货分类</h5>
+        <div class="col-md-3 col-xs-6 sort">
+            <ul class="col-xs-6">
+                <li id="class1"><a href="#">校园代步</a></li>
+                <li class="hidden-xs">
+                    <a href="#">自行车</a>
+                    <a href="#">其他</a>
+                </li>
+            </ul>
+            <ul class="col-xs-6">
+                <li id="class2"><a href="#">图书</a></li>
+                <li class="hidden-xs">
+                    <a href="#">教科书</a>
+                    <a href="#">考研用书</a>
+                </li>
+                <li class="hidden-xs">
+                    <a href="#">考级用书</a>
+                    <a href="#">课外书</a>
+                </li>
+                <li class="hidden-xs"><a href="#">其他</a></li>
+            </ul>
+        </div>
+        <div class="col-md-3 col-xs-6 sort">
+            <ul class="col-xs-6">
+                <li id="class3"><a href="#">电子产品</a></li>
+                <li class="hidden-xs">
+                    <a href="#">手机</a>
+                    <a href="#">电脑</a>
+                    <a href="#">平板</a>
+                </li>
+                <li class="hidden-xs">
+                    <a href="#">游戏机</a>
+                    <a href="#">相机</a>
+                </li>
+                <li class="hidden-xs">
+                    <a href="#">MP3\MP4</a>
+                    <a href="#">其他</a>
+                </li>
+            </ul>
+            <ul class="col-xs-6">
+                <li id="class4"><a href="#">数码配件</a></li>
+                <li class="hidden-xs">
+                    <a href="#">U盘</a>
+                    <a href="#">移动硬盘</a>
+                </li>
+                <li class="hidden-xs">
+                    <a href="#">鼠标</a>
+                    <a href="#">键盘</a>
+                    <a href="#">耳机</a>
+                </li>
+                <li class="hidden-xs"><a href="#">其他</a></li>
+            </ul>
+        </div>
+        <div class="col-md-3 col-xs-6 sort">
+            <ul class="col-xs-6">
+                <li id="class5"><a href="#">生活用品</a></li>
+                <li class="hidden-xs">
+                    <a href="#">小电器</a>
+                    <a href="#">小家具</a>
+                </li>
+                <li class="hidden-xs">
+                    <a href="#">运动</a>
+                    <a href="#">化妆品</a>
+                </li>
+                <li class="hidden-xs"><a href="#">其他</a></li>
+            </ul>
+            <ul class="col-xs-6">
+                <li id="class6"><a href="#">服装</a></li>
+                <li class="hidden-xs">
+                    <a href="#">男生的</a>
+                    <a href="#">女生的</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-3 col-xs-6 sort">
+            <ul class="col-xs-6">
+                <li id="class7"><a href="#">虚拟物品</a></li>
+            </ul>
+            <ul class="col-xs-6">
+                <li id="class8"><a href="#">票务</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="show-area">
+    <div class="row">
+        <div class="container" id="location">
+            <span class="linkitem">您的位置 >></span><a class="linkitem all-sort-linkitem2" href="~/Buy/Search/Page/1">二手求购区</a>
+        </div>
+        <div class="col-md-12">
+            @foreach (var m in ViewData.Model)
+            {
+                <div class="col-md-12 listall">
+                    <div class="col-md-2 list-left text-center hidden-sm hidden-xs">
+                        <img src="~/image/head-userhead-qiugou.png" />
+                        <p>@m.NickName</p>
+                    </div>
+                    <div class="col-md-10 list-right clearfix">
+                        <div class="col-sm-10 list-right-left">
+                            <h4>@m.Title</h4>
+                            <p>@m.Detail</p>
+                            <p class="datatime">@m.PostTime 发布 | <button type="button" class="btn btn-success btn-xs">收藏</button> <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target=".bs-example-modal-sm">举报</button></p>
+                        </div>
+                        <div class="col-sm-2 hidden-xs padding-0-10 text-center">
+                            <p>联系发布人</p>
+                            <p>QQ：@m.QQ</p>
+                            <p>Tel：@m.Tel</p>
+                        </div>
+                        <div class="visible-xs-block padding-0-20">
+                            <p>联系发布人： QQ：@m.QQ  Tel：@m.Tel</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <!-- Small modal -->
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">举报理由</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                        <div style="text-align:right">
+                            <button type="button" class="btn btn-primary text-right">确定</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

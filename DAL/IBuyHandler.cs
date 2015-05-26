@@ -10,7 +10,7 @@ namespace DAL
     /// <summary>
     /// 求购数据处理层接口
     /// </summary>
-   public interface IBuyHandler
+    public interface IBuyHandler
     {
         /// <summary>
         /// 用户发布一条求购信息
@@ -22,19 +22,26 @@ namespace DAL
         /// 显示所有求购信息
         /// </summary>
         /// <returns></returns>
-        IQueryable<Item> Show();
+        List<user_item_pic> Show(int page);
         /// <summary>
         /// 显示用户自己的求购信息
         /// </summary>
         /// <param name="uid"></param>
         /// <returns></returns>
-        IQueryable<Item> ShowItemByUID(Guid uid);
+        List<Item> ShowItemByUID(Guid uid);
         /// <summary>
         /// 显示对应分类的求购信息
         /// </summary>
         /// <param name="cid"></param>
         /// <returns></returns>
-        IQueryable<Item> ShowItemByCID(int cid);
+        List<Item> ShowItemByCID(int cid, int page);
+        /// <summary>
+        /// 通过input显示求购信息
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="page"></param>
+        /// <returns></returns>
+        List<Item> ShowItemByInput(string input, int page);
         /// <summary>
         /// 查看具体的求购信息
         /// </summary>
@@ -53,6 +60,9 @@ namespace DAL
         /// <param name="iid"></param>
         /// <returns></returns>
         int ItemOverdue();
-        List<user_item_pic> GetBuyList(int order,int cid,int page);
+
+        List<Category> GetFirstName(int cid);
+
+        string GetSecondName(int pid);
     }
 }

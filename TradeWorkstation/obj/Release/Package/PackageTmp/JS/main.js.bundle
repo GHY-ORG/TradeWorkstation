@@ -10,7 +10,6 @@
   </settings>
   <!--The order of the <file> elements determines the order of the files in the bundle.-->
   <files>
-    <file>/JS/jquery.js</file>
     <file>/JS/bootstrap.js</file>
     <file>/JS/jquery.request.js</file>
     <file>/JS/jquery.scrollLoading.js</file>

@@ -16,5 +16,10 @@ namespace TradeWorkstation.Controllers
         {
             return View();
         }
+
+        public ActionResult Publish()
+        {
+            return View();
+        }
     }
 }

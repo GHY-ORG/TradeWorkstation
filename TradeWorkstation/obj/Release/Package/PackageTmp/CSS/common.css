@@ -1,68 +1,42 @@
-html {
-    font-size: 100%;
-}
-
-body, li, ul {
-    margin: 0;
-    padding: 0;
-}
-
-li {
-    list-style-type: none;
-}
-
-body {
-    background-color: #ffffff;
-    font: 400 1em "Microsoft Yahei";
-}
-
-a, button, div, li {
-    -moz-transition: all .3s;
-    -webkit-transition: all .3s;
-    -o-transition: all .3s;
-    transition: all .3s;
-}
-
-a {
-    text-decoration: none;
-}
-
-    a:hover {
-        color: #000;
-        text-decoration: none;
-    }
-
-.center {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-@media only screen and (min-width:992px) {
-    .center {
-        width: 60%;
-    }
-}
-
-nav ul{width:100%;height:25px;padding-left:2%;background-color:#fab614;line-height:25px;font-size:.8125em;}
+html {font-size: 100%;}
+body, li, ul {margin: 0;padding: 0;}
+li {list-style-type: none;}
+body {background-color: #fff;font: 400 1em "Microsoft YaHei";}
+a:hover {color: #000;text-decoration: none;}
+a, button {-moz-transition: all 0.3s;-o-transition: all 0.3s;-webkit-transition: all 0.3s;transition: all 0.3s;}
+.center {width: 100%;margin-left: auto;margin-right: auto;}
+@media only screen and (min-width:992px) {.center {width: 60%;}}
+.clear{clear:both}
+.error-text {color: #d74040;}
+.my-text-overflow{-ms-text-overflow: ellipsis; -o-text-overflow: ellipsis; text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
+/*Nav*/
+nav ul{width:100%;height:25px;padding-left:2%;background-color:#fab614;line-height:25px;font-size:.875em;}
+nav{margin-bottom:20px;}
 nav a{color:#FFF;}
 nav a:hover{color:#000;}
 nav li{display:inline;padding-right:1.5%;}
-
+/*Header*/
 header{margin:20px auto;}
 #head-ul{padding:15px 0 0 20px;}
-#head-ul a{padding:0 15px;color:#fab614;border:1px solid #ffffff;border-radius:3px;}
+#head-ul a{padding:0 15px;color:#fab614;border:1px solid #ffffff;border-radius:3px;font-size: 1.25em;}
 #head-ul a:hover{border:1px solid #fab614;}
+#head-user{text-align:right}
 #search{color:#fab614;font-size:1.125em;font-weight: 100;}
-#head-search{padding:5px 0 0 200px;}
 #head-search p{color:#fab614;font-size:.75em;margin:5px 0 0;}
-
-footer{padding:10px 0 5px;background-color:#4f4f4f;color:#FFF;font-size:.75em;}
-#ghy-logo {width:320px;height:80px;margin:20px 0;background-color: #fab614;background-image: url(../image/ghy-logo.png);}
-#footer-left{padding-right:50px;}
-#footer-right{padding:40px 0 0 10px;}
-#footer-right p{margin:0 0 5px;}
-#footer-right div{float:left;}
-#footer-right-left{padding-right:5%;}
-
-.error-text{color:#ff0000;}
+#head-right{font-size: .875em;color:#b3b3b3;margin-top:5px;}
+#head-right>a{padding:0 5px;}
+#headsmall{width:35px;height:35px;overflow:hidden;float: right;margin:-33px 5px auto auto;}
+#username{padding-top:15px}
+#username a{margin-right: 10px;}
+#username a:first-child{margin-left:5px;}
+#head-search-left{width:85%;}
+/*Footer*/
+footer {color: #fff;background-color: #4f4f4f;padding: 25px 0 10px;margin-top: 20px;font-size:.875em;}
+#footer-logo{width:220px;height:38px;margin-bottom:20px;background-image:url(../image/footer_image.png);}
+footer #footer-right #footer-right-left {padding-right: 5%;}
+footer #footer-right{margin-top:25px;}
+footer #footer-right>div {float: left;}
+/*bootstrapµÄ°´Å¥=¡£=*/
+.btn-success{border-color:#79c653}
+.btn-success:hover{background-color:#79c653;color:#fff}
+.btn-primary:hover{background-color:#fff;color:#79c653;border-color:#79c653}

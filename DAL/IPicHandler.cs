@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using DataSource;
 namespace DAL
 {
-   public  interface IPicHandler
+    public interface IPicHandler
     {
-        int Create(Pic pic);
+        bool Create(Pic pic);
 
-        List<Pic> show();
-        //显示图片，通过userID
-        List<Pic> showByUID(Guid uid);
+        List<Pic> ShowByIID(Guid iid);
+
+        string GetPicUrl(Guid pid);
     }
 }

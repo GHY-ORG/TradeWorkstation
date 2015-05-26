@@ -16,8 +16,14 @@ namespace DAL
                 using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
                 {
                     item.IID = Guid.NewGuid();
+                    item.Type = 3;
                     item.PostTime = DateTime.Now;
                     item.UpdateTime = DateTime.Now;
+                    DateTime? dateOrNull = item.RunTime;
+                    if (dateOrNull != null)
+                    {
+                        item.EndTime  = dateOrNull.Value;
+                    }
                     item.Status = 302;
                     db.Item.InsertOnSubmit(item);
                     db.SubmitChanges();
@@ -31,58 +37,66 @@ namespace DAL
             }
         }
 
-        public IQueryable<Item> Show()
+        public List<user_item_pic> Show(int page)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
-                var result = from o in db.Item
-                             where o.Type == 3 && o.Status == 302
-                             select o;
-                return result;
+                GHYUsersDataContext db2 = new GHYUsersDataContext();
+                List<User> userList = db2.User.ToList<User>();
+                List<Item> itemList = db.Item.ToList<Item>();
+                var result = from item in itemList
+                             join user in userList on item.UID equals user.UserID
+                             where (item.Type == 3) && (item.Status == 302)
+                             orderby item.PostTime descending
+                             select new user_item_pic
+                             {
+                                 NickName = user.ＮickName,
+                                 Title = item.Title,
+                                 Detail = item.Detail,
+                                 RunTime = (DateTime)item.RunTime,
+                                 From = item.From,
+                                 To = item.To,
+                                 PostTime = item.PostTime,
+                                 QQ = item.QQ,
+                                 Tel = item.Tel
+                             };
+                return result.Skip(7 * (page - 1)).Take(7).ToList<user_item_pic>();
             }
         }
 
-        public IQueryable<Item> ShowItemByUID(Guid uid)
+        public List<Item> ShowItemByUID(Guid uid)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.Item
                              where o.UID == uid && o.Type == 3 && o.Status == 302
+                             orderby o.PostTime descending
                              select o;
-                return result;
+                return result.ToList<Item>();
             }
         }
 
-        public IQueryable<Item> ShowItemByFrom(string carfrom)
+        public List<Item> ShowItemByInfo(DateTime runtime, string carFrom, string carTo)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.Item
-                             where o.From == carfrom && o.Type == 3 && o.Status == 302
+                             where o.RunTime == runtime && o.From.IndexOf(carFrom) != -1 && o.To.IndexOf(carTo) != -1 && o.Type == 3 && o.Status == 302
+                             orderby o.PostTime descending
                              select o;
-                return result;
+                return result.ToList<Item>();
             }
         }
 
-        public IQueryable<Item> ShowItemByTo(string carto)
+        public List<Item> ShowItemByTag(string tag,int page)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.Item
-                             where o.To == carto && o.Type == 3 && o.Status == 302
+                             where (o.From.IndexOf(tag) != -1 || o.To.IndexOf(tag) != -1) && o.Type == 3 && o.Status == 302
+                             orderby o.PostTime descending
                              select o;
-                return result;
-            }
-        }
-
-        public IQueryable<Item> ShowItemByTime(DateTime runtime)
-        {
-            using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
-            {
-                var result = from o in db.Item
-                             where o.RunTime == runtime && o.Type == 3 && o.Status == 302
-                             select o;
-                return result;
+                return result.Skip(7 * (page - 1)).Take(7).ToList<Item>();
             }
         }
 

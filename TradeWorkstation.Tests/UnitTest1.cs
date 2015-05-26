@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DataSource;
 using DAL;
+using BLL;
 
 namespace TradeWorkstation.Tests
 {
@@ -11,20 +12,9 @@ namespace TradeWorkstation.Tests
         [TestMethod]
         public void TestMethod1()
         {
-            BuyHandler buy = new BuyHandler();
+            user_item_pic good = SellService.ShowDetail(new Guid("a5c5ca86-122b-4bc4-8256-74345624c75f"));
 
-            var item2 = new Item {
-                IID=Guid.NewGuid(),
-                Title="Test",
-                CID=6,
-                UID = Guid.NewGuid(),
-                Type=1,
-                Detail="Test.....",
-                Bargain=0,
-                Priority=0,
-                EndTime=DateTime.Now
-            };
-            Console.WriteLine(buy.Create(item2));
+            Console.WriteLine(SellService.ShowItemByUID(good.UID, 1).Count);
         }
     }
 }

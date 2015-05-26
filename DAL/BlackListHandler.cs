@@ -25,38 +25,37 @@ namespace DAL
                 Console.WriteLine(ex);
                 return false;
             }
-
         }
 
-        public IQueryable<BlackList> Show()
+        public List<BlackList> Show()
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.BlackList
                              select o;
-                return result;
+                return result.ToList<BlackList>();
             }
         }
 
-        public IQueryable<BlackList> ShowByUID(Guid uid)
+        public List<BlackList> ShowByUID(Guid uid)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.BlackList
                              where o.UID == uid
                              select o;
-                return result;
+                return result.ToList<BlackList>();
             }
         }
 
-        public IQueryable<BlackList> ShowByIID(Guid iid)
+        public List<BlackList> ShowByIID(Guid iid)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.BlackList
                              where o.IID == iid
                              select o;
-                return result;
+                return result.ToList<BlackList>();
             }
         }
     }

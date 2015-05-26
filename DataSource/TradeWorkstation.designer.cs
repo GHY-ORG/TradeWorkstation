@@ -39,15 +39,15 @@ namespace DataSource
     partial void InsertPic(Pic instance);
     partial void UpdatePic(Pic instance);
     partial void DeletePic(Pic instance);
-    partial void InsertItem(Item instance);
-    partial void UpdateItem(Item instance);
-    partial void DeleteItem(Item instance);
     partial void InsertStore(Store instance);
     partial void UpdateStore(Store instance);
     partial void DeleteStore(Store instance);
     partial void InsertSysLog(SysLog instance);
     partial void UpdateSysLog(SysLog instance);
     partial void DeleteSysLog(SysLog instance);
+    partial void InsertItem(Item instance);
+    partial void UpdateItem(Item instance);
+    partial void DeleteItem(Item instance);
     #endregion
 		
 		public TradeWorkstationDataContext() : 
@@ -104,14 +104,6 @@ namespace DataSource
 			}
 		}
 		
-		public System.Data.Linq.Table<Item> Item
-		{
-			get
-			{
-				return this.GetTable<Item>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Store> Store
 		{
 			get
@@ -125,6 +117,14 @@ namespace DataSource
 			get
 			{
 				return this.GetTable<SysLog>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Item> Item
+		{
+			get
+			{
+				return this.GetTable<Item>();
 			}
 		}
 	}
@@ -348,8 +348,6 @@ namespace DataSource
 		
 		private EntitySet<Category> _Category2;
 		
-		private EntitySet<Item> _Item;
-		
 		private EntityRef<Category> _Category1;
 		
     #region 可扩展性方法定义
@@ -373,7 +371,6 @@ namespace DataSource
 		public Category()
 		{
 			this._Category2 = new EntitySet<Category>(new Action<Category>(this.attach_Category2), new Action<Category>(this.detach_Category2));
-			this._Item = new EntitySet<Item>(new Action<Item>(this.attach_Item), new Action<Item>(this.detach_Item));
 			this._Category1 = default(EntityRef<Category>);
 			OnCreated();
 		}
@@ -515,19 +512,6 @@ namespace DataSource
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Item", Storage="_Item", ThisKey="CID", OtherKey="CID")]
-		public EntitySet<Item> Item
-		{
-			get
-			{
-				return this._Item;
-			}
-			set
-			{
-				this._Item.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Category", Storage="_Category1", ThisKey="PID", OtherKey="CID", IsForeignKey=true)]
 		public Category Category1
 		{
@@ -592,18 +576,6 @@ namespace DataSource
 		{
 			this.SendPropertyChanging();
 			entity.Category1 = null;
-		}
-		
-		private void attach_Item(Item entity)
-		{
-			this.SendPropertyChanging();
-			entity.Category = this;
-		}
-		
-		private void detach_Item(Item entity)
-		{
-			this.SendPropertyChanging();
-			entity.Category = null;
 		}
 	}
 	
@@ -803,625 +775,6 @@ namespace DataSource
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Item")]
-	public partial class Item : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Guid _IID;
-		
-		private string _Title;
-		
-		private int _CID;
-		
-		private System.Guid _UID;
-		
-		private int _Type;
-		
-		private System.Nullable<decimal> _Price;
-		
-		private string _Detail;
-		
-		private int _Bargain;
-		
-		private int _Priority;
-		
-		private string _Tel;
-		
-		private string _QQ;
-		
-		private string _Way;
-		
-		private string _From;
-		
-		private string _To;
-		
-		private System.Nullable<System.DateTime> _RunTime;
-		
-		private System.DateTime _PostTime;
-		
-		private System.DateTime _UpdateTime;
-		
-		private System.DateTime _EndTime;
-		
-		private int _Status;
-		
-		private EntitySet<BlackList> _BlackList;
-		
-		private EntitySet<Pic> _Pic;
-		
-		private EntitySet<Store> _Store;
-		
-		private EntityRef<Category> _Category;
-		
-    #region 可扩展性方法定义
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIIDChanging(System.Guid value);
-    partial void OnIIDChanged();
-    partial void OnTitleChanging(string value);
-    partial void OnTitleChanged();
-    partial void OnCIDChanging(int value);
-    partial void OnCIDChanged();
-    partial void OnUIDChanging(System.Guid value);
-    partial void OnUIDChanged();
-    partial void OnTypeChanging(int value);
-    partial void OnTypeChanged();
-    partial void OnPriceChanging(System.Nullable<decimal> value);
-    partial void OnPriceChanged();
-    partial void OnDetailChanging(string value);
-    partial void OnDetailChanged();
-    partial void OnBargainChanging(int value);
-    partial void OnBargainChanged();
-    partial void OnPriorityChanging(int value);
-    partial void OnPriorityChanged();
-    partial void OnTelChanging(string value);
-    partial void OnTelChanged();
-    partial void OnQQChanging(string value);
-    partial void OnQQChanged();
-    partial void OnWayChanging(string value);
-    partial void OnWayChanged();
-    partial void OnFromChanging(string value);
-    partial void OnFromChanged();
-    partial void OnToChanging(string value);
-    partial void OnToChanged();
-    partial void OnRunTimeChanging(System.Nullable<System.DateTime> value);
-    partial void OnRunTimeChanged();
-    partial void OnPostTimeChanging(System.DateTime value);
-    partial void OnPostTimeChanged();
-    partial void OnUpdateTimeChanging(System.DateTime value);
-    partial void OnUpdateTimeChanged();
-    partial void OnEndTimeChanging(System.DateTime value);
-    partial void OnEndTimeChanged();
-    partial void OnStatusChanging(int value);
-    partial void OnStatusChanged();
-    #endregion
-		
-		public Item()
-		{
-			this._BlackList = new EntitySet<BlackList>(new Action<BlackList>(this.attach_BlackList), new Action<BlackList>(this.detach_BlackList));
-			this._Pic = new EntitySet<Pic>(new Action<Pic>(this.attach_Pic), new Action<Pic>(this.detach_Pic));
-			this._Store = new EntitySet<Store>(new Action<Store>(this.attach_Store), new Action<Store>(this.detach_Store));
-			this._Category = default(EntityRef<Category>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
-		public System.Guid IID
-		{
-			get
-			{
-				return this._IID;
-			}
-			set
-			{
-				if ((this._IID != value))
-				{
-					this.OnIIDChanging(value);
-					this.SendPropertyChanging();
-					this._IID = value;
-					this.SendPropertyChanged("IID");
-					this.OnIIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string Title
-		{
-			get
-			{
-				return this._Title;
-			}
-			set
-			{
-				if ((this._Title != value))
-				{
-					this.OnTitleChanging(value);
-					this.SendPropertyChanging();
-					this._Title = value;
-					this.SendPropertyChanged("Title");
-					this.OnTitleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CID", DbType="Int NOT NULL")]
-		public int CID
-		{
-			get
-			{
-				return this._CID;
-			}
-			set
-			{
-				if ((this._CID != value))
-				{
-					if (this._Category.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCIDChanging(value);
-					this.SendPropertyChanging();
-					this._CID = value;
-					this.SendPropertyChanged("CID");
-					this.OnCIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UID", DbType="UniqueIdentifier NOT NULL")]
-		public System.Guid UID
-		{
-			get
-			{
-				return this._UID;
-			}
-			set
-			{
-				if ((this._UID != value))
-				{
-					this.OnUIDChanging(value);
-					this.SendPropertyChanging();
-					this._UID = value;
-					this.SendPropertyChanged("UID");
-					this.OnUIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="Int NOT NULL")]
-		public int Type
-		{
-			get
-			{
-				return this._Type;
-			}
-			set
-			{
-				if ((this._Type != value))
-				{
-					this.OnTypeChanging(value);
-					this.SendPropertyChanging();
-					this._Type = value;
-					this.SendPropertyChanged("Type");
-					this.OnTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Decimal(10,4)")]
-		public System.Nullable<decimal> Price
-		{
-			get
-			{
-				return this._Price;
-			}
-			set
-			{
-				if ((this._Price != value))
-				{
-					this.OnPriceChanging(value);
-					this.SendPropertyChanging();
-					this._Price = value;
-					this.SendPropertyChanged("Price");
-					this.OnPriceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Detail", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
-		public string Detail
-		{
-			get
-			{
-				return this._Detail;
-			}
-			set
-			{
-				if ((this._Detail != value))
-				{
-					this.OnDetailChanging(value);
-					this.SendPropertyChanging();
-					this._Detail = value;
-					this.SendPropertyChanged("Detail");
-					this.OnDetailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bargain", DbType="Int NOT NULL")]
-		public int Bargain
-		{
-			get
-			{
-				return this._Bargain;
-			}
-			set
-			{
-				if ((this._Bargain != value))
-				{
-					this.OnBargainChanging(value);
-					this.SendPropertyChanging();
-					this._Bargain = value;
-					this.SendPropertyChanged("Bargain");
-					this.OnBargainChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Priority", DbType="Int NOT NULL")]
-		public int Priority
-		{
-			get
-			{
-				return this._Priority;
-			}
-			set
-			{
-				if ((this._Priority != value))
-				{
-					this.OnPriorityChanging(value);
-					this.SendPropertyChanging();
-					this._Priority = value;
-					this.SendPropertyChanged("Priority");
-					this.OnPriorityChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tel", DbType="NVarChar(50)")]
-		public string Tel
-		{
-			get
-			{
-				return this._Tel;
-			}
-			set
-			{
-				if ((this._Tel != value))
-				{
-					this.OnTelChanging(value);
-					this.SendPropertyChanging();
-					this._Tel = value;
-					this.SendPropertyChanged("Tel");
-					this.OnTelChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QQ", DbType="NVarChar(50)")]
-		public string QQ
-		{
-			get
-			{
-				return this._QQ;
-			}
-			set
-			{
-				if ((this._QQ != value))
-				{
-					this.OnQQChanging(value);
-					this.SendPropertyChanging();
-					this._QQ = value;
-					this.SendPropertyChanged("QQ");
-					this.OnQQChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Way", DbType="NVarChar(50)")]
-		public string Way
-		{
-			get
-			{
-				return this._Way;
-			}
-			set
-			{
-				if ((this._Way != value))
-				{
-					this.OnWayChanging(value);
-					this.SendPropertyChanging();
-					this._Way = value;
-					this.SendPropertyChanged("Way");
-					this.OnWayChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[From]", Storage="_From", DbType="NVarChar(100)")]
-		public string From
-		{
-			get
-			{
-				return this._From;
-			}
-			set
-			{
-				if ((this._From != value))
-				{
-					this.OnFromChanging(value);
-					this.SendPropertyChanging();
-					this._From = value;
-					this.SendPropertyChanged("From");
-					this.OnFromChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[To]", Storage="_To", DbType="NVarChar(100)")]
-		public string To
-		{
-			get
-			{
-				return this._To;
-			}
-			set
-			{
-				if ((this._To != value))
-				{
-					this.OnToChanging(value);
-					this.SendPropertyChanging();
-					this._To = value;
-					this.SendPropertyChanged("To");
-					this.OnToChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RunTime", DbType="DateTime")]
-		public System.Nullable<System.DateTime> RunTime
-		{
-			get
-			{
-				return this._RunTime;
-			}
-			set
-			{
-				if ((this._RunTime != value))
-				{
-					this.OnRunTimeChanging(value);
-					this.SendPropertyChanging();
-					this._RunTime = value;
-					this.SendPropertyChanged("RunTime");
-					this.OnRunTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PostTime", DbType="DateTime NOT NULL")]
-		public System.DateTime PostTime
-		{
-			get
-			{
-				return this._PostTime;
-			}
-			set
-			{
-				if ((this._PostTime != value))
-				{
-					this.OnPostTimeChanging(value);
-					this.SendPropertyChanging();
-					this._PostTime = value;
-					this.SendPropertyChanged("PostTime");
-					this.OnPostTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateTime", DbType="DateTime NOT NULL")]
-		public System.DateTime UpdateTime
-		{
-			get
-			{
-				return this._UpdateTime;
-			}
-			set
-			{
-				if ((this._UpdateTime != value))
-				{
-					this.OnUpdateTimeChanging(value);
-					this.SendPropertyChanging();
-					this._UpdateTime = value;
-					this.SendPropertyChanged("UpdateTime");
-					this.OnUpdateTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndTime", DbType="DateTime NOT NULL")]
-		public System.DateTime EndTime
-		{
-			get
-			{
-				return this._EndTime;
-			}
-			set
-			{
-				if ((this._EndTime != value))
-				{
-					this.OnEndTimeChanging(value);
-					this.SendPropertyChanging();
-					this._EndTime = value;
-					this.SendPropertyChanged("EndTime");
-					this.OnEndTimeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int NOT NULL")]
-		public int Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this.OnStatusChanging(value);
-					this.SendPropertyChanging();
-					this._Status = value;
-					this.SendPropertyChanged("Status");
-					this.OnStatusChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_BlackList", Storage="_BlackList", ThisKey="IID", OtherKey="IID")]
-		public EntitySet<BlackList> BlackList
-		{
-			get
-			{
-				return this._BlackList;
-			}
-			set
-			{
-				this._BlackList.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_Pic", Storage="_Pic", ThisKey="IID", OtherKey="IID")]
-		public EntitySet<Pic> Pic
-		{
-			get
-			{
-				return this._Pic;
-			}
-			set
-			{
-				this._Pic.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_Store", Storage="_Store", ThisKey="IID", OtherKey="IID")]
-		public EntitySet<Store> Store
-		{
-			get
-			{
-				return this._Store;
-			}
-			set
-			{
-				this._Store.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Item", Storage="_Category", ThisKey="CID", OtherKey="CID", IsForeignKey=true)]
-		public Category Category
-		{
-			get
-			{
-				return this._Category.Entity;
-			}
-			set
-			{
-				Category previousValue = this._Category.Entity;
-				if (((previousValue != value) 
-							|| (this._Category.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Category.Entity = null;
-						previousValue.Item.Remove(this);
-					}
-					this._Category.Entity = value;
-					if ((value != null))
-					{
-						value.Item.Add(this);
-						this._CID = value.CID;
-					}
-					else
-					{
-						this._CID = default(int);
-					}
-					this.SendPropertyChanged("Category");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_BlackList(BlackList entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = this;
-		}
-		
-		private void detach_BlackList(BlackList entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = null;
-		}
-		
-		private void attach_Pic(Pic entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = this;
-		}
-		
-		private void detach_Pic(Pic entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = null;
-		}
-		
-		private void attach_Store(Store entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = this;
-		}
-		
-		private void detach_Store(Store entity)
-		{
-			this.SendPropertyChanging();
-			entity.Item = null;
 		}
 	}
 	
@@ -1779,6 +1132,584 @@ namespace DataSource
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Item")]
+	public partial class Item : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _IID;
+		
+		private string _Title;
+		
+		private System.Nullable<int> _CID;
+		
+		private System.Nullable<System.Guid> _UID;
+		
+		private int _Type;
+		
+		private System.Nullable<int> _Price;
+		
+		private string _Detail;
+		
+		private System.Nullable<int> _Bargain;
+		
+		private int _Priority;
+		
+		private string _Tel;
+		
+		private string _QQ;
+		
+		private string _Way;
+		
+		private string _From;
+		
+		private string _To;
+		
+		private System.Nullable<System.DateTime> _RunTime;
+		
+		private System.DateTime _PostTime;
+		
+		private System.DateTime _UpdateTime;
+		
+		private System.DateTime _EndTime;
+		
+		private int _Status;
+		
+		private EntitySet<BlackList> _BlackList;
+		
+		private EntitySet<Pic> _Pic;
+		
+		private EntitySet<Store> _Store;
+		
+    #region 可扩展性方法定义
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIIDChanging(System.Guid value);
+    partial void OnIIDChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    partial void OnCIDChanging(System.Nullable<int> value);
+    partial void OnCIDChanged();
+    partial void OnUIDChanging(System.Nullable<System.Guid> value);
+    partial void OnUIDChanged();
+    partial void OnTypeChanging(int value);
+    partial void OnTypeChanged();
+    partial void OnPriceChanging(System.Nullable<int> value);
+    partial void OnPriceChanged();
+    partial void OnDetailChanging(string value);
+    partial void OnDetailChanged();
+    partial void OnBargainChanging(System.Nullable<int> value);
+    partial void OnBargainChanged();
+    partial void OnPriorityChanging(int value);
+    partial void OnPriorityChanged();
+    partial void OnTelChanging(string value);
+    partial void OnTelChanged();
+    partial void OnQQChanging(string value);
+    partial void OnQQChanged();
+    partial void OnWayChanging(string value);
+    partial void OnWayChanged();
+    partial void OnFromChanging(string value);
+    partial void OnFromChanged();
+    partial void OnToChanging(string value);
+    partial void OnToChanged();
+    partial void OnRunTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnRunTimeChanged();
+    partial void OnPostTimeChanging(System.DateTime value);
+    partial void OnPostTimeChanged();
+    partial void OnUpdateTimeChanging(System.DateTime value);
+    partial void OnUpdateTimeChanged();
+    partial void OnEndTimeChanging(System.DateTime value);
+    partial void OnEndTimeChanged();
+    partial void OnStatusChanging(int value);
+    partial void OnStatusChanged();
+    #endregion
+		
+		public Item()
+		{
+			this._BlackList = new EntitySet<BlackList>(new Action<BlackList>(this.attach_BlackList), new Action<BlackList>(this.detach_BlackList));
+			this._Pic = new EntitySet<Pic>(new Action<Pic>(this.attach_Pic), new Action<Pic>(this.detach_Pic));
+			this._Store = new EntitySet<Store>(new Action<Store>(this.attach_Store), new Action<Store>(this.detach_Store));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IID", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid IID
+		{
+			get
+			{
+				return this._IID;
+			}
+			set
+			{
+				if ((this._IID != value))
+				{
+					this.OnIIDChanging(value);
+					this.SendPropertyChanging();
+					this._IID = value;
+					this.SendPropertyChanged("IID");
+					this.OnIIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this.OnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CID", DbType="Int")]
+		public System.Nullable<int> CID
+		{
+			get
+			{
+				return this._CID;
+			}
+			set
+			{
+				if ((this._CID != value))
+				{
+					this.OnCIDChanging(value);
+					this.SendPropertyChanging();
+					this._CID = value;
+					this.SendPropertyChanged("CID");
+					this.OnCIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UID", DbType="UniqueIdentifier")]
+		public System.Nullable<System.Guid> UID
+		{
+			get
+			{
+				return this._UID;
+			}
+			set
+			{
+				if ((this._UID != value))
+				{
+					this.OnUIDChanging(value);
+					this.SendPropertyChanging();
+					this._UID = value;
+					this.SendPropertyChanged("UID");
+					this.OnUIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="Int NOT NULL")]
+		public int Type
+		{
+			get
+			{
+				return this._Type;
+			}
+			set
+			{
+				if ((this._Type != value))
+				{
+					this.OnTypeChanging(value);
+					this.SendPropertyChanging();
+					this._Type = value;
+					this.SendPropertyChanged("Type");
+					this.OnTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Price", DbType="Int")]
+		public System.Nullable<int> Price
+		{
+			get
+			{
+				return this._Price;
+			}
+			set
+			{
+				if ((this._Price != value))
+				{
+					this.OnPriceChanging(value);
+					this.SendPropertyChanging();
+					this._Price = value;
+					this.SendPropertyChanged("Price");
+					this.OnPriceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Detail", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string Detail
+		{
+			get
+			{
+				return this._Detail;
+			}
+			set
+			{
+				if ((this._Detail != value))
+				{
+					this.OnDetailChanging(value);
+					this.SendPropertyChanging();
+					this._Detail = value;
+					this.SendPropertyChanged("Detail");
+					this.OnDetailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Bargain", DbType="Int")]
+		public System.Nullable<int> Bargain
+		{
+			get
+			{
+				return this._Bargain;
+			}
+			set
+			{
+				if ((this._Bargain != value))
+				{
+					this.OnBargainChanging(value);
+					this.SendPropertyChanging();
+					this._Bargain = value;
+					this.SendPropertyChanged("Bargain");
+					this.OnBargainChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Priority", DbType="Int NOT NULL")]
+		public int Priority
+		{
+			get
+			{
+				return this._Priority;
+			}
+			set
+			{
+				if ((this._Priority != value))
+				{
+					this.OnPriorityChanging(value);
+					this.SendPropertyChanging();
+					this._Priority = value;
+					this.SendPropertyChanged("Priority");
+					this.OnPriorityChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tel", DbType="NVarChar(50)")]
+		public string Tel
+		{
+			get
+			{
+				return this._Tel;
+			}
+			set
+			{
+				if ((this._Tel != value))
+				{
+					this.OnTelChanging(value);
+					this.SendPropertyChanging();
+					this._Tel = value;
+					this.SendPropertyChanged("Tel");
+					this.OnTelChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QQ", DbType="NVarChar(50)")]
+		public string QQ
+		{
+			get
+			{
+				return this._QQ;
+			}
+			set
+			{
+				if ((this._QQ != value))
+				{
+					this.OnQQChanging(value);
+					this.SendPropertyChanging();
+					this._QQ = value;
+					this.SendPropertyChanged("QQ");
+					this.OnQQChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Way", DbType="NVarChar(50)")]
+		public string Way
+		{
+			get
+			{
+				return this._Way;
+			}
+			set
+			{
+				if ((this._Way != value))
+				{
+					this.OnWayChanging(value);
+					this.SendPropertyChanging();
+					this._Way = value;
+					this.SendPropertyChanged("Way");
+					this.OnWayChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[From]", Storage="_From", DbType="NVarChar(100)")]
+		public string From
+		{
+			get
+			{
+				return this._From;
+			}
+			set
+			{
+				if ((this._From != value))
+				{
+					this.OnFromChanging(value);
+					this.SendPropertyChanging();
+					this._From = value;
+					this.SendPropertyChanged("From");
+					this.OnFromChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[To]", Storage="_To", DbType="NVarChar(100)")]
+		public string To
+		{
+			get
+			{
+				return this._To;
+			}
+			set
+			{
+				if ((this._To != value))
+				{
+					this.OnToChanging(value);
+					this.SendPropertyChanging();
+					this._To = value;
+					this.SendPropertyChanged("To");
+					this.OnToChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RunTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> RunTime
+		{
+			get
+			{
+				return this._RunTime;
+			}
+			set
+			{
+				if ((this._RunTime != value))
+				{
+					this.OnRunTimeChanging(value);
+					this.SendPropertyChanging();
+					this._RunTime = value;
+					this.SendPropertyChanged("RunTime");
+					this.OnRunTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PostTime", DbType="DateTime NOT NULL")]
+		public System.DateTime PostTime
+		{
+			get
+			{
+				return this._PostTime;
+			}
+			set
+			{
+				if ((this._PostTime != value))
+				{
+					this.OnPostTimeChanging(value);
+					this.SendPropertyChanging();
+					this._PostTime = value;
+					this.SendPropertyChanged("PostTime");
+					this.OnPostTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UpdateTime", DbType="DateTime NOT NULL")]
+		public System.DateTime UpdateTime
+		{
+			get
+			{
+				return this._UpdateTime;
+			}
+			set
+			{
+				if ((this._UpdateTime != value))
+				{
+					this.OnUpdateTimeChanging(value);
+					this.SendPropertyChanging();
+					this._UpdateTime = value;
+					this.SendPropertyChanged("UpdateTime");
+					this.OnUpdateTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndTime", DbType="DateTime NOT NULL")]
+		public System.DateTime EndTime
+		{
+			get
+			{
+				return this._EndTime;
+			}
+			set
+			{
+				if ((this._EndTime != value))
+				{
+					this.OnEndTimeChanging(value);
+					this.SendPropertyChanging();
+					this._EndTime = value;
+					this.SendPropertyChanged("EndTime");
+					this.OnEndTimeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int NOT NULL")]
+		public int Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_BlackList", Storage="_BlackList", ThisKey="IID", OtherKey="IID")]
+		public EntitySet<BlackList> BlackList
+		{
+			get
+			{
+				return this._BlackList;
+			}
+			set
+			{
+				this._BlackList.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_Pic", Storage="_Pic", ThisKey="IID", OtherKey="IID")]
+		public EntitySet<Pic> Pic
+		{
+			get
+			{
+				return this._Pic;
+			}
+			set
+			{
+				this._Pic.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Item_Store", Storage="_Store", ThisKey="IID", OtherKey="IID")]
+		public EntitySet<Store> Store
+		{
+			get
+			{
+				return this._Store;
+			}
+			set
+			{
+				this._Store.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_BlackList(BlackList entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = this;
+		}
+		
+		private void detach_BlackList(BlackList entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = null;
+		}
+		
+		private void attach_Pic(Pic entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = this;
+		}
+		
+		private void detach_Pic(Pic entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = null;
+		}
+		
+		private void attach_Store(Store entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = this;
+		}
+		
+		private void detach_Store(Store entity)
+		{
+			this.SendPropertyChanging();
+			entity.Item = null;
 		}
 	}
 }

@@ -7,7 +7,7 @@ using DataSource;
 
 namespace DAL
 {
-    public class BuyHandler:IBuyHandler
+    public class BuyHandler : IBuyHandler
     {
         public bool Create(DataSource.Item item)
         {
@@ -16,6 +16,7 @@ namespace DAL
                 using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
                 {
                     item.IID = Guid.NewGuid();
+                    item.Type = 2;
                     item.PostTime = DateTime.Now;
                     item.UpdateTime = DateTime.Now;
                     item.EndTime = DateTime.Now.AddMonths(2);
@@ -32,36 +33,63 @@ namespace DAL
             }
         }
 
-        public IQueryable<Item> Show()
+        public List<user_item_pic> Show(int page)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
-                var result = from o in db.Item
-                             where o.Type == 2 && o.Status == 202
-                             select o;
-                return result;
+                GHYUsersDataContext db2 = new GHYUsersDataContext();
+                List<User> userList = db2.User.ToList<User>();
+                List<Item> itemList = db.Item.ToList<Item>();
+                var result = from item in itemList
+                             join user in userList on item.UID equals user.UserID
+                             where (item.Type == 2) && (item.Status == 202)
+                             orderby item.PostTime descending
+                             select new user_item_pic
+                             {
+                                 NickName = user.ＮickName,
+                                 Title = item.Title,
+                                 Detail = item.Detail,
+                                 PostTime = item.PostTime,
+                                 QQ = item.QQ,
+                                 Tel = item.Tel
+                             };
+                return result.Skip(7 * (page - 1)).Take(7).ToList<user_item_pic>();
             }
         }
 
-        public IQueryable<Item> ShowItemByUID(Guid uid)
+        public List<Item> ShowItemByUID(Guid uid)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.Item
                              where o.UID == uid && o.Type == 2 && o.Status == 202
+                             orderby o.PostTime descending
                              select o;
-                return result;
+                return result.ToList<Item>();
             }
         }
 
-        public IQueryable<Item> ShowItemByCID(int cid)
+        public List<Item> ShowItemByCID(int cid, int page)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.Item
                              where o.CID == cid && o.Type == 2 && o.Status == 202
+                             orderby o.PostTime descending
                              select o;
-                return result;
+                return result.Skip(7 * (page - 1)).Take(7).ToList<Item>();
+            }
+        }
+
+        public List<Item> ShowItemByInput(string input, int page)
+        {
+            using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
+            {
+                var result = from o in db.Item
+                             where (o.Title.IndexOf(input) != -1 || o.Detail.IndexOf(input) != -1) && o.Type == 2 && o.Status == 202
+                             orderby o.PostTime descending
+                             select o;
+                return result.Skip(7 * (page - 1)).Take(7).ToList<Item>();
             }
         }
 
@@ -71,6 +99,7 @@ namespace DAL
             {
                 var result = from o in db.Item
                              where o.IID == iid && o.Status == 202
+                             orderby o.PostTime descending
                              select o;
                 return result.Single();
             }
@@ -97,7 +126,7 @@ namespace DAL
             }
         }
 
-        public bool ItemOverdue()
+        public int ItemOverdue()
         {
             try
             {
@@ -106,39 +135,40 @@ namespace DAL
                     var result = from o in db.Item
                                  where o.Type == 2 && DateTime.Compare(DateTime.Now, o.EndTime) > 0 && o.Status == 202
                                  select o;
-                    foreach(Item o in result)
+                    foreach (Item o in result)
                     {
                         o.Status = 201;
                     }
                     db.SubmitChanges();
                 }
-                return false;
+                return 1;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
-                return true;
+                return 0;
             }
         }
-        public List<user_item_pic> GetBuyList(int order,int cid,int page)
-        { 
-            using(TradeWorkstationDataContext db =new TradeWorkstationDataContext()){
-                using(GHYUserDataContext gdc =new GHYUserDataContext()){
-                    var result = from a in db.Item
-                                 join b in db.Pic on a.IID equals b.IID
-                                 join c in gdc.user on a.UID equals c.uID
-                                 where (b.Order == 1) && (a.CID == cid) &&(a.Type==2)
-                                 select new user_item_pic
-                                 {
-                                     uName = c.uName,
-                                     Title = a.Title,
-                                     Url = b.Url,
-                                     Price = a.Price.ToString(),
-                                     PostTime = a.PostTime,
-                                     Detail = a.Detail
-                                 };
-                    return result.Skip((page-1)*5).Take(5).ToList<user_item_pic>();
-                }
+
+        public List<Category> GetFirstName(int cid)
+        {
+            using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
+            {
+                var result = from o in db.Category
+                             where o.CID == cid
+                             select o;
+                return result.ToList<Category>();
+            }
+        }
+
+        public string GetSecondName(int pid)
+        {
+            using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
+            {
+                var result = from o in db.Category
+                             where o.CID == pid
+                             select o;
+                return result.Single().Name;
             }
         }
     }

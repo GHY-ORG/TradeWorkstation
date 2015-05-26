@@ -8,42 +8,35 @@ namespace TradeWorkstation.Models
 {
     public class BuyForm
     {
-
-        [Required]
+        [Required(ErrorMessage = "标题必填")]
+        [Display(Name = "标题")]
         [DataType(DataType.Text)]
         [MinLength(1)]
-        [MaxLength(50)]
+        [MaxLength(50, ErrorMessage = "标题50字以内")]
         public string title { get; set; }
-        [Required]
-        [DataType(DataType.Custom)]
-        public int cid { get; set; }
-        [Required]
-        public int type { get; set; }
-        [Required]
-        [DataType(DataType.Custom)]
-        [Range(typeof(decimal),"0.0000","999999.0000")]
-        public decimal price { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "详细信息必填")]
+        [Display(Name = "详细信息")]
         [DataType(DataType.Text)]
         [MinLength(1)]
         public string detail { get; set; }
-        [Required]
-        [DataType(DataType.Custom)]
-        public int bargain { get; set; }
 
-        [MaxLength(50)]
-        [DataType(DataType.PhoneNumber, ErrorMessage = "请填写正确格式手机号")]
-      
-        public string tel { get; set; }
-        [MaxLength(50)]
-        [DataType(DataType.Text)]
-      
+        [RegularExpression("[0-9]+")]
+        [Display(Name = "QQ")]
+        [MinLength(1)]
+        [MaxLength(50, ErrorMessage = "QQ号50字以内")]
         public string qq { get; set; }
-        [MaxLength(50)]
-        [DataType(DataType.Text)]
-     
-        public string way { get; set; }
 
+        [DataType(DataType.PhoneNumber, ErrorMessage = "请填写正确格式手机号")]
+        [Display(Name = "手机")]
+        [MinLength(1)]
+        [MaxLength(50, ErrorMessage = "手机号50字以内")]
+        public string tel { get; set; }
 
+        public string firstList { get; set; }
+        public string secondList { get; set; }
+
+        [Required(ErrorMessage = "请同意协议")]
+        public bool agreement { get; set; }
     }
 }

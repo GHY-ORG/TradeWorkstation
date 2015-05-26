@@ -23,31 +23,28 @@ namespace DAL
         /// 显示所有拼车信息
         /// </summary>
         /// <returns></returns>
-        IQueryable<Item> Show();
+        List<user_item_pic> Show(int page);
         /// <summary>
         /// 显示用户自己的拼车信息
         /// </summary>
         /// <param name="uid"></param>
         /// <returns></returns>
-        IQueryable<Item> ShowItemByUID(Guid uid);
+        List<Item> ShowItemByUID(Guid uid);
         /// <summary>
-        /// 根据出发地查询拼车信息
-        /// </summary>
-        /// <param name="from"></param>
-        /// <returns></returns>
-        IQueryable<Item> ShowItemByFrom(string carfrom);
-        /// <summary>
-        /// 根据目的地查询拼车信息
-        /// </summary>
-        /// <param name="carto"></param>
-        /// <returns></returns>
-        IQueryable<Item> ShowItemByTo(string carto);
-        /// <summary>
-        /// 根据出发时间查询拼车信息
+        /// 拼车检索
         /// </summary>
         /// <param name="runtime"></param>
+        /// <param name="carFrom"></param>
+        /// <param name="carTo"></param>
         /// <returns></returns>
-        IQueryable<Item> ShowItemByTime(DateTime runtime);
+        List<Item> ShowItemByInfo(DateTime runtime,string carFrom, string carTo);
+        /// <summary>
+        /// 拼车标签检索
+        /// </summary>
+        /// <param name="tag"></param>
+        /// <param name="page"></param>
+        /// <returns></returns>
+        List<Item> ShowItemByTag(string tag,int page);
         /// <summary>
         /// 查看具体的求购信息
         /// </summary>

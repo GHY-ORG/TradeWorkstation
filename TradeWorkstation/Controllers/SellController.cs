@@ -3,68 +3,141 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using DataSource;
-using BLL;
-using System.Text;
 using TradeWorkstation.Models;
+using DataSource;
+using System.Text;
+using BLL;
 namespace TradeWorkstation.Controllers
 {
+    [RoutePrefix("Sell")]
     public class SellController : Controller
     {
-        // GET: Sell
-        public ActionResult Index()
+        [HttpGet]
+        public ActionResult Add()
         {
-            return View();
+            SellForm sf = new SellForm();
+            return View(sf);
         }
-        public ActionResult Handler(SellForm sf,HttpPostedFileBase file)
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Add(Models.SellForm sf, IEnumerable<HttpPostedFileBase> files)
         {
-           
-            if (!ModelState.IsValid || file == null) 
+            if (!sf.agreement)
             {
-                Response.StatusCode = 400;
-                return new EmptyResult();
+                return Content("<script>alert('请同意协议');history.go(-1);</script>");
+            }
+            if (!ModelState.IsValid)
+            {
+                return Content("<script>alert('表单信息验证失败，请重新填写');</script>");
             }
             else
             {
-                user u = new user();//从session处获得
                 Item item = new Item();
+                item.IID = Guid.NewGuid();
                 item.Title = sf.title;
-                item.CID = sf.cid;
-                item.UID = new user().uID;//此处通过session获取，赋值给user，再获取
-                item.Type = 1;
+                item.CID = sf.secondList == "0" ? Int32.Parse(sf.firstList) : Int32.Parse(sf.secondList);
+                item.UID = new Guid("2d7588e8-f353-47ed-902b-7d8441f0de30");
                 item.Price = sf.price;
                 item.Detail = sf.detail;
-                item.Bargain = sf.bargain;
-                item.Tel = sf.tel;
-                item.QQ = sf.qq;
-                item.Way = sf.way;
-              
-                if (SellService.InsertSellForm(item)&&PicService.InsertPic(file,u.uNum,sf.type,u.uID,sf.order,GetPath(u.uName,sf.type)))
+                item.Bargain = 1;
+                item.Priority = 1;
+                item.Way = "在线支付";
+                string qq = sf.qq;
+                string tel = sf.tel;
+                //判断QQ或手机至少填一项的那个东西....
+                if (qq == null && tel == null)
                 {
-                    return Content("<script type='text/javascript'>alert('您已经上传成功！');</script>");
+                    return Content("<script>alert('QQ或手机至少填一项');history.go(-1);</script>");
+                }
+                else if (qq != null && tel == null)
+                {
+                    item.QQ = qq;
+                }
+                else if (tel != null && qq == null)
+                {
+                    item.Tel = tel;
+                }
+                else if (tel != null && qq != null)
+                {
+                    item.QQ = qq;
+                    item.Tel = tel;
+                }
+                int order = 0;
+                int count = 0;
+                if (BLL.SellService.InsertSellForm(item))
+                {
+                    if (files.Count() > 5)
+                    {
+                        return Content("<script>alert('最多上传5张图片！');</script>");
+                    }
+                    foreach (var file in files)
+                    {
+                        //每张图不超过2M
+                        if (file != null && file.ContentLength > 0 && file.ContentLength < 1024*1024*2)
+                        {
+                            order++;
+                            string[] lastname = file.FileName.Split('.');
+                            string url = Server.MapPath("/UpLoadFiles/");
+                            Pic pic = new Pic();
+                            pic.Order = order;
+                            pic.IID = item.IID;
+                            if (!System.IO.Directory.Exists(url))
+                                System.IO.Directory.CreateDirectory(url);
+                            url += DateTime.Now.Ticks + "." + lastname[1];
+                            file.SaveAs(url);
+                            pic.Url = url;
+                            if (BLL.PicService.InsertPic(pic))
+                            {
+                                count++;
+                            }
+                        }
+                        else
+                        {
+                            Response.StatusCode = 400;
+                            return Content("<script>alert('您未选择图片');</script>");
+                        }
+                    }//foreach end
                 }
                 else
                 {
-                    return Content("<script type='text/javascript'>alert('上传失败，请刷新页面，填写必要的信息！');</script>");
+                    return Content("<script>alert('物品信息保存失败'+'" + order + "');</script>");
                 }
-            
+                if (count == order)
+                {
+                    // if (BLL.SellService.InsertSellForm(item))
+                    return Content("<script>alert('上传成功');location.href='Search/Page/1'</script>");
+                    // else
+                    //   return Content("<script>alert('物品信息保存失败'+'"+order+"');</script>");
+                }
+                else
+                {
+                    return Content("<script>alert('上传失败啊啊啊'+'" + order + "');</script>");
+                }
             }
+
         }
-        public ActionResult Search(int order,int cid,int page)
+        
+        [HttpGet]
+        [Route("Search/Page/{page:int}")]
+        public ActionResult Search(int page)
         {
-            var vm = SellService.GetBuyList(order,cid,page);
-            ViewData.Model = vm;
+            ViewData.Model = SellService.Show(page);
             return View();
         }
-        private string GetPath(string uname, int type)
+
+        [HttpGet]
+        [Route("Detail/ID/{iid}")]
+        public ActionResult Detail(Guid iid)
         {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(Server.MapPath("/UpLoadFiles/"));
-            sb.Append(uname);
-            sb.Append(@"/");
-            sb.Append(type);
-            sb.Append(@"/");
-            return sb.ToString();
+            user_item_pic good = SellService.ShowDetail(iid);
+            ViewData["good"] = good;
+            ViewData["good_pics"] = PicService.ShowByIID(iid);
+            ViewData["user_other_goods"] = SellService.ShowItemByUID(good.UID,1);
+            ViewData["class_other_goods"] = SellService.ShowItemByCID(good.CID, 1);
+            //good的第一张图片PID
+            ViewData["first_pic"] = good.PID;
+            return View();
         }
     }
 }

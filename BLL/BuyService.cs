@@ -9,20 +9,30 @@ namespace BLL
 {
     public class BuyService
     {
-        private static IBuyHandler ibh;
+        private static IBuyHandler ibh = new BuyHandler();
         public static bool InsertBuyForm(Item item)
         {
-            //BuyHandler bh = new BuyHandler();
-            if (ibh.Create(item) == 1)
-            {
-                return true;
-            }
-            else return false;
+            return ibh.Create(item);
         }
-        public static List<user_item_pic> GetBuyList(int order,int cid,int page)
+        public static List<user_item_pic> Show(int page)
         {
-
-            return ibh.GetBuyList(order, cid, page);
+            return ibh.Show(page);
+        }
+        public static List<Item> GetBuyList(int cid, int page)
+        {
+            return ibh.ShowItemByCID(cid, page);
+        }
+        public static List<Item> GetSearchList(string input, int page)
+        {
+            return ibh.ShowItemByInput(input, page);
+        }
+        public static List<Category> GetFirstName(int cid)
+        {
+            return ibh.GetFirstName(cid);
+        }
+        public static string GetSecondName(int pid)
+        {
+            return ibh.GetSecondName(pid);
         }
     }
 }

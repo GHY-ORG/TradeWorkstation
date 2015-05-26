@@ -21,18 +21,18 @@ namespace DAL
         /// 后台查看所有举报记录
         /// </summary>
         /// <returns></returns>
-        IQueryable<BlackList> Show();
+        List<BlackList> Show();
         /// <summary>
         /// 后台查看特定用户举报记录
         /// </summary>
         /// <param name="uid"></param>
         /// <returns></returns>
-        IQueryable<BlackList> ShowByUID(Guid uid);
+        List<BlackList> ShowByUID(Guid uid);
         /// <summary>
         /// 后台查看特定商品被举报记录
         /// </summary>
         /// <param name="iid"></param>
         /// <returns></returns>
-        IQueryable<BlackList> ShowByIID(Guid iid);
+        List<BlackList> ShowByIID(Guid iid);
     }
 }

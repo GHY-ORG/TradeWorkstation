@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EF008D5C-FDB0-4404-89EA-C14B93F653CC}</ProjectGuid>
+    <ProjectGuid>{5E1BB8C7-E906-4ABE-9A54-A42C2241DE97}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DataSource</RootNamespace>
@@ -40,10 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GHYUser.designer.cs">
+    <Compile Include="user_item_pic.cs" />
+    <Compile Include="GHYUsers.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>GHYUser.dbml</DependentUpon>
+      <DependentUpon>GHYUsers.dbml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -56,13 +57,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TradeWorkstation.dbml</DependentUpon>
     </Compile>
-    <Compile Include="user_item_pic.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="GHYUser.dbml">
+    <None Include="GHYUsers.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>GHYUser.designer.cs</LastGenOutput>
+      <LastGenOutput>GHYUsers.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
@@ -84,8 +84,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="GHYUser.dbml.layout">
-      <DependentUpon>GHYUser.dbml</DependentUpon>
+    <None Include="GHYUsers.dbml.layout">
+      <DependentUpon>GHYUsers.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

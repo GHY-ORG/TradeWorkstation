@@ -15,25 +15,18 @@ namespace BLL
 {
     public class PicService
     {
-        private static IPicHandler iph;
-        public static bool InsertPic(HttpPostedFileBase file,string username,int type,Guid uid,int order,string path)
+        private static IPicHandler iph = new PicHandler();
+        public static bool InsertPic(Pic pic)
         {
-            string filename = path + DateTime.Now.Ticks + ".jpeg";
-             if (!System.IO.Directory.Exists(path))
-                 System.IO.Directory.CreateDirectory(path);
-             file.SaveAs(filename);
-           // PicHandler ph =new PicHandler();
-            Pic pic = new Pic();
-            pic.Url = filename;
-            pic.IID = uid;
-            pic.Order = order;
-            if (iph.Create(pic) == 1)
-            {
-                return true;
-            }
-            else return false;
-             
-
+            return iph.Create(pic);
+        }
+        public static List<Pic> ShowByIID(Guid iid)
+        {
+            return iph.ShowByIID(iid);
+        }
+        public static string GetPicUrl(Guid pid)
+        {
+            return iph.GetPicUrl(pid);
         }
     }
 }

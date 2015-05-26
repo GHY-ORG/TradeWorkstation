@@ -1,0 +1,52 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "发布-柳交所";
+    ViewBag.Css = new string[]{
+        "~/CSS/publish.css"
+    };
+}
+
+<header class="container">
+    <div class="row">
+        <div class="col-md-2">
+            <a href="#"><img src="~/image/head-image.png" /></a>
+        </div>
+        <div class="col-md-3" id="head-ul">
+            <a href="~/Sell/Search/Page/1">二货</a><a href="~/Car/Search/Page/1">爱拼</a>
+        </div>
+        <div class="col-md-4" id="head-search">
+            <div class="input-group">
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">选择分类 <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">二手商品</a></li>
+                        <li><a href="#">二手求购</a></li>
+                    </ul>
+                </div><!-- /btn-group -->
+                <input type="text" class="form-control" aria-label="...">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" id="search"></span></button>
+                </span>
+            </div><!-- /input-group -->
+            <p>热搜 ： XXX XXX XXX XXX XXX</p>
+        </div>
+        <div class="col-md-3" id="head-user">
+            <div id="headsmall"><img src="~/image/head-userhead.png" /></div>
+            <p id="username">个人主页</p>
+        </div>
+    </div>
+</header>
+
+<div class="container" id="location">
+    <span>您的位置 >> 发布</span>
+</div>
+
+<div class="container" id="fabu-top"></div>
+<div class="container" id="fabu-middle">
+    <div class="row">
+        <div class="col-md-3 fb-list" id="fb-ershou"><a href="~/Sell/Add"><img src="~/image/fb-ershou.png" /></a></div>
+        <div class="col-md-3 fb-list" id="fb-qiugou"><a href="~/Buy/Add"><img src="~/image/fb-qiugou.png" /></a></div>
+        <div class="col-md-3 fb-list" id="fb-pinqita"><a href="~/Car/Add"><img src="~/image/fb-pinchuxing.png" /></a></div>
+        <div class="col-md-3 fb-list" id="fb-pinqita"><a href="~/Other/Add"><img src="~/image/fb-pinqita.png" /></a></div>
+    </div>
+</div>

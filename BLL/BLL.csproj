@@ -60,11 +60,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CarPoolHandler.cs" />
+    <Compile Include="CarPoolService.cs" />
     <Compile Include="BuyService.cs" />
+    <Compile Include="CenterService.cs" />
+    <Compile Include="OtherPoolService.cs" />
     <Compile Include="PicService.cs" />
     <Compile Include="SellService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StoreService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj">
@@ -72,7 +75,7 @@
       <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\DataSource\DataSource.csproj">
-      <Project>{ef008d5c-fdb0-4404-89ea-c14b93f653cc}</Project>
+      <Project>{5e1bb8c7-e906-4abe-9a54-a42c2241de97}</Project>
       <Name>DataSource</Name>
     </ProjectReference>
   </ItemGroup>

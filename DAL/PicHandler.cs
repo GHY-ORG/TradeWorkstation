@@ -6,53 +6,50 @@ using System.Threading.Tasks;
 using DataSource;
 namespace DAL
 {
-   public class PicHandler:IPicHandler
+    public class PicHandler : IPicHandler
     {
-       public int Create(Pic pic)
-       {
-           try
-           {
-               using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
-               {
-                   pic.PID = new Guid();
-                   pic.Status = 1;
-                   db.Pic.InsertOnSubmit(pic);
-                   db.SubmitChanges();
-               }
-               return 1;
-           }
-           catch (Exception ex)
-           {
-               Console.WriteLine(ex);
-               return 0;
-           }
-       }
-      public  List<Pic> show()
-       {
-               using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
-               {
-                  var result = from a in db.Pic
-                                   select a;
+        public bool Create(Pic pic)
+        {
+            try
+            {
+                using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
+                {
+                    pic.PID = Guid.NewGuid();
+                    pic.Status = 1;
+                    db.Pic.InsertOnSubmit(pic);
+                    db.SubmitChanges();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+                return false;
+            }
+        }
 
-                               return result.ToList<Pic>();
-                        
-               }
-               
-           
-          
-       }
-       //显示图片，通过userID
-      public List<Pic> showByUID(Guid uid)
-      {
-          using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
-          {
-              var result = from a in db.Pic
-                           where a.IID == uid
-                           select a;
+        public List<Pic> ShowByIID(Guid iid)
+        {
+            using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
+            {
+                var result = from a in db.Pic
+                             where a.IID == iid
+                             where a.Status > 0
+                             orderby a.Order ascending
+                             select a;
+                return result.ToList<Pic>();
+            }
+        }
 
-              return result.ToList<Pic>();
-
-          }
-      }
+        public string GetPicUrl(Guid pid)
+        {
+            using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
+            {
+                var result = from a in db.Pic
+                             where a.PID == pid
+                             select a;
+                return result.Single().Url;
+            }
+        }
     }
 }

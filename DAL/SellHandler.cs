@@ -7,7 +7,7 @@ using DataSource;
 
 namespace DAL
 {
-   public  class SellHandler:ISellHandler
+    public class SellHandler : ISellHandler
     {
         public bool Create(Item item)
         {
@@ -15,9 +15,11 @@ namespace DAL
             {
                 using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
                 {
-                    item.IID = Guid.NewGuid();
+                    //二手商品的IID需要在Controller那边生成
+                    item.Type = 1;
                     item.PostTime = DateTime.Now;
                     item.UpdateTime = DateTime.Now;
+                    item.EndTime = DateTime.Now.AddMonths(2);
                     item.Status = 102;
                     db.Item.InsertOnSubmit(item);
                     db.SubmitChanges();
@@ -31,47 +33,106 @@ namespace DAL
             }
         }
 
-        public IQueryable<Item> Show()
+        public List<user_item_pic> Show(int page)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
-                var result = from o in db.Item
-                             where o.Type == 1 && o.Status == 102
-                             select o;
-                return result;
+                GHYUsersDataContext db2 = new GHYUsersDataContext();
+                List<User> userList = db2.User.ToList<User>();
+                List<Item> itemList = db.Item.ToList<Item>();
+                List<Pic> picList = db.Pic.ToList<Pic>();
+                var result = from item in itemList
+                             join user in userList on item.UID equals user.UserID
+                             join pic in picList on item.IID equals pic.IID
+                             where (item.Type == 1) && (item.Status == 102) && (pic.Order == 1) && (pic.Status == 1)
+                             orderby item.PostTime descending
+                             select new user_item_pic
+                             {
+                                 IID = item.IID,
+                                 NickName = user.ＮickName,
+                                 Title = item.Title,
+                                 Price = (int)item.Price,
+                                 PID = pic.PID
+                             };
+                return result.Skip(7 * (page - 1)).Take(7).ToList<user_item_pic>();
             }
         }
 
-        public IQueryable<Item> ShowItemByUID(Guid uid)
+        public user_item_pic ShowDetail(Guid iid)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
-                var result = from o in db.Item
-                             where o.UID == uid && o.Type == 1 && o.Status == 102
-                             select o;
-                return result;
-            }
-        }
-
-        public IQueryable<Item> ShowItemByCID(int cid)
-        {
-            using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
-            {
-                var result = from o in db.Item
-                             where o.CID == cid && o.Type == 1 && o.Status == 102
-                             select o;
-                return result;
-            }
-        }
-
-        public Item ShowItemInfo(Guid iid)
-        {
-            using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
-            {
-                var result = from o in db.Item
-                             where o.IID == iid && o.Status == 102
-                             select o;
+                GHYUsersDataContext db2 = new GHYUsersDataContext();
+                List<User> userList = db2.User.ToList<User>();
+                List<Item> itemList = db.Item.ToList<Item>();
+                List<Pic> picList = db.Pic.ToList<Pic>();
+                var result = from item in itemList
+                             join user in userList on item.UID equals user.UserID
+                             join pic in picList on item.IID equals pic.IID
+                             where (item.IID == iid) && (pic.Order == 1) && (pic.Status == 1)
+                             select new user_item_pic
+                             {
+                                 UID = user.UserID,
+                                 NickName = user.ＮickName,
+                                 Title = item.Title,
+                                 CID = (int)item.CID,
+                                 Detail = item.Detail,
+                                 Price = (int)item.Price,
+                                 PostTime = item.PostTime,
+                                 QQ = item.QQ,
+                                 Tel = item.Tel,
+                                 PID = pic.PID
+                             };
                 return result.Single();
+            }
+        }
+
+        public List<user_item_pic> ShowItemByUID(Guid uid, int page)
+        {
+            using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
+            {
+                GHYUsersDataContext db2 = new GHYUsersDataContext();
+                List<User> userList = db2.User.ToList<User>();
+                List<Item> itemList = db.Item.ToList<Item>();
+                List<Pic> picList = db.Pic.ToList<Pic>();
+                var result = from item in itemList
+                             join user in userList on item.UID equals user.UserID
+                             join pic in picList on item.IID equals pic.IID
+                             where (user.UserID == uid) && (item.Type == 1) && (item.Status == 102) && (pic.Order == 1) && (pic.Status == 1)
+                             orderby item.PostTime descending
+                             select new user_item_pic
+                             {
+                                 IID = item.IID,
+                                 Title = item.Title,
+                                 PID = pic.PID
+                             };
+                return result.Skip(4*(page-1)).Take(4).ToList<user_item_pic>();
+            }
+        }
+
+        public List<user_item_pic> ShowItemByCID(int cid, int page)
+        {
+            using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
+            {
+                GHYUsersDataContext db2 = new GHYUsersDataContext();
+                List<User> userList = db2.User.ToList<User>();
+                List<Item> itemList = db.Item.ToList<Item>();
+                List<Pic> picList = db.Pic.ToList<Pic>();
+                var result = from item in itemList
+                             join user in userList on item.UID equals user.UserID
+                             join pic in picList on item.IID equals pic.IID
+                             where (item.CID == cid) && (item.Type == 1) && (item.Status == 102) && (pic.Order == 1) && (pic.Status == 1)
+                             orderby item.PostTime descending
+                             select new user_item_pic
+                             {
+                                 IID = item.IID,
+                                 NickName = user.ＮickName,
+                                 CID = (int)item.CID,
+                                 Title = item.Title,
+                                 Price = (int)item.Price,
+                                 PID = pic.PID
+                             };
+                return result.Skip(4*(page-1)).Take(4).ToList<user_item_pic>();
             }
         }
 
@@ -96,7 +157,7 @@ namespace DAL
             }
         }
 
-        public bool ItemOverdue()
+        public int ItemOverdue()
         {
             try
             {
@@ -111,16 +172,16 @@ namespace DAL
                     }
                     db.SubmitChanges();
                 }
-                return true;
+                return 1;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
-                return false;
+                return 0;
             }
         }
 
-        public bool UpdateItem(Item item)
+        public int UpdateItem(Item item)
         {
             try
             {
@@ -138,34 +199,12 @@ namespace DAL
                     result.Single().UpdateTime = DateTime.Now;
                     db.SubmitChanges();
                 }
-                return true;
+                return 1;
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex);
-                return false;
-            }
-        }
-       //用于search
-        public List<user_item_pic> GetSellList(int order,int cid,int page)
-        {
-            using(TradeWorkstationDataContext db =new TradeWorkstationDataContext()){
-                using(GHYUserDataContext gdc =new GHYUserDataContext()){
-                    var result = from a in db.Item
-                                 join b in db.Pic on a.IID equals b.IID
-                                 join c in gdc.user on a.UID equals c.uID
-                                 where (b.Order == 1) && (a.CID == cid) &&(a.Type ==1)
-                                 select new user_item_pic
-                                 {
-                                     uName = c.uName,
-                                     Title = a.Title,
-                                     Url = b.Url,
-                                     Price = a.Price.ToString(),
-                                     PostTime = a.PostTime,
-                                     Detail = a.Detail
-                                 };
-                    return result.Skip((page-1)*5).Take(5).ToList<user_item_pic>();
-                }
+                return 0;
             }
         }
     }

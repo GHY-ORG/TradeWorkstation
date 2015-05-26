@@ -22,13 +22,13 @@ namespace DAL
         /// 显示所有拼其他信息
         /// </summary>
         /// <returns></returns>
-        IQueryable<Item> Show();
+        List<user_item_pic> Show(int page);
         /// <summary>
         /// 显示用户自己的拼其他信息
         /// </summary>
         /// <param name="uid"></param>
         /// <returns></returns>
-        IQueryable<Item> ShowItemByUID(Guid uid);
+        List<Item> ShowItemByUID(Guid uid);
         /// <summary>
         /// 查看具体的拼其他信息
         /// </summary>

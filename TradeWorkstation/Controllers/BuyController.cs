@@ -2,50 +2,117 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Data;
+using System.Web.Mvc;
 using DataSource;
 using BLL;
-using System.Web.Mvc;
-using System.Text;
-using System.IO;
-using TradeWorkstation.Models;
+
 namespace TradeWorkstation.Controllers
 {
+    [RoutePrefix("Buy")]
     public class BuyController : Controller
     {
-        // GET: Buy
-        public ActionResult Index()
+        [HttpGet]
+        public ActionResult Add()
         {
             return View();
         }
+
         [HttpPost]
-        public ActionResult Handler(BuyForm bf)
+        [ValidateAntiForgeryToken]
+        public ActionResult Add(Models.BuyForm bf)
         {
-            Item item = new Item();
-            item.Title = bf.title;
-            item.CID = bf.cid;
-            item.UID = new user().uID;//此处通过session获取，赋值给user，再获取
-            item.Type = 2;
-            item.Price = bf.price;
-            item.Detail = bf.detail;
-            item.Bargain = bf.bargain;
-            item.Tel = bf.tel;
-            item.QQ = bf.qq;
-            item.Way = bf.way;
-           
-            if (BuyService.InsertBuyForm(item))
+            if (!bf.agreement)
             {
-                return Content("<script type='text/javascript'>alert('您已经上传成功！');</script>");
+                return Content("<script>alert('请同意协议');history.go(-1);</script>");
+            }
+            if (!ModelState.IsValid)
+            {
+                return Content("<script>alert('表单信息验证失败，请重新填写');</script>");
             }
             else
             {
-                return Content("<script type='text/javascript'>alert('上传失败，请刷新页面，填写必要的信息！');</script>");
+                Item item = new Item();
+                item.Title = bf.title;
+                item.CID = bf.secondList == "0" ? Int32.Parse(bf.firstList) : Int32.Parse(bf.secondList);
+                item.UID = new Guid("2d7588e8-f353-47ed-902b-7d8441f0de30");
+                item.Detail = bf.detail;
+                item.Tel = bf.tel;
+                string qq = bf.qq;
+                string tel = bf.tel;
+                //判断QQ或手机至少填一项的那个东西....
+                if (qq == null && tel == null)
+                {
+                    return Content("<script>alert('QQ或手机至少填一项');history.go(-1);</script>");
+                }
+                else if (qq != null && tel == null)
+                {
+                    item.QQ = qq;
+                }
+                else if (tel != null && qq == null)
+                {
+                    item.Tel = tel;
+                }
+                else if (tel != null && qq != null)
+                {
+                    item.QQ = qq;
+                    item.Tel = tel;
+                }
+                if (BuyService.InsertBuyForm(item))
+                {
+                    return Content("<script>alert('发布成功');location.href='Search/Page/1';</script>");
+                }
+                else
+                {
+                    return Content("<script>alert('插入数据出现异常');</script>");
+                }
             }
-            
         }
-        public ActionResult Search(int order, int cid, int page)
+
+        [HttpGet]
+        [Route("Search/Page/{page:int}")]
+        public ActionResult Search(int page)
         {
-            var vm = SellService.GetBuyList(order, cid, page);
+            ViewData.Model = BuyService.Show(page);
+            return View();
+        }
+
+        [HttpGet]
+        [Route("Search/Cid/{cid}/Page/{page:int}")]
+        public ActionResult Search(int cid, int page)
+        {
+            var vm = BuyService.GetBuyList(cid, page);
+            ViewData.Model = vm;
+            if (cid == 7)
+            {
+                ViewBag.FirstName = "虚拟物品";
+                ViewBag.SecondName = "";
+            }
+            else if (cid == 8)
+            {
+                ViewBag.FirstName = "票务";
+                ViewBag.SecondName = "";
+            }
+            else
+            {
+                List<Category> ab = BuyService.GetFirstName(cid);
+                int pdd = 0;
+                string name = "";
+                foreach (var a in ab)
+                {
+                    pdd = a.PID;
+                    name = a.Name;
+                }
+                ViewBag.FirstName = name;
+                ViewBag.SecondName = BuyService.GetSecondName(pdd);
+            }
+            return View();
+        }
+
+        [HttpGet]
+        [Route("Search/Input/{input}/Page/{page:int}")]
+        public ActionResult Search(string input, int page)
+        {
+            var vm = BuyService.GetSearchList(input, page);
             ViewData.Model = vm;
             return View();
         }

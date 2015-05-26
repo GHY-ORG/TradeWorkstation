@@ -6,19 +6,19 @@
         "~/CSS/form.css"
     };
 }
-
 <div class="container" id="location">
-    <span>您的位置 >>  </span><a href="#">发布</a>
+    <span>您的位置 >> </span><a href="~/Home/Publish">发布</a><span> >> </span><a href="~/Car/Add">拼车信息</a>
 </div>
 
 <div class="container" id="title-top"><h5>发布拼出行信息</h5></div>
 <div class="container">
     <div class="row">
-        @using (Html.BeginForm(new{@class="form-horizontal"}))
+        @using (Html.BeginForm("Add", "Car", FormMethod.Post, new { @class = "form-horizontal", @role = "form" }))
         {
+            @Html.AntiForgeryToken()
             <div class="col-md-8 col-md-offset-2" id="fb-top">
                 <div class="form-group row">
-                    @Html.LabelFor(x => x.title, new { @class = "col-md-2 control-label label-list" })
+                    @Html.LabelFor(x => x.title, new { @class = "col-md-2 control-label" })
                     <div class="col-md-9">
                         @Html.TextBoxFor(x => x.title, new { @class = "form-control", placeholder = "请输入标题" })
                     </div>
@@ -27,8 +27,8 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    @Html.LabelFor(x => x.runtime, new { @class = "col-md-2 control-label label-list" })
-                    <div class="input-group date form_datetime col-md-9" data-date="1979-09-16T05:25:07Z" data-date-format="yyyy-mm-dd HH:ii p" data-link-field="dtp_input1">
+                    @Html.LabelFor(x => x.runtime, new { @class = "col-md-2 control-label" })
+                    <div class="col-md-9 input-group date form_datetime" data-date="1979-09-16T05:25:07Z" data-date-format="yyyy-mm-dd HH:ii p" data-link-field="dtp_input1" style="padding:0 10px">
                         @Html.TextBoxFor(x => x.runtime, new { @class = "form-control" })
                         <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                         <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
@@ -38,11 +38,11 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    @Html.LabelFor(x => x.carFrom, new { @class = "col-md-2 control-label label-list" })
+                    @Html.LabelFor(x => x.carFrom, new { @class = "col-md-2 control-label" })
                     <div class="col-md-3">
                         @Html.TextBoxFor(x => x.carFrom, new { @class = "form-control", placeholder = "请输入出发地" })
                     </div>
-                    @Html.LabelFor(x => x.carTo, new { @class = "col-md-2  col-md-offset-1 control-label label-list" })
+                    @Html.LabelFor(x => x.carTo, new { @class = "col-md-2  col-md-offset-1 control-label" })
                     <div class="col-md-3">
                         @Html.TextBoxFor(x => x.carTo, new { @class = "form-control", placeholder = "请输入目的地" })
                     </div>
@@ -54,7 +54,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    @Html.LabelFor(x => x.detail, new { @class = "col-md-2 control-label label-list" })
+                    @Html.LabelFor(x => x.detail, new { @class = "col-md-2 control-label" })
                     <div class="col-md-9">
                         @Html.TextAreaFor(x => x.detail, new { @class = "form-control", placeholder = "请输入详细信息", rows = "6" })
                     </div>
@@ -66,7 +66,7 @@
             <div class="col-md-4 col-md-offset-4" id="form-bottom">
                 <div class="col=md-12" id="title-bottom">联系方式（至少填一项）</div>
                 <div class="form-group row">
-                    @Html.LabelFor(x => x.qq, new { @class = "col-md-2 control-label label-list" })
+                    @Html.LabelFor(x => x.qq, new { @class = "col-md-2 control-label" })
                     <div class="col-md-8 col-md-offset-1">
                         @Html.TextBoxFor(x => x.qq, new { @class = "form-control", placeholder = "请输入QQ号" })
                     </div>
@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    @Html.LabelFor(x => x.tel, new { @class = "col-md-2 control-label label-list" })
+                    @Html.LabelFor(x => x.tel, new { @class = "col-md-2 control-label" })
                     <div class="col-md-8 col-md-offset-1">
                         @Html.TextBoxFor(x => x.tel, new { @class = "form-control", placeholder = "请输入手机号" })
                     </div>
@@ -83,12 +83,14 @@
                         @Html.ValidationMessageFor(x => x.tel)
                     </div>
                 </div>
-                <div class="col-md-offset-3">
+                <div class="col-md-12 text-center">
                     <label id="checkbox">
-                        <input type="checkbox">我已同意柳交所协议
+                        @Html.CheckBoxFor(x => x.agreement, new { @checked = true })我已同意柳交所协议
                     </label>
                 </div>
-                <button type="submit" class="btn btn-fb col-md-offset-4">OK我要发布</button>
+                <div class="col-md-12 text-center">
+                    <button type="submit" class="btn btn-fb">OK我要发布</button>
+                </div>
             </div>
         }
     </div>

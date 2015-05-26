@@ -1,0 +1,8 @@
+﻿/*location*/
+#location{ padding-bottom: 5px;font-size:.75em;color: #9b9b9b;}
+#location a{text-decoration: underline;color: #9b9b9b;}
+/*正文内容（发布引导页）*/
+#fabu-top{background:url(../image/fabu-top.png);margin:20px auto 10px auto;width:337px;height:35px ;display: block;overflow: hidden;}
+#fabu-middle{margin-bottom: 50px;}
+.fb-list{height:270px;}
+#fb-ershou:hover,#fb-qiugou:hover,#fb-pinchuxing:hover,#fb-pinqita:hover{padding-left:5px;padding-top:5px;}

@@ -9,13 +9,14 @@ namespace DAL
 {
     public class OtherPoolHandler:IOtherPoolHandler
     {
-        public bool Create(DataSource.Item item)
+        public bool Create(Item item)
         {
             try
             {
                 using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
                 {
                     item.IID = Guid.NewGuid();
+                    item.Type = 4;
                     item.PostTime = DateTime.Now;
                     item.UpdateTime = DateTime.Now;
                     item.Status = 402;
@@ -31,25 +32,38 @@ namespace DAL
             }
         }
 
-        public IQueryable<DataSource.Item> Show()
+        public List<user_item_pic> Show(int page)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
-                var result = from o in db.Item
-                             where o.Type == 4 && o.Status == 402
-                             select o;
-                return result;
+                GHYUsersDataContext db2 = new GHYUsersDataContext();
+                List<User> userList = db2.User.ToList<User>();
+                List<Item> itemList = db.Item.ToList<Item>();
+                var result = from item in itemList
+                             join user in userList on item.UID equals user.UserID
+                             where (item.Type == 4) && (item.Status == 402)
+                             orderby item.PostTime descending
+                             select new user_item_pic
+                             {
+                                 NickName = user.ＮickName,
+                                 Title = item.Title,
+                                 Detail = item.Detail,
+                                 PostTime = item.PostTime,
+                                 QQ = item.QQ,
+                                 Tel = item.Tel
+                             };
+                return result.Skip(7 * (page - 1)).Take(7).ToList<user_item_pic>();
             }
         }
 
-        public IQueryable<DataSource.Item> ShowItemByUID(Guid uid)
+        public List<Item> ShowItemByUID(Guid uid)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
                 var result = from o in db.Item
                              where o.UID == uid && o.Type == 4 && o.Status == 402
                              select o;
-                return result;
+                return result.ToList<Item>();
             }
         }
 

@@ -26,8 +26,8 @@ namespace DataSource.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.123.41;Initial Catalog=TradeWorkstation;User ID=TradeWorkstat" +
-            "ion;Password=ghy2015)^)^")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.123.41;Initial Catalog=TradeWorkstation;Persist Security Info" +
+            "=True;User ID=TradeWorkstation")]
         public string TradeWorkstationConnectionString {
             get {
                 return ((string)(this["TradeWorkstationConnectionString"]));
@@ -37,11 +37,11 @@ namespace DataSource.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.123.41;Initial Catalog=ghyusers;User ID=TradeWorkstation;Pass" +
-            "word=ghy2015)^)^")]
-        public string ghyusersConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.123.41;Initial Catalog=ExtensionFramework;Persist Security In" +
+            "fo=True;User ID=TradeWorkstation")]
+        public string ExtensionFrameworkConnectionString {
             get {
-                return ((string)(this["ghyusersConnectionString"]));
+                return ((string)(this["ExtensionFrameworkConnectionString"]));
             }
         }
     }

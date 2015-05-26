@@ -8,28 +8,32 @@ namespace DataSource
 {
     public class user_item_pic
     {
-        public string uName { get; set; }
+        public Guid IID { get; set; }
         public string Title { get; set; }
-        public string Url { get; set; }
-        public string Price { get; set; }
-        public DateTime PostTime { get; set; }
+        public Guid UID { get; set; }
+        public int Type { get; set; }
+        public int CID { get; set; }
+        public int Price { get; set; }
         public string Detail { get; set; }
-        public user_item_pic(string _uName,string _Title,string _Url,string _Price,DateTime _PostTime,string _Detail)
-        {
-            uName = _uName;
-            Title = _Title;
-            Url = _Url;
-            Price = _Price;
-            PostTime = _PostTime;
-            Detail = _Detail;
+        public int Bargin { get; set; }
+        public int Priority { get; set; }
+        public string Tel { get; set; }
+        public string QQ { get; set; }
+        public string Way { get; set; }
+        public string From { get; set; }
+        public string To { get; set; }
+        public DateTime RunTime { get; set; }
+        public DateTime PostTime { get; set; }
+        public DateTime UpdateTime { get; set; }
+        public DateTime EndTime { get; set; }
+        public int Statue { get; set; }
 
-        }
-
-        public user_item_pic()
-        {
-            // TODO: Complete member initialization
-        }
-
-        
+        //从EF数据库获取的昵称
+        public string NickName { get; set; }
+        //从Pic表获取商品第一张图片的id
+        public Guid PID { get; set; }
+        //从Category表获取分类名称
+        public string FirstName { get; set; }
+        public string SecondName { get; set; }
     }
 }
