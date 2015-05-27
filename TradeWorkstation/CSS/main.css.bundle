@@ -15,5 +15,6 @@
     <file>/CSS/bootstrap.min.css</file>
     <file>/CSS/bootstrap-datetimepicker.min.css</file>
     <file>/CSS/common.css</file>
+    <file>/CSS/trunk.css</file>
   </files>
 </bundle>
