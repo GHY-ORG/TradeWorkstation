@@ -27,7 +27,7 @@ namespace DataSource.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.123.41;Initial Catalog=TradeWorkstation;Persist Security Info" +
-            "=True;User ID=TradeWorkstation")]
+            "=True;User ID=TradeWorkstation;Password=ghy2015)^)^")]
         public string TradeWorkstationConnectionString {
             get {
                 return ((string)(this["TradeWorkstationConnectionString"]));
@@ -38,7 +38,7 @@ namespace DataSource.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.123.41;Initial Catalog=ExtensionFramework;Persist Security In" +
-            "fo=True;User ID=TradeWorkstation")]
+            "fo=True;User ID=TradeWorkstation;Password=ghy2015)^)^")]
         public string ExtensionFrameworkConnectionString {
             get {
                 return ((string)(this["ExtensionFrameworkConnectionString"]));

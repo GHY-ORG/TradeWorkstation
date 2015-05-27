@@ -54,7 +54,7 @@ namespace DAL
                                  Price = (int)item.Price,
                                  PID = pic.PID
                              };
-                return result.Skip(7 * (page - 1)).Take(7).ToList<user_item_pic>();
+                return result.Skip(8 * (page - 1)).Take(8).ToList<user_item_pic>();
             }
         }
 
@@ -106,7 +106,7 @@ namespace DAL
                                  Title = item.Title,
                                  PID = pic.PID
                              };
-                return result.Skip(4*(page-1)).Take(4).ToList<user_item_pic>();
+                return result.Skip(8*(page-1)).Take(8).ToList<user_item_pic>();
             }
         }
 
@@ -132,7 +132,7 @@ namespace DAL
                                  Price = (int)item.Price,
                                  PID = pic.PID
                              };
-                return result.Skip(4*(page-1)).Take(4).ToList<user_item_pic>();
+                return result.Skip(8*(page-1)).Take(8).ToList<user_item_pic>();
             }
         }
 

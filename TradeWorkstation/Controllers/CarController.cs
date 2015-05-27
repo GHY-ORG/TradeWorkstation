@@ -81,6 +81,7 @@ namespace TradeWorkstation.Controllers
         #endregion 拼车表单提交
 
         #region 拼车检索
+        [HttpGet]
         [Route("Search/Page/{page:int}")]
         public ActionResult Search(int page)
         {
@@ -88,6 +89,7 @@ namespace TradeWorkstation.Controllers
             return View();
         }
 
+        [HttpPost]
         [Route("Search")]
         public ActionResult Search(DateTime runtime, string from, string to)
         {
@@ -95,6 +97,7 @@ namespace TradeWorkstation.Controllers
             return View();
         }
 
+        [HttpGet]
         [Route("Search/Tag/{tag}/Page/{page:int}")]
         public ActionResult Search(string tag, int page)
         {

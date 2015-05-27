@@ -29,7 +29,7 @@ namespace DAL
         /// </summary>
         /// <param name="uid"></param>
         /// <returns></returns>
-        List<Item> ShowItemByUID(Guid uid);
+        List<user_item_pic> ShowItemByUID(Guid uid);
         /// <summary>
         /// 拼车检索
         /// </summary>
@@ -37,14 +37,14 @@ namespace DAL
         /// <param name="carFrom"></param>
         /// <param name="carTo"></param>
         /// <returns></returns>
-        List<Item> ShowItemByInfo(DateTime runtime,string carFrom, string carTo);
+        List<user_item_pic> ShowItemByInfo(DateTime runtime, string carFrom, string carTo);
         /// <summary>
         /// 拼车标签检索
         /// </summary>
         /// <param name="tag"></param>
         /// <param name="page"></param>
         /// <returns></returns>
-        List<Item> ShowItemByTag(string tag,int page);
+        List<user_item_pic> ShowItemByTag(string tag, int page);
         /// <summary>
         /// 查看具体的求购信息
         /// </summary>

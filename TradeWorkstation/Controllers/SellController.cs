@@ -127,6 +127,14 @@ namespace TradeWorkstation.Controllers
         }
 
         [HttpGet]
+        [Route("Search/CID/{cid:int}/Page/{page:int}")]
+        public ActionResult Search(int cid, int page)
+        {
+            ViewData.Model = SellService.ShowItemByCID(cid, page);
+            return View();
+        }
+
+        [HttpGet]
         [Route("Detail/ID/{iid}")]
         public ActionResult Detail(Guid iid)
         {

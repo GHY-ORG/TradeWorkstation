@@ -12,9 +12,10 @@ namespace TradeWorkstation.Tests
         [TestMethod]
         public void TestMethod1()
         {
-            user_item_pic good = SellService.ShowDetail(new Guid("a5c5ca86-122b-4bc4-8256-74345624c75f"));
-
-            Console.WriteLine(SellService.ShowItemByUID(good.UID, 1).Count);
+            //user_item_pic good = SellService.ShowDetail(new Guid("a5c5ca86-122b-4bc4-8256-74345624c75f"));
+            CarPoolService carPoolService = new CarPoolService();
+            var results = carPoolService.ShowItemByTag("西南财经大学柳林校区", 1);
+            Console.WriteLine(results.Count);
         }
     }
 }

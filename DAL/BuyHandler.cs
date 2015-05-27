@@ -57,39 +57,74 @@ namespace DAL
             }
         }
 
-        public List<Item> ShowItemByUID(Guid uid)
+        public List<user_item_pic> ShowItemByUID(Guid uid)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
-                var result = from o in db.Item
-                             where o.UID == uid && o.Type == 2 && o.Status == 202
-                             orderby o.PostTime descending
-                             select o;
-                return result.ToList<Item>();
+                GHYUsersDataContext db2 = new GHYUsersDataContext();
+                List<User> userList = db2.User.ToList<User>();
+                List<Item> itemList = db.Item.ToList<Item>();
+                var result = from item in itemList
+                             join user in userList on item.UID equals user.UserID
+                             where (user.UserID == uid) && (item.Type == 2) && (item.Status == 202)
+                             orderby item.PostTime descending
+                             select new user_item_pic
+                             {
+                                 IID = item.IID,
+                                 Title = item.Title,
+                                 Detail = item.Detail,
+                                 PostTime = item.PostTime,
+                                 NickName = user.ＮickName
+                             };
+                return result.ToList<user_item_pic>();
             }
         }
 
-        public List<Item> ShowItemByCID(int cid, int page)
+        public List<user_item_pic> ShowItemByCID(int cid, int page)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
-                var result = from o in db.Item
-                             where o.CID == cid && o.Type == 2 && o.Status == 202
-                             orderby o.PostTime descending
-                             select o;
-                return result.Skip(7 * (page - 1)).Take(7).ToList<Item>();
+                GHYUsersDataContext db2 = new GHYUsersDataContext();
+                List<User> userList = db2.User.ToList<User>();
+                List<Item> itemList = db.Item.ToList<Item>();
+                var result = from item in itemList
+                             join user in userList on item.UID equals user.UserID
+                             where (item.CID == cid) && (item.Type == 2) && (item.Status == 202)
+                             orderby item.PostTime descending
+                             select new user_item_pic
+                             {
+                                 IID = item.IID,
+                                 NickName = user.ＮickName,
+                                 CID = (int)item.CID,
+                                 Title = item.Title,
+                                 Detail = item.Detail,
+                                 PostTime = item.PostTime
+                             };
+                return result.Skip(7 * (page - 1)).Take(7).ToList<user_item_pic>();
             }
         }
 
-        public List<Item> ShowItemByInput(string input, int page)
+        public List<user_item_pic> ShowItemByInput(string input, int page)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
-                var result = from o in db.Item
-                             where (o.Title.IndexOf(input) != -1 || o.Detail.IndexOf(input) != -1) && o.Type == 2 && o.Status == 202
-                             orderby o.PostTime descending
-                             select o;
-                return result.Skip(7 * (page - 1)).Take(7).ToList<Item>();
+                GHYUsersDataContext db2 = new GHYUsersDataContext();
+                List<User> userList = db2.User.ToList<User>();
+                List<Item> itemList = db.Item.ToList<Item>();
+                var result = from item in itemList
+                             join user in userList on item.UID equals user.UserID
+                             where (item.Title.IndexOf(input) != -1 || item.Detail.IndexOf(input) != -1) && item.Type == 2 && item.Status == 202
+                             orderby item.PostTime descending
+                             select new user_item_pic
+                             {
+                                 IID = item.IID,
+                                 NickName = user.ＮickName,
+                                 CID = (int)item.CID,
+                                 Title = item.Title,
+                                 Detail = item.Detail,
+                                 PostTime = item.PostTime
+                             };
+                return result.Skip(7 * (page - 1)).Take(7).ToList<user_item_pic>();
             }
         }
 

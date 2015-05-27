@@ -4,20 +4,6 @@
 #login{float:left;margin-left:330px;}
 #register{float:right;margin-right:330px;}
 
-.header{margin:20px auto;}
-#head-ul{padding:15px 0 0 20px;}
-#head-ul a{padding:0 15px;color:#fab614;border:1px solid #ffffff;border-radius:3px;font-size: 1.25em;}
-#head-ul a:hover{border:1px solid #fab614;}
-#search{color:#fab614;font-size:1.125em;font-weight: 100;}
-#head-search p{color:#fab614;font-size:.75em;margin:5px 0 0;}
-#head-right{font-size: .875em;color:#b3b3b3;margin-top:5px;}
-#head-right>a{padding:0 5px;}
-#headsmall{width:35px;height:35px;overflow:hidden;float: right;margin:-33px 5px auto auto;}
-#username{font-size:.75em;line-height:.75em;float:left;margin-top:15px;margin-bottom:0;}
-#username a{margin-right: 10px;}
-#username a:first-child{margin-left:5px;}
-#head-search-left{width:85%;}
-
 h4{font-size:1.125em;color:#fab614;}
 h4>a{font-size:.5em;color:#c3c3c3;padding-left: 10px;}
 h5{font-size:.875em;border-bottom:1px solid #ededed;padding-bottom:5px;}
@@ -66,32 +52,3 @@ h5{font-size:.875em;border-bottom:1px solid #ededed;padding-bottom:5px;}
 @media (min-width: 1170px) {
 	#banner{margin-bottom:60px;}
 }
-@charset "utf-8";
-/* CSS Document */
-body,ul,li,ol{list-style:none;padding:0;margin:0;font-size:12px;}
-img{border:0;}
-			
-.bzBanner{width:100%;  height:auto; overflow:hidden; position: relative; }
-.bzBanner .content,.bzBanner .col,.bzBanner .col a{width:100%; height:100%; position: absolute; top:0; left:0; }
-.bzBanner .btn{position: absolute; bottom:25px; right:50px; z-index:5; }
-.bzBanner .btn i{display:block; float: left; width:15px; height:15px; padding:0 5px; border-radius:15px; margin-left:15px; background:#b4b4b4; overflow:hidden; opacity:0.4; filter:alpha(opacity=40); cursor:pointer; }
-.bzBanner .btn i:hover{background:#fab614; }
-.bzBanner .btn i.act{opacity:0.8; filter:alpha(opacity=80); background:#fab614; }
-.bzBanner .pre,.bzBanner .next{display:inline-block; width:72px; height:72px; background:url(../bzbanner/btn.png) no-repeat; position:absolute; top:50%; margin-top:-50px; z-index:3; }
-.bzBanner .pre{left:30px; }
-.bzBanner .next{right:30px; background-position:0 -72px; }
-.bzBanner .pre:hover{background-position:0 -144px; }
-.bzBanner .next:hover{background-position:0 -216px; }
-.bzBanner .col a{color:white; }
-.bzBanner  button{display:inline-block;  position:absolute; z-index:3;}
-
-@media (min-width: 750px) and (max-width: 970px) { 
-	.bzBanner  button{left:340px; }
-}
-@media (min-width: 970px) and (max-width: 1170px) {
-	.bzBanner  button{left:450px; }
-}
-@media (min-width: 1170px) {
-	.bzBanner  button{left:450px; }
-}
-	

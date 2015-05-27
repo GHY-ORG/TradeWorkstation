@@ -80,31 +80,7 @@ namespace TradeWorkstation.Controllers
         [Route("Search/Cid/{cid}/Page/{page:int}")]
         public ActionResult Search(int cid, int page)
         {
-            var vm = BuyService.GetBuyList(cid, page);
-            ViewData.Model = vm;
-            if (cid == 7)
-            {
-                ViewBag.FirstName = "虚拟物品";
-                ViewBag.SecondName = "";
-            }
-            else if (cid == 8)
-            {
-                ViewBag.FirstName = "票务";
-                ViewBag.SecondName = "";
-            }
-            else
-            {
-                List<Category> ab = BuyService.GetFirstName(cid);
-                int pdd = 0;
-                string name = "";
-                foreach (var a in ab)
-                {
-                    pdd = a.PID;
-                    name = a.Name;
-                }
-                ViewBag.FirstName = name;
-                ViewBag.SecondName = BuyService.GetSecondName(pdd);
-            }
+            ViewData.Model = BuyService.Show(page);
             return View();
         }
 

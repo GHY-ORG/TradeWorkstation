@@ -6,29 +6,29 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>F:\IISweb\zzqTest\TradeWorkstation</_PublishTargetUrl>
+    <_PublishTargetUrl>E:\IISTest\zzqTest\TradeWorkstation</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
-      <publishTime>05/24/2015 02:44:00</publishTime>
+      <publishTime>05/24/2015 02:44:02</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>05/26/2015 08:42:36</publishTime>
+      <publishTime>05/27/2015 19:26:31</publishTime>
     </File>
     <File Include="bin/Common.dll">
       <publishTime>05/20/2015 16:25:48</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>05/26/2015 08:42:36</publishTime>
+      <publishTime>05/27/2015 19:26:30</publishTime>
     </File>
     <File Include="bin/DataSource.dll">
-      <publishTime>05/26/2015 05:07:53</publishTime>
+      <publishTime>05/27/2015 19:26:30</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
-      <publishTime>05/19/2015 02:11:14</publishTime>
+      <publishTime>05/19/2015 02:11:16</publishTime>
     </File>
     <File Include="bin/Hub.dll">
-      <publishTime>05/24/2015 00:29:14</publishTime>
+      <publishTime>05/24/2015 00:29:16</publishTime>
     </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>05/13/2015 13:51:48</publishTime>
@@ -37,7 +37,7 @@
       <publishTime>05/13/2015 13:51:50</publishTime>
     </File>
     <File Include="bin/System.Web.Helpers.dll">
-      <publishTime>05/24/2015 02:38:43</publishTime>
+      <publishTime>05/24/2015 02:38:44</publishTime>
     </File>
     <File Include="bin/System.Web.Http.dll">
       <publishTime>05/13/2015 13:51:50</publishTime>
@@ -46,43 +46,43 @@
       <publishTime>05/13/2015 13:51:50</publishTime>
     </File>
     <File Include="bin/System.Web.Mvc.dll">
-      <publishTime>05/24/2015 02:38:44</publishTime>
+      <publishTime>05/24/2015 02:38:46</publishTime>
     </File>
     <File Include="bin/System.Web.Optimization.dll">
-      <publishTime>05/24/2015 02:44:01</publishTime>
+      <publishTime>05/24/2015 02:44:02</publishTime>
     </File>
     <File Include="bin/System.Web.Razor.dll">
-      <publishTime>05/24/2015 02:38:43</publishTime>
+      <publishTime>05/24/2015 02:38:44</publishTime>
     </File>
     <File Include="bin/System.Web.Webpages.Deployment.dll">
-      <publishTime>05/24/2015 02:38:43</publishTime>
+      <publishTime>05/24/2015 02:38:44</publishTime>
     </File>
     <File Include="bin/System.Web.Webpages.dll">
-      <publishTime>05/24/2015 02:38:44</publishTime>
+      <publishTime>05/24/2015 02:38:46</publishTime>
     </File>
     <File Include="bin/System.Web.Webpages.Razor.dll">
-      <publishTime>05/24/2015 02:38:44</publishTime>
+      <publishTime>05/24/2015 02:38:46</publishTime>
     </File>
     <File Include="bin/TradeWorkstation.dll">
-      <publishTime>05/26/2015 09:04:46</publishTime>
+      <publishTime>05/27/2015 20:19:50</publishTime>
     </File>
     <File Include="bin/User.dll">
-      <publishTime>05/24/2015 00:29:16</publishTime>
+      <publishTime>05/24/2015 00:29:18</publishTime>
     </File>
     <File Include="bin/User.XmlSerializers.dll">
-      <publishTime>05/24/2015 00:29:16</publishTime>
+      <publishTime>05/24/2015 00:29:18</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
-      <publishTime>05/24/2015 02:44:00</publishTime>
+      <publishTime>05/24/2015 02:44:02</publishTime>
     </File>
     <File Include="bin/zh-Hans/EntityFramework.resources.dll">
-      <publishTime>05/19/2015 02:11:29</publishTime>
+      <publishTime>05/19/2015 02:11:30</publishTime>
     </File>
     <File Include="bin/zh-Hans/System.Net.Http.Formatting.resources.dll">
       <publishTime>05/13/2015 13:51:50</publishTime>
     </File>
     <File Include="bin/zh-Hans/System.Web.Helpers.resources.dll">
-      <publishTime>05/24/2015 02:38:52</publishTime>
+      <publishTime>05/24/2015 02:38:54</publishTime>
     </File>
     <File Include="bin/zh-Hans/System.Web.Http.resources.dll">
       <publishTime>05/13/2015 13:51:52</publishTime>
@@ -91,19 +91,34 @@
       <publishTime>05/13/2015 13:51:52</publishTime>
     </File>
     <File Include="bin/zh-Hans/System.Web.Mvc.resources.dll">
-      <publishTime>05/24/2015 02:38:51</publishTime>
+      <publishTime>05/24/2015 02:38:52</publishTime>
     </File>
     <File Include="bin/zh-Hans/System.Web.Razor.resources.dll">
-      <publishTime>05/24/2015 02:38:52</publishTime>
+      <publishTime>05/24/2015 02:38:54</publishTime>
     </File>
     <File Include="bin/zh-Hans/System.Web.Webpages.Deployment.resources.dll">
-      <publishTime>05/24/2015 02:38:52</publishTime>
+      <publishTime>05/24/2015 02:38:54</publishTime>
     </File>
     <File Include="bin/zh-Hans/System.Web.Webpages.Razor.resources.dll">
-      <publishTime>05/24/2015 02:38:52</publishTime>
+      <publishTime>05/24/2015 02:38:54</publishTime>
     </File>
     <File Include="bin/zh-Hans/System.Web.Webpages.resources.dll">
-      <publishTime>05/24/2015 02:38:52</publishTime>
+      <publishTime>05/24/2015 02:38:54</publishTime>
+    </File>
+    <File Include="bzbanner/12.jpg">
+      <publishTime>05/26/2015 21:19:34</publishTime>
+    </File>
+    <File Include="bzbanner/13.jpg">
+      <publishTime>05/26/2015 21:19:34</publishTime>
+    </File>
+    <File Include="bzbanner/14.jpg">
+      <publishTime>05/26/2015 21:19:34</publishTime>
+    </File>
+    <File Include="bzbanner/15.jpg">
+      <publishTime>05/26/2015 21:19:34</publishTime>
+    </File>
+    <File Include="bzbanner/btn.png">
+      <publishTime>05/26/2015 21:19:34</publishTime>
     </File>
     <File Include="CSS/bootstrap-datepicker.min.css">
       <publishTime>05/16/2015 21:41:00</publishTime>
@@ -112,13 +127,13 @@
       <publishTime>05/16/2015 21:31:20</publishTime>
     </File>
     <File Include="CSS/bootstrap-datetimepicker.min.css">
-      <publishTime>05/16/2015 21:56:45</publishTime>
+      <publishTime>05/16/2015 21:56:46</publishTime>
     </File>
     <File Include="CSS/bootstrap.css">
       <publishTime>05/13/2015 21:04:29</publishTime>
     </File>
     <File Include="CSS/bootstrap.min.css">
-      <publishTime>05/24/2015 00:50:10</publishTime>
+      <publishTime>05/27/2015 19:13:43</publishTime>
     </File>
     <File Include="CSS/buy.css">
       <publishTime>05/24/2015 06:02:56</publishTime>
@@ -127,259 +142,280 @@
       <publishTime>05/24/2015 05:01:44</publishTime>
     </File>
     <File Include="CSS/common.css">
-      <publishTime>05/26/2015 03:45:44</publishTime>
+      <publishTime>05/27/2015 20:11:40</publishTime>
     </File>
     <File Include="CSS/form.css">
-      <publishTime>05/24/2015 04:43:08</publishTime>
+      <publishTime>05/24/2015 04:43:10</publishTime>
     </File>
     <File Include="CSS/index.css">
-      <publishTime>05/16/2015 20:32:57</publishTime>
+      <publishTime>05/27/2015 19:36:10</publishTime>
+    </File>
+    <File Include="CSS/index.css.bundle">
+      <publishTime>05/27/2015 19:36:09</publishTime>
+    </File>
+    <File Include="CSS/index.min.css">
+      <publishTime>05/27/2015 19:36:10</publishTime>
+    </File>
+    <File Include="CSS/indexbanner.css">
+      <publishTime>05/27/2015 19:15:14</publishTime>
+    </File>
+    <File Include="CSS/indexstyle.css">
+      <publishTime>05/27/2015 20:09:04</publishTime>
     </File>
     <File Include="CSS/main.css">
-      <publishTime>05/26/2015 03:45:44</publishTime>
+      <publishTime>05/27/2015 20:19:26</publishTime>
     </File>
     <File Include="CSS/main.css.bundle">
-      <publishTime>05/16/2015 21:56:51</publishTime>
+      <publishTime>05/27/2015 20:19:26</publishTime>
     </File>
     <File Include="CSS/main.min.css">
-      <publishTime>05/26/2015 03:45:44</publishTime>
+      <publishTime>05/27/2015 20:19:27</publishTime>
     </File>
     <File Include="CSS/publish.css">
-      <publishTime>05/20/2015 16:29:08</publishTime>
+      <publishTime>05/26/2015 21:18:58</publishTime>
     </File>
     <File Include="CSS/show.css">
-      <publishTime>05/26/2015 03:38:17</publishTime>
+      <publishTime>05/26/2015 03:38:18</publishTime>
+    </File>
+    <File Include="CSS/trunk.css">
+      <publishTime>05/27/2015 20:11:34</publishTime>
     </File>
     <File Include="CSS/xiangxi.css">
       <publishTime>05/26/2015 01:37:07</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.eot">
-      <publishTime>05/13/2015 21:22:46</publishTime>
+      <publishTime>05/13/2015 21:22:48</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.svg">
-      <publishTime>05/13/2015 21:22:46</publishTime>
+      <publishTime>05/13/2015 21:22:48</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.ttf">
-      <publishTime>05/13/2015 21:22:46</publishTime>
+      <publishTime>05/13/2015 21:22:48</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.woff">
-      <publishTime>05/13/2015 21:22:46</publishTime>
+      <publishTime>05/13/2015 21:22:48</publishTime>
     </File>
     <File Include="fonts/glyphicons-halflings-regular.woff2">
-      <publishTime>05/13/2015 21:22:46</publishTime>
+      <publishTime>05/13/2015 21:22:48</publishTime>
     </File>
     <File Include="Global.asax">
       <publishTime>05/13/2015 13:51:52</publishTime>
     </File>
     <File Include="image/adv.png">
-      <publishTime>05/20/2015 16:26:34</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="image/banner.png">
-      <publishTime>05/20/2015 16:26:34</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="image/change-head.png">
-      <publishTime>05/20/2015 16:26:34</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="image/erhuo-image-160.png">
-      <publishTime>05/20/2015 16:26:34</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="image/erhuo-image-200.png">
-      <publishTime>05/25/2015 17:21:55</publishTime>
+      <publishTime>05/25/2015 17:21:56</publishTime>
     </File>
     <File Include="image/erhuo-image-big.png">
-      <publishTime>05/20/2015 16:26:34</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="image/erhuo-image.png">
-      <publishTime>05/20/2015 16:26:35</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="image/erhuo/1.png">
-      <publishTime>05/25/2015 15:03:49</publishTime>
+      <publishTime>05/25/2015 15:03:50</publishTime>
     </File>
     <File Include="image/erhuo/2.png">
-      <publishTime>05/25/2015 15:04:25</publishTime>
+      <publishTime>05/25/2015 15:04:26</publishTime>
     </File>
     <File Include="image/erhuo/3.png">
-      <publishTime>05/25/2015 15:03:49</publishTime>
+      <publishTime>05/25/2015 15:03:50</publishTime>
     </File>
     <File Include="image/erhuo/4.png">
-      <publishTime>05/25/2015 15:03:49</publishTime>
+      <publishTime>05/25/2015 15:03:50</publishTime>
     </File>
     <File Include="image/erhuo/5.png">
-      <publishTime>05/25/2015 15:03:49</publishTime>
+      <publishTime>05/25/2015 15:03:50</publishTime>
     </File>
     <File Include="image/erhuo/6.png">
-      <publishTime>05/25/2015 15:03:49</publishTime>
+      <publishTime>05/25/2015 15:03:50</publishTime>
     </File>
     <File Include="image/erhuo/7.png">
-      <publishTime>05/25/2015 15:03:49</publishTime>
+      <publishTime>05/25/2015 15:03:50</publishTime>
     </File>
     <File Include="image/erhuo/8.png">
-      <publishTime>05/25/2015 15:03:49</publishTime>
+      <publishTime>05/25/2015 15:03:50</publishTime>
     </File>
     <File Include="image/fabu-top.png">
-      <publishTime>05/20/2015 16:26:35</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="image/fb-ershou.png">
-      <publishTime>05/20/2015 16:26:35</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="image/fb-pinchuxing.png">
-      <publishTime>05/20/2015 16:26:35</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="image/fb-pinqita.png">
-      <publishTime>05/20/2015 16:26:35</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="image/fb-qiugou.png">
-      <publishTime>05/20/2015 16:26:35</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="image/footer_image.png">
-      <publishTime>05/20/2015 16:26:35</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="image/ghy-logo.png">
       <publishTime>05/13/2015 21:22:47</publishTime>
     </File>
     <File Include="image/head-image-erhuo.png">
-      <publishTime>05/20/2015 16:26:35</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="image/head-image.png">
-      <publishTime>05/20/2015 16:26:35</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="image/head-userhead-qiugou.png">
-      <publishTime>05/20/2015 16:26:35</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="image/head-userhead.png">
-      <publishTime>05/20/2015 16:26:35</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="image/right-bottom.png">
-      <publishTime>05/20/2015 16:26:35</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="image/right-top.png">
-      <publishTime>05/20/2015 16:26:35</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="image/shanchu.png">
-      <publishTime>05/20/2015 16:26:35</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="image/totop.png">
-      <publishTime>05/20/2015 16:26:35</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="image/user-head.png">
-      <publishTime>05/20/2015 16:26:35</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="image/welcome-head.png">
-      <publishTime>05/20/2015 16:26:35</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="image/xiangxi-big.png">
-      <publishTime>05/20/2015 16:26:35</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="image/xiugai.png">
-      <publishTime>05/20/2015 16:26:35</publishTime>
+      <publishTime>05/20/2015 16:26:36</publishTime>
     </File>
     <File Include="JS/bootstrap-datepicker.min.js">
       <publishTime>05/13/2015 21:03:33</publishTime>
     </File>
     <File Include="JS/bootstrap-datetimepicker.min.js">
-      <publishTime>05/16/2015 21:58:29</publishTime>
+      <publishTime>05/16/2015 21:58:30</publishTime>
     </File>
     <File Include="JS/bootstrap.js">
-      <publishTime>05/13/2015 21:03:33</publishTime>
+      <publishTime>05/13/2015 21:03:34</publishTime>
+    </File>
+    <File Include="JS/bzbanner.min.js">
+      <publishTime>05/27/2015 19:21:31</publishTime>
     </File>
     <File Include="JS/common.js">
-      <publishTime>05/20/2015 22:09:42</publishTime>
+      <publishTime>05/20/2015 22:09:44</publishTime>
     </File>
     <File Include="JS/datepicker.config.js">
       <publishTime>05/16/2015 21:56:08</publishTime>
     </File>
     <File Include="JS/datetimepicker.config.js">
-      <publishTime>05/16/2015 22:22:24</publishTime>
+      <publishTime>05/16/2015 22:22:26</publishTime>
     </File>
     <File Include="JS/detail.js">
-      <publishTime>05/26/2015 08:36:14</publishTime>
+      <publishTime>05/26/2015 08:36:16</publishTime>
     </File>
     <File Include="JS/form.js">
       <publishTime>05/19/2015 10:50:36</publishTime>
     </File>
     <File Include="JS/jquery.js">
-      <publishTime>05/13/2015 21:03:34</publishTime>
+      <publishTime>05/13/2015 21:03:36</publishTime>
     </File>
     <File Include="JS/jquery.request.js">
-      <publishTime>05/13/2015 21:03:34</publishTime>
+      <publishTime>05/13/2015 21:03:36</publishTime>
     </File>
     <File Include="JS/jquery.scrollLoading.js">
-      <publishTime>05/13/2015 21:07:16</publishTime>
+      <publishTime>05/26/2015 21:21:58</publishTime>
     </File>
     <File Include="JS/main.js">
-      <publishTime>05/24/2015 06:58:20</publishTime>
+      <publishTime>05/27/2015 19:39:03</publishTime>
     </File>
     <File Include="JS/main.js.bundle">
-      <publishTime>05/24/2015 06:58:20</publishTime>
+      <publishTime>05/27/2015 19:39:03</publishTime>
     </File>
     <File Include="JS/main.min.js">
-      <publishTime>05/24/2015 06:58:22</publishTime>
+      <publishTime>05/27/2015 19:39:04</publishTime>
     </File>
     <File Include="JS/main.min.js.map">
-      <publishTime>05/24/2015 06:58:22</publishTime>
+      <publishTime>05/27/2015 19:39:04</publishTime>
     </File>
     <File Include="JS/modernizr-2.8.3.js">
-      <publishTime>05/13/2015 21:03:33</publishTime>
+      <publishTime>05/13/2015 21:03:34</publishTime>
+    </File>
+    <File Include="JS/trunk.js">
+      <publishTime>05/27/2015 19:21:31</publishTime>
     </File>
     <File Include="packages.config">
-      <publishTime>05/24/2015 02:44:04</publishTime>
+      <publishTime>05/24/2015 02:44:06</publishTime>
     </File>
     <File Include="Views/Buy/Add.cshtml">
-      <publishTime>05/25/2015 19:32:20</publishTime>
+      <publishTime>05/26/2015 14:35:02</publishTime>
     </File>
     <File Include="Views/Buy/Index.cshtml">
       <publishTime>05/24/2015 03:26:42</publishTime>
     </File>
     <File Include="Views/Buy/Search.cshtml">
-      <publishTime>05/25/2015 15:51:34</publishTime>
+      <publishTime>05/26/2015 16:07:42</publishTime>
     </File>
     <File Include="Views/Buy/ShowBuy.cshtml">
       <publishTime>05/24/2015 03:27:45</publishTime>
     </File>
     <File Include="Views/Car/Add.cshtml">
-      <publishTime>05/25/2015 19:42:30</publishTime>
+      <publishTime>05/26/2015 14:50:56</publishTime>
     </File>
     <File Include="Views/Car/Index.cshtml">
       <publishTime>05/18/2015 02:19:42</publishTime>
     </File>
     <File Include="Views/Car/Search.cshtml">
-      <publishTime>05/26/2015 09:06:19</publishTime>
+      <publishTime>05/26/2015 09:06:20</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>05/16/2015 18:01:05</publishTime>
+      <publishTime>05/27/2015 19:39:34</publishTime>
     </File>
     <File Include="Views/Home/Publish.cshtml">
-      <publishTime>05/24/2015 05:05:53</publishTime>
+      <publishTime>05/24/2015 05:05:54</publishTime>
     </File>
     <File Include="Views/Other/Add.cshtml">
-      <publishTime>05/24/2015 11:54:42</publishTime>
+      <publishTime>05/26/2015 14:51:08</publishTime>
     </File>
     <File Include="Views/Other/Search.cshtml">
-      <publishTime>05/26/2015 09:06:34</publishTime>
+      <publishTime>05/26/2015 10:02:50</publishTime>
     </File>
     <File Include="Views/Sell/Add.cshtml">
-      <publishTime>05/25/2015 22:08:25</publishTime>
+      <publishTime>05/26/2015 14:51:20</publishTime>
     </File>
     <File Include="Views/Sell/AddSell.cshtml">
       <publishTime>05/24/2015 03:28:35</publishTime>
     </File>
     <File Include="Views/Sell/Detail.cshtml">
-      <publishTime>05/26/2015 08:44:18</publishTime>
+      <publishTime>05/26/2015 16:21:00</publishTime>
     </File>
     <File Include="Views/Sell/Search.cshtml">
-      <publishTime>05/26/2015 01:13:51</publishTime>
+      <publishTime>05/26/2015 16:07:58</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>05/24/2015 13:02:55</publishTime>
+      <publishTime>05/27/2015 20:13:53</publishTime>
     </File>
     <File Include="Views/web.config">
       <publishTime>05/13/2015 13:51:48</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
-      <publishTime>05/13/2015 21:20:22</publishTime>
+      <publishTime>05/13/2015 21:20:24</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>05/24/2015 03:34:50</publishTime>
+      <publishTime>05/27/2015 19:26:32</publishTime>
     </File>
   </ItemGroup>
 </Project>

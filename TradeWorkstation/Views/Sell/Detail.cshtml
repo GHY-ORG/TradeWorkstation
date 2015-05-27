@@ -17,12 +17,12 @@
 
 <div class="container" id="show-area">
     <div class="row good-detail">
-        <div class="col-md-8">
-            @{
-                var good = @ViewData["good"] as user_item_pic;
+        @{
+            var good = @ViewData["good"] as user_item_pic;
+            <div class="col-md-8">
                 <div class="col-sm-7 padding-0">
                     <div class="big-pic">
-                        <a href=""><img class="full-img" src="~/PicPool/Get/ID/@good.PID/Size/700x700" alt="" /></a>
+                        <img class="full-img" src="~/PicPool/Get/ID/@good.PID/Size/700x700" alt="" />
                     </div>
                     <div class="pic-slide">
                         @foreach (var good_pic in ViewData["good_pics"] as List<Pic>)
@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-sm-5">
                     <h5>@good.Title</h5>
-                    <p>价格：￥@good.Price</p>
+                    <p>价格：<strong class="error-text">￥@good.Price</strong></p>
                     <p>发布时间：@good.PostTime.ToString("yyyy-MM-dd")</p>
                     <p>发布人：@good.NickName</p>
                     <p>Tel：@good.Tel</p>
@@ -47,28 +47,31 @@
                     <h5>二货详情</h5>
                     <p>@good.Detail</p>
                 </div>
-            }
-        </div>
-        <div class="col-md-3 col-md-offset-1 hidden-sm hidden-xs padding-0">
-            <h5>该卖家还在卖</h5>
-            @foreach (var m in ViewData["user_other_goods"] as List<user_item_pic>)
-            {
-                <div class="col-md-6 padding-0">
-                    <div class="user-other-sell">
-                        <a href="~/Sell/Detail/ID/@m.IID" title="@m.Title"><img class="full-img" src="~/PicPool/Get/ID/@m.PID/Size/120x120" alt="@m.Title" /></a>
-                        <div class="user-other-sell-title my-text-overflow">@m.Title</div>
+            </div>
+            <div class="col-md-3 col-md-offset-1 hidden-sm hidden-xs padding-0">
+                <h5>该卖家还在卖</h5>
+                @foreach (var m in ViewData["user_other_goods"] as List<user_item_pic>)
+                {
+                    if (!@m.IID.Equals(@good.IID))
+                    {
+                        <div class="col-md-6 padding-0">
+                            <div class="user-other-sell">
+                                <a href="~/Sell/Detail/ID/@m.IID" title="@m.Title"><img class="full-img" src="~/PicPool/Get/ID/@m.PID/Size/120x120" alt="@m.Title" /></a>
+                                <div class="user-other-sell-title my-text-overflow">@m.Title</div>
+                            </div>
+                        </div>
+                    }
+                }
+                <hr class="clear" />
+                <h5>该分类更多二货</h5>
+                @foreach (var m in ViewData["class_other_goods"] as List<user_item_pic>)
+                {
+                    <div class="col-md-6 class-other-sell">
+                        <a href="~/Sell/Detail/ID/@m.IID" title="@m.Title"><img class="full-img" src="~/PicPool/Get/ID/@m.PID/Size/100x100" alt="@m.Title" /></a>
                     </div>
-                </div>
-            }
-            <hr class="clear" />
-            <h5>该分类更多二货</h5>
-            @foreach (var m in ViewData["class_other_goods"] as List<user_item_pic>)
-            {
-                <div class="col-md-6 class-other-sell">
-                    <a href="~/Sell/Detail/ID/@m.IID" title="@m.Title"><img class="full-img" src="~/PicPool/Get/ID/@m.PID/Size/100x100" alt="@m.Title" /></a>
-                </div>
-            }
-        </div>
+                }
+            </div>
+        }
     </div>
 </div>
 

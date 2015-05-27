@@ -18,11 +18,11 @@ namespace BLL
         {
             return ibh.Show(page);
         }
-        public static List<Item> GetBuyList(int cid, int page)
+        public static List<user_item_pic> GetBuyList(int cid, int page)
         {
             return ibh.ShowItemByCID(cid, page);
         }
-        public static List<Item> GetSearchList(string input, int page)
+        public static List<user_item_pic> GetSearchList(string input, int page)
         {
             return ibh.ShowItemByInput(input, page);
         }

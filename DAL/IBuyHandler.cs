@@ -28,20 +28,20 @@ namespace DAL
         /// </summary>
         /// <param name="uid"></param>
         /// <returns></returns>
-        List<Item> ShowItemByUID(Guid uid);
+        List<user_item_pic> ShowItemByUID(Guid uid);
         /// <summary>
         /// 显示对应分类的求购信息
         /// </summary>
         /// <param name="cid"></param>
         /// <returns></returns>
-        List<Item> ShowItemByCID(int cid, int page);
+        List<user_item_pic> ShowItemByCID(int cid, int page);
         /// <summary>
         /// 通过input显示求购信息
         /// </summary>
         /// <param name="input"></param>
         /// <param name="page"></param>
         /// <returns></returns>
-        List<Item> ShowItemByInput(string input, int page);
+        List<user_item_pic> ShowItemByInput(string input, int page);
         /// <summary>
         /// 查看具体的求购信息
         /// </summary>

@@ -36,7 +36,7 @@ namespace BLL
         /// <param name="carFrom"></param>
         /// <param name="carTo"></param>
         /// <returns></returns>
-        public List<Item> ShowItemByInfo(DateTime runtime, string carFrom, string carTo)
+        public List<user_item_pic> ShowItemByInfo(DateTime runtime, string carFrom, string carTo)
         {
             return carPoolHandler.ShowItemByInfo(runtime, carFrom, carTo);
         }
@@ -46,7 +46,7 @@ namespace BLL
         /// <param name="tag"></param>
         /// <param name="page"></param>
         /// <returns></returns>
-        public List<Item> ShowItemByTag(string tag, int page)
+        public List<user_item_pic> ShowItemByTag(string tag, int page)
         {
             return carPoolHandler.ShowItemByTag(tag, page);
         }

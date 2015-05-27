@@ -15,5 +15,6 @@
     <file>/JS/jquery.scrollLoading.js</file>
     <file>/JS/bootstrap-datetimepicker.min.js</file>
     <file>/JS/datetimepicker.config.js</file>
+    <file>/JS/trunk.js</file>
   </files>
 </bundle>

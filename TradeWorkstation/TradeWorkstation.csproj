@@ -119,12 +119,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bzbanner\12.jpg" />
+    <Content Include="bzbanner\13.jpg" />
+    <Content Include="bzbanner\14.jpg" />
+    <Content Include="bzbanner\15.jpg" />
+    <Content Include="bzbanner\btn.png" />
     <Content Include="CSS\bootstrap-datetimepicker.min.css" />
     <Content Include="CSS\bootstrap.min.css" />
-    <Content Include="CSS\buy.css" />
     <Content Include="CSS\common.css" />
     <Content Include="CSS\form.css" />
-    <Content Include="CSS\index.css" />
+    <Content Include="CSS\index.css">
+      <DependentUpon>index.css.bundle</DependentUpon>
+    </Content>
+    <Content Include="CSS\index.min.css">
+      <DependentUpon>index.css</DependentUpon>
+    </Content>
+    <Content Include="CSS\indexstyle.css" />
+    <Content Include="CSS\indexbanner.css" />
     <Content Include="CSS\main.css">
       <DependentUpon>main.css.bundle</DependentUpon>
     </Content>
@@ -133,7 +144,7 @@
     </Content>
     <Content Include="CSS\publish.css" />
     <Content Include="CSS\show.css" />
-    <Content Include="CSS\xiangxi.css" />
+    <Content Include="CSS\trunk.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="image\adv.png" />
@@ -171,6 +182,7 @@
     <Content Include="image\xiugai.png" />
     <Content Include="JS\bootstrap-datetimepicker.min.js" />
     <Content Include="JS\bootstrap.js" />
+    <Content Include="JS\bzbanner.min.js" />
     <Content Include="JS\common.js" />
     <Content Include="JS\datetimepicker.config.js" />
     <Content Include="JS\detail.js" />
@@ -184,6 +196,7 @@
       <DependentUpon>main.js</DependentUpon>
     </Content>
     <Content Include="JS\modernizr-2.8.3.js" />
+    <Content Include="JS\trunk.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -211,17 +224,18 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="JS\main.js.bundle" />
-    <Content Include="JS\main.min.js.map">
-      <DependentUpon>main.min.js</DependentUpon>
-    </Content>
-    <Content Include="CSS\main.css.bundle" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="CSS\index.css.bundle" />
+    <Content Include="JS\main.js.bundle" />
+    <Content Include="JS\main.min.js.map">
+      <DependentUpon>main.min.js</DependentUpon>
+    </Content>
+    <Content Include="CSS\main.css.bundle" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Views\Car\Add.cshtml" />
     <Content Include="Views\Other\Add.cshtml" />
@@ -242,7 +256,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="UpLoadFiles\" />
     <Folder Include="Views\Center\" />
     <Folder Include="Views\PicPool\" />
   </ItemGroup>

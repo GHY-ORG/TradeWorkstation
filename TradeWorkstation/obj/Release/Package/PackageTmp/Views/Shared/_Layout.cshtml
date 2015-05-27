@@ -17,7 +17,7 @@
 
 <body>
     <!--Top-->
-    <nav class="hidden-sm hidden-xs">
+    <div class="hidden-sm hidden-xs nav-top">
         <ul>
             <li><a href="" title="光华园首页">光华园首页</a></li>
             <li><a href="" title="柴火">柴火</a></li>
@@ -31,9 +31,9 @@
             <li><a href="" title="文苑">文苑</a></li>
             <li><a href="" title="草堂茗香">草堂茗香</a></li>
         </ul>
-    </nav>
+    </div>
     <!--Header-->
-    <header class="container">
+    <div class="header container hidden-sm hidden-xs">
         <div class="row">
             <div class="col-sm-2 col-xs-6">
                 <a href="#"><img src="~/image/head-image.png" /></a>
@@ -45,7 +45,36 @@
                 <p id="username">欢迎，柚子！<a href="#">个人主页</a><a href="#">退出</a></p>
             </div>
         </div>
+    </div>
+    <!--Mobile Top-->
+    <header class="slide hidden-md hidden-lg">
+        <ul id="navToggle" class="burger slide">
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <h1>柳交所</h1>
     </header>
+    <nav class="slide hidden-md hidden-lg">
+        <ul>
+            <li>
+                <a href="#" class="active">
+                    <div class="input-group hidden-sm">
+                        <input type="text" class="form-control" aria-label="...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search" id="search"></span></button>
+                        </span>
+                    </div>
+                </a>
+            </li>
+            <li><a href="#">二手商品</a></li>
+            <li><a href="#">二手求购</a></li>
+            <li><a href="#">拼出行</a></li>
+            <li><a href="#">拼其他</a></li>
+            <li><a href="#">个人主页</a></li>
+            <li><a href="#">退出</a></li>
+        </ul>
+    </nav>
     <!--Main-->
     @RenderBody()
     <!--Footer-->
