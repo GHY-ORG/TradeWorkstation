@@ -13,16 +13,16 @@
       <publishTime>05/24/2015 02:44:02</publishTime>
     </File>
     <File Include="bin/BLL.dll">
-      <publishTime>06/01/2015 04:00:10</publishTime>
+      <publishTime>06/01/2015 04:10:33</publishTime>
     </File>
     <File Include="bin/Common.dll">
       <publishTime>05/20/2015 16:25:48</publishTime>
     </File>
     <File Include="bin/DAL.dll">
-      <publishTime>06/01/2015 04:00:09</publishTime>
+      <publishTime>06/01/2015 04:10:33</publishTime>
     </File>
     <File Include="bin/DataSource.dll">
-      <publishTime>06/01/2015 04:00:09</publishTime>
+      <publishTime>06/01/2015 04:10:32</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>05/19/2015 02:11:16</publishTime>
@@ -64,7 +64,7 @@
       <publishTime>05/24/2015 02:38:46</publishTime>
     </File>
     <File Include="bin/TradeWorkstation.dll">
-      <publishTime>06/01/2015 04:00:10</publishTime>
+      <publishTime>06/01/2015 04:10:33</publishTime>
     </File>
     <File Include="bin/User.dll">
       <publishTime>05/24/2015 00:29:18</publishTime>
@@ -421,7 +421,7 @@
       <publishTime>05/30/2015 17:57:30</publishTime>
     </File>
     <File Include="Resources/Site/css/index.css">
-      <publishTime>06/01/2015 03:41:50</publishTime>
+      <publishTime>06/01/2015 04:10:28</publishTime>
     </File>
     <File Include="Resources/Site/css/publish.css">
       <publishTime>05/30/2015 17:57:30</publishTime>
@@ -469,7 +469,7 @@
       <publishTime>05/30/2015 22:12:59</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>06/01/2015 04:04:11</publishTime>
+      <publishTime>06/01/2015 04:10:06</publishTime>
     </File>
     <File Include="Views/Home/Publish.cshtml">
       <publishTime>05/30/2015 22:06:46</publishTime>
