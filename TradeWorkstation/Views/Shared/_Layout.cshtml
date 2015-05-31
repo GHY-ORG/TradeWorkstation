@@ -6,13 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@ViewBag.Title</title>
-    <link rel="stylesheet" href="~/CSS/main.min.css">
+    @Styles.Render("~/bundles/styles")
     @foreach (var i in ViewBag.Css ?? new string[] { })
     {
-        <link href="@Url.Content(i)" rel="stylesheet" />
+        @Styles.Render(i);
     }
-    <script src="@Url.Content("~/JS/modernizr-2.8.3.js")"></script>
-    <script src="@Url.Content("~/JS/jquery.js")"></script>
+    @Scripts.Render("~/bundles/jquery")
+    <!--[if lt IE 9]>
+        @Scripts.Render("~/bundles/ie8")
+    <![endif]-->
 </head>
 
 <body>
@@ -76,50 +78,53 @@
         </ul>
     </nav>
     <!--Main-->
-    @RenderBody()
-    <!--Footer-->
-    <footer class="hidden-xs hidden-sm">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div id="footer-logo"></div>
-                    <p>Copyright ©2001-2015 GHY.cn All rights reserved. 蜀ICP备07004602号</p>
-                    <p>
-                        西南财经大学党委宣传统战部 前进动力工作室
-                    </p>
-                </div>
-                <div class="col-md-4" id="footer-right">
-                    <div id="footer-right-left">
+    <div class="content slide">
+        @RenderBody()
+        <!--Footer-->
+        <footer class="hidden-xs hidden-sm">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div id="footer-logo"></div>
+                        <p>Copyright ©2001-2015 GHY.cn All rights reserved. 蜀ICP备07004602号</p>
                         <p>
-                            <span>Tel:</span>
-                        </p>
-                        <p>
-                            <span>Email:</span>
-                        </p>
-                        <p>
-                            <span>Address:</span>
+                            西南财经大学党委宣传统战部 前进动力工作室
                         </p>
                     </div>
-                    <div>
-                        <p>028-87092700</p>
-                        <p>ghyers@ghy.cn</p>
-                        <p>腾骧楼422室 前进动力工作室</p>
+                    <div class="col-md-4" id="footer-right">
+                        <div id="footer-right-left">
+                            <p>
+                                <span>Tel:</span>
+                            </p>
+                            <p>
+                                <span>Email:</span>
+                            </p>
+                            <p>
+                                <span>Address:</span>
+                            </p>
+                        </div>
+                        <div>
+                            <p>028-87092700</p>
+                            <p>ghyers@ghy.cn</p>
+                            <p>腾骧楼422室 前进动力工作室</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </footer>
-    <!--Mobile Footer-->
-    <footer class="hidden-md hidden-lg text-center">
-        <div class="container">
-            <p>Copyright ©2001-2015 GHY.cn All Rights Reserved.</p>
-            <p>tel:028-87092700 email:ghyers@ghy.cn</p>
-        </div>
-    </footer>
-    <script src="@Url.Content("~/JS/main.min.js")"></script>
+        </footer>
+        <!--Mobile Footer-->
+        <footer class="hidden-md hidden-lg text-center">
+            <div class="container">
+                <p>Copyright ©2001-2015 GHY.cn All Rights Reserved.</p>
+                <p>tel:028-87092700 email:ghyers@ghy.cn</p>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/scripts")
     @foreach (var i in ViewBag.Js ?? new string[] { })
     {
-        <script src="@Url.Content(i)"></script>
+        @Scripts.Render(i);
     }
 </body>
 </html>

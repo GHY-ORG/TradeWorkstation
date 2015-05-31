@@ -1,5 +1,5 @@
 ﻿/*三个按钮*/
-#button-area{padding:0; padding-bottom: 10px;margin-bottom:10px;border-bottom: 1px solid #dadada}
+#button-area{padding:0; padding-bottom: 10px;margin-bottom:10px;margin-top:20px;border-bottom: 1px solid #dadada}
 #button-area>a{margin-right:20px;float:left;}
 #button-area .float-r{float:right}
 /*检索*/
@@ -25,21 +25,17 @@ h5{font-size:1em;color:#fab614;margin:10px 0 20px;}
 /*二货分类标签*/
 .sort>ul>li:first-child:before{content:" ";width:28px;height:28px;display:block;float:left;}
 .sort>ul>li:first-child{margin-bottom:10px;font-weight:bold;font-size:1em}
-#class1:before{background-image:url("../image/erhuo/1.png")}
-#class2:before{background-image:url("../image/erhuo/2.png")}
-#class3:before{background-image:url("../image/erhuo/3.png")}
-#class4:before{background-image:url("../image/erhuo/4.png")}
-#class5:before{background-image:url("../image/erhuo/5.png")}
-#class6:before{background-image:url("../image/erhuo/6.png")}
-#class7:before{background-image:url("../image/erhuo/7.png")}
-#class8:before{background-image:url("../image/erhuo/8.png")}
+#class1:before{background-image:url("../../../image/erhuo/1.png")}
+#class2:before{background-image:url("../../../image/erhuo/2.png")}
+#class3:before{background-image:url("../../../image/erhuo/3.png")}
+#class4:before{background-image:url("../../../image/erhuo/4.png")}
+#class5:before{background-image:url("../../../image/erhuo/5.png")}
+#class6:before{background-image:url("../../../image/erhuo/6.png")}
+#class7:before{background-image:url("../../../image/erhuo/7.png")}
+#class8:before{background-image:url("../../../image/erhuo/8.png")}
 .sort{margin-bottom:20px}
 .sort>ul{padding:0}
 .sort a{font-size:.75em;color:#999}.sort a:hover{color:#feb512}
-/*二货商品展示*/
-.caption p{margin-bottom:0}
-.thumb {margin-bottom: 30px;}
-.thumbnail img{display:block;width:100%;height:auto}
 /*二货商品详细展示*/
 .good-detail p{color:#999;font-size:.875em}
 .padding-0{padding:0;}

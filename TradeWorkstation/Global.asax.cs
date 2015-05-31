@@ -10,7 +10,7 @@ using System.Web.Http;
 using System.Web.Optimization;
 using System.ComponentModel.Composition.Hosting;
 using System.Reflection;
-using TradeWorkstation.IocHelper;
+
 namespace TradeWorkstation
 {
     public class Global : HttpApplication
@@ -21,6 +21,7 @@ namespace TradeWorkstation
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             //设置MEF依赖注入容器
             DirectoryCatalog catalog = new DirectoryCatalog(AppDomain.CurrentDomain.SetupInformation.PrivateBinPath);

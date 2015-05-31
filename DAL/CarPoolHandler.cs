@@ -100,7 +100,7 @@ namespace DAL
                 List<Item> itemList = db.Item.ToList<Item>();
                 var result = from item in itemList
                              join user in userList on item.UID equals user.UserID
-                             where item.RunTime == runtime && item.From.IndexOf(carFrom) != -1 && item.To.IndexOf(carTo) != -1 && item.Type == 3 && item.Status == 302
+                             where item.Type == 3 && item.Status == 302 && item.RunTime == runtime && item.From.IndexOf(carFrom) != -1 && item.To.IndexOf(carTo) != -1
                              orderby item.PostTime descending
                              select new user_item_pic
                              {
@@ -122,26 +122,28 @@ namespace DAL
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
-                GHYUsersDataContext db2 = new GHYUsersDataContext();
-                List<User> userList = db2.User.ToList<User>();
-                List<Item> itemList = db.Item.ToList<Item>();
-                var result = from item in itemList
-                             join user in userList on item.UID equals user.UserID
-                             where (item.From.IndexOf(tag) != -1 || item.To.IndexOf(tag) != -1) && item.Type == 3 && item.Status == 302
-                             orderby item.PostTime descending
-                             select new user_item_pic
-                             {
-                                 NickName = user.ＮickName,
-                                 Title = item.Title,
-                                 Detail = item.Detail,
-                                 RunTime = (DateTime)item.RunTime,
-                                 From = item.From,
-                                 To = item.To,
-                                 PostTime = item.PostTime,
-                                 QQ = item.QQ,
-                                 Tel = item.Tel
-                             };
-                return result.Skip(7 * (page - 1)).Take(7).ToList<user_item_pic>();
+                using (GHYUsersDataContext db2 = new GHYUsersDataContext())
+                {
+                    List<User> userList = db2.User.ToList<User>();
+                    List<Item> itemList = db.Item.ToList<Item>();
+                    var result = from item in itemList
+                                 join user in userList on item.UID equals user.UserID
+                                 where item.Type == 3 && item.Status == 302 && (tag.IndexOf(item.From) != -1 || tag.IndexOf(item.To) != -1)
+                                 orderby item.PostTime descending
+                                 select new user_item_pic
+                                 {
+                                     NickName = user.ＮickName,
+                                     Title = item.Title,
+                                     Detail = item.Detail,
+                                     RunTime = (DateTime)item.RunTime,
+                                     From = item.From,
+                                     To = item.To,
+                                     PostTime = item.PostTime,
+                                     QQ = item.QQ,
+                                     Tel = item.Tel
+                                 };
+                    return result.Skip(7 * (page - 1)).Take(7).ToList<user_item_pic>();
+                }
             }
         }
 

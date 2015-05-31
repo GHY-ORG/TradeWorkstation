@@ -68,7 +68,7 @@
     </Reference>
     <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <HintPath>..\..\ExtensionFramework\GHY_SSO\bin\System.Web.Optimization.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -124,32 +124,12 @@
     <Content Include="bzbanner\14.jpg" />
     <Content Include="bzbanner\15.jpg" />
     <Content Include="bzbanner\btn.png" />
-    <Content Include="CSS\bootstrap-datetimepicker.min.css" />
-    <Content Include="CSS\bootstrap.min.css" />
-    <Content Include="CSS\common.css" />
-    <Content Include="CSS\form.css" />
-    <Content Include="CSS\index.css">
-      <DependentUpon>index.css.bundle</DependentUpon>
-    </Content>
-    <Content Include="CSS\index.min.css">
-      <DependentUpon>index.css</DependentUpon>
-    </Content>
-    <Content Include="CSS\indexstyle.css" />
-    <Content Include="CSS\indexbanner.css" />
-    <Content Include="CSS\main.css">
-      <DependentUpon>main.css.bundle</DependentUpon>
-    </Content>
-    <Content Include="CSS\main.min.css">
-      <DependentUpon>main.css</DependentUpon>
-    </Content>
-    <Content Include="CSS\publish.css" />
-    <Content Include="CSS\show.css" />
-    <Content Include="CSS\trunk.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="image\adv.png" />
     <Content Include="image\banner.png" />
     <Content Include="image\change-head.png" />
+    <Content Include="image\erhuo-image-115.png" />
     <Content Include="image\erhuo-image-160.png" />
     <Content Include="image\erhuo-image-200.png" />
     <Content Include="image\erhuo-image-big.png" />
@@ -180,26 +160,33 @@
     <Content Include="image\welcome-head.png" />
     <Content Include="image\xiangxi-big.png" />
     <Content Include="image\xiugai.png" />
-    <Content Include="JS\bootstrap-datetimepicker.min.js" />
-    <Content Include="JS\bootstrap.js" />
-    <Content Include="JS\bzbanner.min.js" />
-    <Content Include="JS\common.js" />
-    <Content Include="JS\datetimepicker.config.js" />
-    <Content Include="JS\detail.js" />
-    <Content Include="JS\jquery.js" />
-    <Content Include="JS\jquery.request.js" />
-    <Content Include="JS\jquery.scrollLoading.js" />
-    <Content Include="JS\main.js">
-      <DependentUpon>main.js.bundle</DependentUpon>
-    </Content>
-    <Content Include="JS\main.min.js">
-      <DependentUpon>main.js</DependentUpon>
-    </Content>
-    <Content Include="JS\modernizr-2.8.3.js" />
-    <Content Include="JS\trunk.js" />
+    <Content Include="Resources\Bootstrap\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Resources\Bootstrap\css\bootstrap.min.css" />
+    <Content Include="Resources\Bootstrap\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Resources\Bootstrap\js\bootstrap.js" />
+    <Content Include="Resources\Bootstrap\js\bootstrap.min.js" />
+    <Content Include="Resources\Bootstrap\js\datetimepicker.config.js" />
+    <Content Include="Resources\Bootstrap\js\modernizr-2.6.2.js" />
+    <Content Include="Resources\Bootstrap\js\npm.js" />
+    <Content Include="Resources\Bootstrap\js\respond.js" />
+    <Content Include="Resources\JQuery\jquery-1.11.3.min.js" />
+    <Content Include="Resources\JQuery\jquery.request.js" />
+    <Content Include="Resources\JQuery\jquery.scrollLoading.js" />
+    <Content Include="Resources\Site\css\common.css" />
+    <Content Include="Resources\Site\css\form.css" />
+    <Content Include="Resources\Site\css\index.css" />
+    <Content Include="Resources\Site\css\publish.css" />
+    <Content Include="Resources\Site\css\show.css" />
+    <Content Include="Resources\Site\js\bzbanner.min.js" />
+    <Content Include="Resources\Site\js\detail.js" />
+    <Content Include="Resources\Site\js\index.js" />
+    <Content Include="Resources\Site\js\jquery.scrollLoading.js" />
+    <Content Include="Resources\Trunk\trunk.css" />
+    <Content Include="Resources\Trunk\trunk.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BuyController.cs" />
@@ -230,12 +217,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="CSS\index.css.bundle" />
-    <Content Include="JS\main.js.bundle" />
-    <Content Include="JS\main.min.js.map">
-      <DependentUpon>main.min.js</DependentUpon>
-    </Content>
-    <Content Include="CSS\main.css.bundle" />
     <None Include="Properties\PublishProfiles\web.config.pubxml" />
     <Content Include="Views\Car\Add.cshtml" />
     <Content Include="Views\Other\Add.cshtml" />

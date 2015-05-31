@@ -10,8 +10,6 @@ namespace TradeWorkstation.Controllers
     [RoutePrefix("Home")]
     public class HomeController : Controller
     {
-        // GET: Home
-        //[Route("Index/{id:int}")]
         public ActionResult Index()
         {
             return View();

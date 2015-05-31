@@ -66,3 +66,7 @@
 		params.container.bind("scroll", loading);
 	};
 })(jQuery);
+
+$(function () {
+    $(".scrollLoading").scrollLoading();
+});

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace TradeWorkstation.IocHelper
+namespace TradeWorkstation
 {
     public class MefDependencySolver : IDependencyResolver
     {

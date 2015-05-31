@@ -22,6 +22,32 @@
       <Association Name="Category_Category" Member="Category1" ThisKey="PID" OtherKey="CID" Type="Category" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Item" Member="Item">
+    <Type Name="Item">
+      <Column Name="IID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
+      <Column Name="Type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Detail" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="Bargain" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Priority" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Tel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="QQ" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Way" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="[From]" Member="From" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="[To]" Member="To" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="RunTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PostTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="UpdateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="EndTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Item_BlackList" Member="BlackList" ThisKey="IID" OtherKey="IID" Type="BlackList" />
+      <Association Name="Item_Pic" Member="Pic" ThisKey="IID" OtherKey="IID" Type="Pic" />
+      <Association Name="Item_Store" Member="Store" ThisKey="IID" OtherKey="IID" Type="Store" />
+    </Type>
+  </Table>
   <Table Name="dbo.Pic" Member="Pic">
     <Type Name="Pic">
       <Column Name="PID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -49,32 +75,6 @@
       <Column Name="UID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
       <Column Name="LogContent" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
       <Column Name="LogTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Item" Member="Item">
-    <Type Name="Item">
-      <Column Name="IID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Title" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="CID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="UID" Type="System.Guid" DbType="UniqueIdentifier" CanBeNull="true" />
-      <Column Name="Type" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Price" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Detail" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="Bargain" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Priority" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Tel" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="QQ" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Way" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="[From]" Member="From" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="[To]" Member="To" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="RunTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="PostTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="UpdateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="EndTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
-      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="Item_BlackList" Member="BlackList" ThisKey="IID" OtherKey="IID" Type="BlackList" />
-      <Association Name="Item_Pic" Member="Pic" ThisKey="IID" OtherKey="IID" Type="Pic" />
-      <Association Name="Item_Store" Member="Store" ThisKey="IID" OtherKey="IID" Type="Store" />
     </Type>
   </Table>
 </Database>

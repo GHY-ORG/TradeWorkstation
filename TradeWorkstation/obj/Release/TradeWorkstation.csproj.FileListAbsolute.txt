@@ -98,3 +98,11 @@ E:\VS2013Projects\TradeWorkstation\TradeWorkstation\bin\zh-Hans\System.Web.Http.
 E:\VS2013Projects\TradeWorkstation\TradeWorkstation\obj\Release\TradeWorkstation.csprojResolveAssemblyReference.cache
 E:\VS2013Projects\TradeWorkstation\TradeWorkstation\obj\Release\TradeWorkstation.dll
 E:\VS2013Projects\TradeWorkstation\TradeWorkstation\obj\Release\TradeWorkstation.pdb
+E:\VS2013Projects\TradeWorkstation\TradeWorkstation\bin\Hub.dll
+E:\VS2013Projects\TradeWorkstation\TradeWorkstation\bin\User.dll
+E:\VS2013Projects\TradeWorkstation\TradeWorkstation\bin\EntityFramework.dll
+E:\VS2013Projects\TradeWorkstation\TradeWorkstation\bin\Hub.pdb
+E:\VS2013Projects\TradeWorkstation\TradeWorkstation\bin\User.pdb
+E:\VS2013Projects\TradeWorkstation\TradeWorkstation\bin\EntityFramework.xml
+E:\VS2013Projects\TradeWorkstation\TradeWorkstation\bin\zh-Hans\EntityFramework.resources.dll
+E:\VS2013Projects\TradeWorkstation\TradeWorkstation\bin\User.XmlSerializers.dll
