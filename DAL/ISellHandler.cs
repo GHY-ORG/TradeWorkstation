@@ -21,9 +21,10 @@ namespace DAL
         /// <summary>
         /// 显示所有二手信息
         /// </summary>
-        /// <param name="type"></param>
+        /// <param name="page"></param>
+        /// <param name="n"></param>
         /// <returns></returns>
-        List<user_item_pic> Show(int page);
+        List<user_item_pic> Show(int page, int n);
         /// <summary>
         /// 显示二手详情
         /// </summary>
@@ -36,14 +37,15 @@ namespace DAL
         /// <param name="uid"></param>
         /// <param name="page"></param>
         /// <returns></returns>
-        List<user_item_pic> ShowItemByUID(Guid uid, int page);
+        List<user_item_pic> ShowItemByUID(Guid uid, int page, int n);
         /// <summary>
-        /// 显示对应分类的二手信息
+        /// 显示对应类别的商品
         /// </summary>
-        /// <param name="cid"></param>
-        /// <param name="page"></param>
+        /// <param name="cid">类别id</param>
+        /// <param name="page">第几页</param>
+        /// <param name="n">一页几个</param>
         /// <returns></returns>
-        List<user_item_pic> ShowItemByCID(int cid, int page);
+        List<user_item_pic> ShowItemByCID(int cid, int page, int n);
         /// <summary>
         /// 用户将二手信息的状态改为完成 103
         /// </summary>

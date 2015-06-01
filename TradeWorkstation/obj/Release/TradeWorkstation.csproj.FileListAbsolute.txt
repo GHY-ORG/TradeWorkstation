@@ -106,3 +106,6 @@ E:\VS2013Projects\TradeWorkstation\TradeWorkstation\bin\User.pdb
 E:\VS2013Projects\TradeWorkstation\TradeWorkstation\bin\EntityFramework.xml
 E:\VS2013Projects\TradeWorkstation\TradeWorkstation\bin\zh-Hans\EntityFramework.resources.dll
 E:\VS2013Projects\TradeWorkstation\TradeWorkstation\bin\User.XmlSerializers.dll
+E:\VS2013Projects\TradeWorkstation\TradeWorkstation\bin\EntityFramework.SqlServer.dll
+E:\VS2013Projects\TradeWorkstation\TradeWorkstation\bin\EntityFramework.SqlServer.xml
+E:\VS2013Projects\TradeWorkstation\TradeWorkstation\bin\zh-Hans\EntityFramework.SqlServer.resources.dll

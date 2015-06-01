@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -9,15 +10,31 @@ using TradeWorkstation.Models;
 
 namespace TradeWorkstation.Controllers
 {
+    [Export]
     [RoutePrefix("Other")]
     public class OtherController : Controller
     {
+        [Import]
+        public Hub.Interface.User.IAuthenticationStrategy AuthentiationStrategy { set; get; }
+
+        [Import]
+        public Hub.Interface.User.IAccountStrategy AccountStrategy { set; get; }
+
         OtherPoolService otherPoolService = new OtherPoolService();
 
         #region 拼其他表单提交
         [HttpGet]
         public ActionResult Add()
         {
+            //用户
+            if (Session["User"] == null)
+            {
+                return Redirect("~/User/PostLogin");
+            }
+            Guid userid = new Guid(Session["User"].ToString());
+            ViewBag.UserID = userid;
+            ViewBag.NickName = AccountStrategy.GetNickNameByUserID(userid);
+
             OtherForm other = new OtherForm();
             return View(other);
         }
@@ -26,6 +43,15 @@ namespace TradeWorkstation.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Add(OtherForm other)
         {
+            //用户
+            if (Session["User"] == null)
+            {
+                return Redirect("~/User/PostLogin");
+            }
+            Guid userid = new Guid(Session["User"].ToString());
+            ViewBag.UserID = userid;
+            ViewBag.NickName = AccountStrategy.GetNickNameByUserID(userid);
+
             if (!other.agreement)
             {
                 return Content("<script>alert('请同意协议');history.go(-1);</script>");
@@ -35,6 +61,7 @@ namespace TradeWorkstation.Controllers
                 return Content("<script>alert('表单信息验证失败，请重新填写');history.go(-1);</script>");
             }
             Item item = new Item();
+            item.UID = new Guid(Session["User"].ToString());
             item.Title = other.title;
             DateTime? dateOrNull = other.endtime;
             if (dateOrNull != null)
@@ -79,10 +106,37 @@ namespace TradeWorkstation.Controllers
         #endregion 拼其他表单提交
 
         #region 拼其他检索
+        [HttpGet]
         [Route("Search/Page/{page:int}")]
         public ActionResult Search(int page)
         {
-            ViewData.Model = otherPoolService.Show(page);
+            //用户
+            if (Session["User"] == null)
+            {
+                return Redirect("~/User/PostLogin");
+            }
+            Guid userid = new Guid(Session["User"].ToString());
+            ViewBag.UserID = userid;
+            ViewBag.NickName = AccountStrategy.GetNickNameByUserID(userid);
+
+            ViewData.Model = otherPoolService.Show(page,7);
+            return View();
+        }
+
+        [HttpGet]
+        [Route("Search/IID/{iid}")]
+        public ActionResult Search(Guid iid)
+        {
+            //用户
+            if (Session["User"] == null)
+            {
+                return Redirect("~/User/PostLogin");
+            }
+            Guid userid = new Guid(Session["User"].ToString());
+            ViewBag.UserID = userid;
+            ViewBag.NickName = AccountStrategy.GetNickNameByUserID(userid);
+
+            ViewData.Model = otherPoolService.ShowItemInfo(iid);
             return View();
         }
         #endregion 拼其他检索

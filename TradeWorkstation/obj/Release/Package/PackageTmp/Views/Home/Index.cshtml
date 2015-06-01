@@ -1,4 +1,5 @@
-﻿@{
+﻿@using DataSource;
+@{
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "柳交所";
     ViewBag.Css = new string[]{
@@ -15,22 +16,22 @@
                 <div class='content'>
                     <div class='col'>
                         <a href='javascript:;'>
-                            <img src='~/image/banner.png'/>
+                            <img src='~/image/banner.png' />
                         </a>
                     </div>
                     <div class='col'>
                         <a href='javascript:;'>
-                            <img src='~/bzbanner/13.jpg'/>
+                            <img src='~/bzbanner/13.jpg' />
                         </a>
                     </div>
                     <div class='col'>
                         <a href='javascript:;'>
-                            <img src='~/bzbanner/14.jpg'/>
+                            <img src='~/bzbanner/14.jpg' />
                         </a>
                     </div>
                     <div class='col'>
                         <a href='javascript:;'>
-                            <img src='~/bzbanner/15.jpg'/>
+                            <img src='~/bzbanner/15.jpg' />
                         </a>
                     </div>
                     <a href="~/Home/Publish" class="btn btn-submit hidden-xs" id="bzbanner-btn"><span class="glyphicon glyphicon-plus"></span>我要发布</a>
@@ -48,7 +49,7 @@
 <div class="container">
     <div class="row index">
         <div class="col-md-8">
-            <h4>最新二手<small><a href="~/Sell/Search/Page/1">进入二手>></a></small></h4>
+            <h4>最新二手<small><a href="~/Sell/Search/Page/1" target="_blank">进入二手>></a></small></h4>
             <!--我爱学习-->
             <div class="index-study clearfix">
                 <div class="col-md-12"><h5>| 我爱学习</h5></div>
@@ -62,129 +63,111 @@
                 </div>
                 <!--教科书-->
                 <div class="col-sm-10 index-pic-block">
-                    <div class="col-sm-3 col-xs-6 thumb">
-                        <div class="thumbnail">
-                            <a href="/TradeWorkstation/Sell/Detail/ID/101ede68-eb90-4aa8-8bd8-45d5295f48d1" target="_blank"><img src="/TradeWorkstation/PicPool/Get/ID/84bbfd49-d34a-44b3-80a0-e9f70e579563/Size/400x400"></a>
-                            <div class="caption">
-                                <p class="my-text-overflow">自行车</p>
-                                <p class="text-right">
-                                    <small>mcdull</small>
-                                    <span class="error-text">￥100</span>
-                                </p>
+                    @foreach (var item in ViewData["class11"] as List<user_item_pic>)
+                    {
+                        <div class="col-sm-3 col-xs-6 thumb">
+                            <div class="thumbnail">
+                                <a href="~/Sell/Detail/ID/@item.IID" target="_blank"><img src="~/PicPool/Get/ID/@item.PID/Size/320x320"></a>
+                                <div class="caption">
+                                    <p class="my-text-overflow">@item.Title</p>
+                                    <p class="text-right">
+                                        <small>@item.NickName</small>
+                                        <span class="error-text">￥@item.Price</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6 thumb">
-                        <div class="thumbnail">
-                            <a href="/TradeWorkstation/Sell/Detail/ID/101ede68-eb90-4aa8-8bd8-45d5295f48d1" target="_blank"><img src="/TradeWorkstation/PicPool/Get/ID/84bbfd49-d34a-44b3-80a0-e9f70e579563/Size/400x400"></a>
-                            <div class="caption">
-                                <p class="my-text-overflow">自行车</p>
-                                <p class="text-right">
-                                    <small>mcdull</small>
-                                    <span class="error-text">￥100</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6 thumb">
-                        <div class="thumbnail">
-                            <a href="/TradeWorkstation/Sell/Detail/ID/101ede68-eb90-4aa8-8bd8-45d5295f48d1" target="_blank"><img src="/TradeWorkstation/PicPool/Get/ID/84bbfd49-d34a-44b3-80a0-e9f70e579563/Size/400x400"></a>
-                            <div class="caption">
-                                <p class="my-text-overflow">自行车</p>
-                                <p class="text-right">
-                                    <small>mcdull</small>
-                                    <span class="error-text">￥100</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-3 col-xs-6 thumb">
-                        <div class="thumbnail">
-                            <a href="/TradeWorkstation/Sell/Detail/ID/101ede68-eb90-4aa8-8bd8-45d5295f48d1" target="_blank"><img src="/TradeWorkstation/PicPool/Get/ID/84bbfd49-d34a-44b3-80a0-e9f70e579563/Size/400x400"></a>
-                            <div class="caption">
-                                <p class="my-text-overflow">自行车</p>
-                                <p class="text-right">
-                                    <small>mcdull</small>
-                                    <span class="error-text">￥100</span>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    }
                 </div>
                 <!--考研用书-->
                 <div class="col-sm-10 index-pic-block">
-                    <div class="col-sm-3 col-xs-6 thumb">
-                        <div class="thumbnail">
-                            <a href="/TradeWorkstation/Sell/Detail/ID/101ede68-eb90-4aa8-8bd8-45d5295f48d1" target="_blank"><img src="/TradeWorkstation/PicPool/Get/ID/84bbfd49-d34a-44b3-80a0-e9f70e579563/Size/400x400"></a>
-                            <div class="caption">
-                                <p class="my-text-overflow">自行车</p>
-                                <p class="text-right">
-                                    <small>test2</small>
-                                    <span class="error-text">￥100</span>
-                                </p>
+                    @foreach (var item in ViewData["class12"] as List<user_item_pic>)
+                    {
+                        <div class="col-sm-3 col-xs-6 thumb">
+                            <div class="thumbnail">
+                                <a href="~/Sell/Detail/ID/@item.IID" target="_blank"><img src="~/PicPool/Get/ID/@item.PID/Size/320x320"></a>
+                                <div class="caption">
+                                    <p class="my-text-overflow">@item.Title</p>
+                                    <p class="text-right">
+                                        <small>@item.NickName</small>
+                                        <span class="error-text">￥@item.Price</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
                 </div>
                 <!--考级考证-->
                 <div class="col-sm-10 index-pic-block">
-                    <div class="col-sm-3 col-xs-6 thumb">
-                        <div class="thumbnail">
-                            <a href="/TradeWorkstation/Sell/Detail/ID/101ede68-eb90-4aa8-8bd8-45d5295f48d1" target="_blank"><img src="/TradeWorkstation/PicPool/Get/ID/84bbfd49-d34a-44b3-80a0-e9f70e579563/Size/400x400"></a>
-                            <div class="caption">
-                                <p class="my-text-overflow">自行车</p>
-                                <p class="text-right">
-                                    <small>mcdull</small>
-                                    <span class="error-text">￥100</span>
-                                </p>
+                    @foreach (var item in ViewData["class13"] as List<user_item_pic>)
+                    {
+                        <div class="col-sm-3 col-xs-6 thumb">
+                            <div class="thumbnail">
+                                <a href="~/Sell/Detail/ID/@item.IID" target="_blank"><img src="~/PicPool/Get/ID/@item.PID/Size/320x320"></a>
+                                <div class="caption">
+                                    <p class="my-text-overflow">@item.Title</p>
+                                    <p class="text-right">
+                                        <small>@item.NickName</small>
+                                        <span class="error-text">￥@item.Price</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
                 </div>
                 <!--课外书-->
                 <div class="col-sm-10 index-pic-block">
-                    <div class="col-sm-3 col-xs-6 thumb">
-                        <div class="thumbnail">
-                            <a href="/TradeWorkstation/Sell/Detail/ID/101ede68-eb90-4aa8-8bd8-45d5295f48d1" target="_blank"><img src="/TradeWorkstation/PicPool/Get/ID/84bbfd49-d34a-44b3-80a0-e9f70e579563/Size/400x400"></a>
-                            <div class="caption">
-                                <p class="my-text-overflow">自行车</p>
-                                <p class="text-right">
-                                    <small>mcdull</small>
-                                    <span class="error-text">￥100</span>
-                                </p>
+                    @foreach (var item in ViewData["class14"] as List<user_item_pic>)
+                    {
+                        <div class="col-sm-3 col-xs-6 thumb">
+                            <div class="thumbnail">
+                                <a href="~/Sell/Detail/ID/@item.IID" target="_blank"><img src="~/PicPool/Get/ID/@item.PID/Size/320x320"></a>
+                                <div class="caption">
+                                    <p class="my-text-overflow">@item.Title</p>
+                                    <p class="text-right">
+                                        <small>@item.NickName</small>
+                                        <span class="error-text">￥@item.Price</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
                 </div>
                 <!--电脑-->
                 <div class="col-sm-10 index-pic-block">
-                    <div class="col-sm-3 col-xs-6 thumb">
-                        <div class="thumbnail">
-                            <a href="/TradeWorkstation/Sell/Detail/ID/101ede68-eb90-4aa8-8bd8-45d5295f48d1" target="_blank"><img src="/TradeWorkstation/PicPool/Get/ID/84bbfd49-d34a-44b3-80a0-e9f70e579563/Size/400x400"></a>
-                            <div class="caption">
-                                <p class="my-text-overflow">自行车</p>
-                                <p class="text-right">
-                                    <small>mcdull</small>
-                                    <span class="error-text">￥100</span>
-                                </p>
+                    @foreach (var item in ViewData["class15"] as List<user_item_pic>)
+                    {
+                        <div class="col-sm-3 col-xs-6 thumb">
+                            <div class="thumbnail">
+                                <a href="~/Sell/Detail/ID/@item.IID" target="_blank"><img src="~/PicPool/Get/ID/@item.PID/Size/320x320"></a>
+                                <div class="caption">
+                                    <p class="my-text-overflow">@item.Title</p>
+                                    <p class="text-right">
+                                        <small>@item.NickName</small>
+                                        <span class="error-text">￥@item.Price</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
                 </div>
                 <!--平板-->
                 <div class="col-sm-10 index-pic-block">
-                    <div class="col-sm-3 col-xs-6 thumb">
-                        <div class="thumbnail">
-                            <a href="/TradeWorkstation/Sell/Detail/ID/101ede68-eb90-4aa8-8bd8-45d5295f48d1" target="_blank"><img src="/TradeWorkstation/PicPool/Get/ID/84bbfd49-d34a-44b3-80a0-e9f70e579563/Size/400x400"></a>
-                            <div class="caption">
-                                <p class="my-text-overflow">自行车</p>
-                                <p class="text-right">
-                                    <small>mcdull</small>
-                                    <span class="error-text">￥100</span>
-                                </p>
+                    @foreach (var item in ViewData["class16"] as List<user_item_pic>)
+                    {
+                        <div class="col-sm-3 col-xs-6 thumb">
+                            <div class="thumbnail">
+                                <a href="~/Sell/Detail/ID/@item.IID" target="_blank"><img src="~/PicPool/Get/ID/@item.PID/Size/320x320"></a>
+                                <div class="caption">
+                                    <p class="my-text-overflow">@item.Title</p>
+                                    <p class="text-right">
+                                        <small>@item.NickName</small>
+                                        <span class="error-text">￥@item.Price</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
                 </div>
             </div>
 
@@ -199,63 +182,75 @@
                 </div>
                 <!--自行车-->
                 <div class="col-md-10 index-pic-block">
-                    <div class="col-md-3 col-xs-6 thumb">
-                        <div class="thumbnail">
-                            <a href="/TradeWorkstation/Sell/Detail/ID/101ede68-eb90-4aa8-8bd8-45d5295f48d1" target="_blank"><img src="/TradeWorkstation/PicPool/Get/ID/84bbfd49-d34a-44b3-80a0-e9f70e579563/Size/400x400"></a>
-                            <div class="caption">
-                                <p class="my-text-overflow">自行车</p>
-                                <p class="text-right">
-                                    <small>mcdull</small>
-                                    <span class="error-text">￥100</span>
-                                </p>
+                    @foreach (var item in ViewData["class21"] as List<user_item_pic>)
+                    {
+                        <div class="col-sm-3 col-xs-6 thumb">
+                            <div class="thumbnail">
+                                <a href="~/Sell/Detail/ID/@item.IID" target="_blank"><img src="~/PicPool/Get/ID/@item.PID/Size/320x320"></a>
+                                <div class="caption">
+                                    <p class="my-text-overflow">@item.Title</p>
+                                    <p class="text-right">
+                                        <small>@item.NickName</small>
+                                        <span class="error-text">￥@item.Price</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
                 </div>
                 <!--小电器-->
                 <div class="col-md-10 index-pic-block">
-                    <div class="col-md-3 col-xs-6 thumb">
-                        <div class="thumbnail">
-                            <a href="/TradeWorkstation/Sell/Detail/ID/101ede68-eb90-4aa8-8bd8-45d5295f48d1" target="_blank"><img src="/TradeWorkstation/PicPool/Get/ID/84bbfd49-d34a-44b3-80a0-e9f70e579563/Size/400x400"></a>
-                            <div class="caption">
-                                <p class="my-text-overflow">自行车</p>
-                                <p class="text-right">
-                                    <small>mcdull</small>
-                                    <span class="error-text">￥100</span>
-                                </p>
+                    @foreach (var item in ViewData["class22"] as List<user_item_pic>)
+                    {
+                        <div class="col-sm-3 col-xs-6 thumb">
+                            <div class="thumbnail">
+                                <a href="~/Sell/Detail/ID/@item.IID" target="_blank"><img src="~/PicPool/Get/ID/@item.PID/Size/320x320"></a>
+                                <div class="caption">
+                                    <p class="my-text-overflow">@item.Title</p>
+                                    <p class="text-right">
+                                        <small>@item.NickName</small>
+                                        <span class="error-text">￥@item.Price</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
                 </div>
                 <!--化妆品-->
                 <div class="col-md-10 index-pic-block">
-                    <div class="col-md-3 col-xs-6 thumb">
-                        <div class="thumbnail">
-                            <a href="/TradeWorkstation/Sell/Detail/ID/101ede68-eb90-4aa8-8bd8-45d5295f48d1" target="_blank"><img src="/TradeWorkstation/PicPool/Get/ID/84bbfd49-d34a-44b3-80a0-e9f70e579563/Size/400x400"></a>
-                            <div class="caption">
-                                <p class="my-text-overflow">自行车</p>
-                                <p class="text-right">
-                                    <small>mcdull</small>
-                                    <span class="error-text">￥100</span>
-                                </p>
+                    @foreach (var item in ViewData["class23"] as List<user_item_pic>)
+                    {
+                        <div class="col-sm-3 col-xs-6 thumb">
+                            <div class="thumbnail">
+                                <a href="~/Sell/Detail/ID/@item.IID" target="_blank"><img src="~/PicPool/Get/ID/@item.PID/Size/320x320"></a>
+                                <div class="caption">
+                                    <p class="my-text-overflow">@item.Title</p>
+                                    <p class="text-right">
+                                        <small>@item.NickName</small>
+                                        <span class="error-text">￥@item.Price</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
                 </div>
                 <!--服装-->
                 <div class="col-md-10 index-pic-block">
-                    <div class="col-md-3 col-xs-6 thumb">
-                        <div class="thumbnail">
-                            <a href="/TradeWorkstation/Sell/Detail/ID/101ede68-eb90-4aa8-8bd8-45d5295f48d1" target="_blank"><img src="/TradeWorkstation/PicPool/Get/ID/84bbfd49-d34a-44b3-80a0-e9f70e579563/Size/400x400"></a>
-                            <div class="caption">
-                                <p class="my-text-overflow">自行车</p>
-                                <p class="text-right">
-                                    <small>mcdull</small>
-                                    <span class="error-text">￥100</span>
-                                </p>
+                    @foreach (var item in ViewData["class24"] as List<user_item_pic>)
+                    {
+                        <div class="col-sm-3 col-xs-6 thumb">
+                            <div class="thumbnail">
+                                <a href="~/Sell/Detail/ID/@item.IID" target="_blank"><img src="~/PicPool/Get/ID/@item.PID/Size/320x320"></a>
+                                <div class="caption">
+                                    <p class="my-text-overflow">@item.Title</p>
+                                    <p class="text-right">
+                                        <small>@item.NickName</small>
+                                        <span class="error-text">￥@item.Price</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
                 </div>
             </div>
 
@@ -272,93 +267,111 @@
                 </div>
                 <!--运动-->
                 <div class="col-md-10 index-pic-block">
-                    <div class="col-md-3 col-xs-6 thumb">
-                        <div class="thumbnail">
-                            <a href="/TradeWorkstation/Sell/Detail/ID/101ede68-eb90-4aa8-8bd8-45d5295f48d1" target="_blank"><img src="/TradeWorkstation/PicPool/Get/ID/84bbfd49-d34a-44b3-80a0-e9f70e579563/Size/400x400"></a>
-                            <div class="caption">
-                                <p class="my-text-overflow">自行车</p>
-                                <p class="text-right">
-                                    <small>mcdull</small>
-                                    <span class="error-text">￥100</span>
-                                </p>
+                    @foreach (var item in ViewData["class31"] as List<user_item_pic>)
+                    {
+                        <div class="col-sm-3 col-xs-6 thumb">
+                            <div class="thumbnail">
+                                <a href="~/Sell/Detail/ID/@item.IID" target="_blank"><img src="~/PicPool/Get/ID/@item.PID/Size/320x320"></a>
+                                <div class="caption">
+                                    <p class="my-text-overflow">@item.Title</p>
+                                    <p class="text-right">
+                                        <small>@item.NickName</small>
+                                        <span class="error-text">￥@item.Price</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
                 </div>
                 <!--手机-->
                 <div class="col-md-10 index-pic-block">
-                    <div class="col-md-3 col-xs-6 thumb">
-                        <div class="thumbnail">
-                            <a href="/TradeWorkstation/Sell/Detail/ID/101ede68-eb90-4aa8-8bd8-45d5295f48d1" target="_blank"><img src="/TradeWorkstation/PicPool/Get/ID/84bbfd49-d34a-44b3-80a0-e9f70e579563/Size/400x400"></a>
-                            <div class="caption">
-                                <p class="my-text-overflow">自行车</p>
-                                <p class="text-right">
-                                    <small>mcdull</small>
-                                    <span class="error-text">￥100</span>
-                                </p>
+                    @foreach (var item in ViewData["class32"] as List<user_item_pic>)
+                    {
+                        <div class="col-sm-3 col-xs-6 thumb">
+                            <div class="thumbnail">
+                                <a href="~/Sell/Detail/ID/@item.IID" target="_blank"><img src="~/PicPool/Get/ID/@item.PID/Size/320x320"></a>
+                                <div class="caption">
+                                    <p class="my-text-overflow">@item.Title</p>
+                                    <p class="text-right">
+                                        <small>@item.NickName</small>
+                                        <span class="error-text">￥@item.Price</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
                 </div>
                 <!--相机-->
                 <div class="col-md-10 index-pic-block">
-                    <div class="col-md-3 col-xs-6 thumb">
-                        <div class="thumbnail">
-                            <a href="/TradeWorkstation/Sell/Detail/ID/101ede68-eb90-4aa8-8bd8-45d5295f48d1" target="_blank"><img src="/TradeWorkstation/PicPool/Get/ID/84bbfd49-d34a-44b3-80a0-e9f70e579563/Size/400x400"></a>
-                            <div class="caption">
-                                <p class="my-text-overflow">自行车</p>
-                                <p class="text-right">
-                                    <small>mcdull</small>
-                                    <span class="error-text">￥100</span>
-                                </p>
+                    @foreach (var item in ViewData["class33"] as List<user_item_pic>)
+                    {
+                        <div class="col-sm-3 col-xs-6 thumb">
+                            <div class="thumbnail">
+                                <a href="~/Sell/Detail/ID/@item.IID" target="_blank"><img src="~/PicPool/Get/ID/@item.PID/Size/320x320"></a>
+                                <div class="caption">
+                                    <p class="my-text-overflow">@item.Title</p>
+                                    <p class="text-right">
+                                        <small>@item.NickName</small>
+                                        <span class="error-text">￥@item.Price</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
                 </div>
                 <!--MP3/MP4-->
                 <div class="col-md-10 index-pic-block">
-                    <div class="col-md-3 col-xs-6 thumb">
-                        <div class="thumbnail">
-                            <a href="/TradeWorkstation/Sell/Detail/ID/101ede68-eb90-4aa8-8bd8-45d5295f48d1" target="_blank"><img src="/TradeWorkstation/PicPool/Get/ID/84bbfd49-d34a-44b3-80a0-e9f70e579563/Size/400x400"></a>
-                            <div class="caption">
-                                <p class="my-text-overflow">自行车</p>
-                                <p class="text-right">
-                                    <small>mcdull</small>
-                                    <span class="error-text">￥100</span>
-                                </p>
+                    @foreach (var item in ViewData["class34"] as List<user_item_pic>)
+                    {
+                        <div class="col-sm-3 col-xs-6 thumb">
+                            <div class="thumbnail">
+                                <a href="~/Sell/Detail/ID/@item.IID" target="_blank"><img src="~/PicPool/Get/ID/@item.PID/Size/320x320"></a>
+                                <div class="caption">
+                                    <p class="my-text-overflow">@item.Title</p>
+                                    <p class="text-right">
+                                        <small>@item.NickName</small>
+                                        <span class="error-text">￥@item.Price</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
                 </div>
                 <!--虚拟物品-->
                 <div class="col-md-10 index-pic-block">
-                    <div class="col-md-3 col-xs-6 thumb">
-                        <div class="thumbnail">
-                            <a href="/TradeWorkstation/Sell/Detail/ID/101ede68-eb90-4aa8-8bd8-45d5295f48d1" target="_blank"><img src="/TradeWorkstation/PicPool/Get/ID/84bbfd49-d34a-44b3-80a0-e9f70e579563/Size/400x400"></a>
-                            <div class="caption">
-                                <p class="my-text-overflow">自行车</p>
-                                <p class="text-right">
-                                    <small>mcdull</small>
-                                    <span class="error-text">￥100</span>
-                                </p>
+                    @foreach (var item in ViewData["class35"] as List<user_item_pic>)
+                    {
+                        <div class="col-sm-3 col-xs-6 thumb">
+                            <div class="thumbnail">
+                                <a href="~/Sell/Detail/ID/@item.IID" target="_blank"><img src="~/PicPool/Get/ID/@item.PID/Size/320x320"></a>
+                                <div class="caption">
+                                    <p class="my-text-overflow">@item.Title</p>
+                                    <p class="text-right">
+                                        <small>@item.NickName</small>
+                                        <span class="error-text">￥@item.Price</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
                 </div>
                 <!--游戏机-->
                 <div class="col-md-10 index-pic-block">
-                    <div class="col-md-3 col-xs-6 thumb">
-                        <div class="thumbnail">
-                            <a href="/TradeWorkstation/Sell/Detail/ID/101ede68-eb90-4aa8-8bd8-45d5295f48d1" target="_blank"><img src="/TradeWorkstation/PicPool/Get/ID/84bbfd49-d34a-44b3-80a0-e9f70e579563/Size/400x400"></a>
-                            <div class="caption">
-                                <p class="my-text-overflow">自行车</p>
-                                <p class="text-right">
-                                    <small>mcdull</small>
-                                    <span class="error-text">￥100</span>
-                                </p>
+                    @foreach (var item in ViewData["class36"] as List<user_item_pic>)
+                    {
+                        <div class="col-sm-3 col-xs-6 thumb">
+                            <div class="thumbnail">
+                                <a href="~/Sell/Detail/ID/@item.IID" target="_blank"><img src="~/PicPool/Get/ID/@item.PID/Size/320x320"></a>
+                                <div class="caption">
+                                    <p class="my-text-overflow">@item.Title</p>
+                                    <p class="text-right">
+                                        <small>@item.NickName</small>
+                                        <span class="error-text">￥@item.Price</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    }
                 </div>
             </div>
 
@@ -367,102 +380,108 @@
             <div class="row index-all-class">
                 <div class="col-sm-7">
                     <h5>
-                        <a href="">校园代步</a>
-                        <small><a href="#">自行车</a></small>
-                        <small><a href="#">其他</a></small>
+                        <a href="" target="_blank">校园代步</a>
+                        <small><a href="~/sell/search/cid/9/page/1" target="_blank">自行车</a></small>
+                        <small><a href="~/sell/search/cid/10/page/1" target="_blank">其他</a></small>
                     </h5>
                     <h5>
-                        <a href="">图书</a>
-                        <small><a href="#">教科书</a></small>
-                        <small><a href="#">考研用书</a></small>
-                        <small><a href="#">考级考证</a></small>
-                        <small><a href="#">课外书</a></small>
-                        <small><a href="#">其他</a></small>
+                        <a href="" target="_blank">图书</a>
+                        <small><a href="~/sell/search/cid/11/page/1" target="_blank">教科书</a></small>
+                        <small><a href="~/sell/search/cid/12/page/1" target="_blank">考研用书</a></small>
+                        <small><a href="~/sell/search/cid/13/page/1" target="_blank">考级考证</a></small>
+                        <small><a href="~/sell/search/cid/14/page/1" target="_blank">课外书</a></small>
+                        <small><a href="~/sell/search/cid/15/page/1" target="_blank">其他</a></small>
                     </h5>
                     <h5>
-                        <a href="">电子产品</a>
-                        <small><a href="#">手机</a></small>
-                        <small><a href="#">电脑</a></small>
-                        <small><a href="#">平板</a></small>
-                        <small><a href="#">游戏机</a></small>
-                        <small><a href="#">相机</a></small>
-                        <small><a href="#">MP3\MP4</a></small>
-                        <small><a href="#">其他</a></small>
+                        <a href="" target="_blank">电子产品</a>
+                        <small><a href="~/sell/search/cid/16/page/1" target="_blank">手机</a></small>
+                        <small><a href="~/sell/search/cid/17/page/1" target="_blank">电脑</a></small>
+                        <small><a href="~/sell/search/cid/18/page/1" target="_blank">平板</a></small>
+                        <small><a href="~/sell/search/cid/19/page/1" target="_blank">游戏机</a></small>
+                        <small><a href="~/sell/search/cid/20/page/1" target="_blank">相机</a></small>
+                        <small><a href="~/sell/search/cid/21/page/1" target="_blank">MP3\MP4</a></small>
+                        <small><a href="~/sell/search/cid/22/page/1" target="_blank">其他</a></small>
                     </h5>
                     <h5>
-                        <a href="">数码配件</a>
-                        <small><a href="#">U盘</a></small>
-                        <small><a href="#">移动硬盘</a></small>
-                        <small><a href="#">鼠标</a></small>
-                        <small><a href="#">键盘</a></small>
-                        <small><a href="#">耳机</a></small>
-                        <small><a href="#">其他</a></small>
+                        <a href="" target="_blank">数码配件</a>
+                        <small><a href="~/sell/search/cid/23/page/1" target="_blank">U盘</a></small>
+                        <small><a href="~/sell/search/cid/24/page/1" target="_blank">移动硬盘</a></small>
+                        <small><a href="~/sell/search/cid/25/page/1" target="_blank">鼠标</a></small>
+                        <small><a href="~/sell/search/cid/27/page/1" target="_blank">键盘</a></small>
+                        <small><a href="~/sell/search/cid/28/page/1" target="_blank">耳机</a></small>
+                        <small><a href="~/sell/search/cid/29/page/1" target="_blank">其他</a></small>
                     </h5>
                 </div>
                 <div class="col-sm-5">
                     <h5>
-                        <a href="">生活用品</a>
-                        <small><a href="#">小家电</a></small>
-                        <small><a href="#">小家具</a></small>
-                        <small><a href="#">运动</a></small>
-                        <small><a href="#">化妆品</a></small>
-                        <small><a href="#">其他</a></small>
+                        <a href="" target="_blank">生活用品</a>
+                        <small><a href="~/sell/search/cid/30/page/1" target="_blank">小电器</a></small>
+                        <small><a href="~/sell/search/cid/31/page/1" target="_blank">小家具</a></small>
+                        <small><a href="~/sell/search/cid/32/page/1" target="_blank">运动</a></small>
+                        <small><a href="~/sell/search/cid/33/page/1" target="_blank">化妆品</a></small>
+                        <small><a href="~/sell/search/cid/34/page/1" target="_blank">其他</a></small>
                     </h5>
                     <h5>
-                        <a href="">服装鞋包</a>
-                        <small><a href="#">男生的</a></small>
-                        <small><a href="#">女生的</a></small>
+                        <a href="" target="_blank">服装鞋包</a>
+                        <small><a href="~/sell/search/cid/35/page/1" target="_blank">男生的</a></small>
+                        <small><a href="~/sell/search/cid/36/page/1" target="_blank">女生的</a></small>
                     </h5>
-                    <h5><a href="">虚拟物品</a></h5>
-                    <h5><a href="">票务</a></h5>
+                    <h5><a href="~/sell/search/cid/7/page/1" target="_blank">虚拟物品</a></h5>
+                    <h5><a href="~/sell/search/cid/8/page/1" target="_blank">票务</a></h5>
                 </div>
             </div>
         </div>
         <div class="col-md-3 col-md-offset-1 hidden-sm hidden-xs index-right">
             <!--最新求购-->
-            <h4>最新求购<small><a href="~/Buy/Search/Page/1">进入求购区>></a></small></h4>
+            <h4>最新求购<small><a href="~/Buy/Search/Page/1" target="_blank">进入求购区>></a></small></h4>
             <div class="col-md-12">
-                <p><a href="#">求雅思真题<span>[9-11]</span></a></p>
-                <p><a href="#">求雅思真题<span>[9-11]</span></a></p>
-                <p><a href="#">求雅思真题<span>[9-11]</span></a></p>
-                <p><a href="#">求雅思真题<span>[9-11]</span></a></p>
-                <p><a href="#">求雅思真题<span>[9-11]</span></a></p>
-                <p><a href="#">求雅思真题<span>[9-11]</span></a></p>
+                @foreach (var item in ViewData["buy"] as List<user_item_pic>)
+                {
+                    var title = @item.Title;
+                    if (title.Length > 13) title = title.Substring(0, 10)+"...";
+                    <p><a href="~/buy/search/iid/@item.IID" target="_blank">@title<span>[@item.PostTime.ToString("MM-dd")]</span></a></p>
+                }
             </div>
 
             <!--最新求拼-->
-            <h4>最新求拼<small><a href="~/Car/Search/Page/1">进入爱拼>></a></small></h4>
+            <h4>最新求拼<small><a href="~/Car/Search/Page/1" target="_blank">进入爱拼>></a></small></h4>
             <div class="col-md-12">
-                <p><a href="#">求雅思真题<span>[9-11]</span></a></p>
-                <p><a href="#">求雅思真题<span>[9-11]</span></a></p>
-                <p><a href="#">求雅思真题<span>[9-11]</span></a></p>
-                <p><a href="#">求雅思真题<span>[9-11]</span></a></p>
-                <p><a href="#">求雅思真题<span>[9-11]</span></a></p>
-                <p><a href="#">求雅思真题<span>[9-11]</span></a></p>
+                @foreach (var item in ViewData["car"] as List<user_item_pic>)
+                {
+                    var title = @item.Title;
+                    if (title.Length > 13) title = title.Substring(0, 10) + "...";
+                    <p><a href="~/car/search/iid/@item.IID" target="_blank">@title<span>[@item.PostTime.ToString("MM-dd")]</span></a></p>
+                }
+                @foreach (var item in ViewData["other"] as List<user_item_pic>)
+                {
+                    var title = @item.Title;
+                    if (title.Length > 13) title = title.Substring(0, 10) + "...";
+                    <p><a href="~/other/search/iid/@item.IID" target="_blank">@title<span>[@item.PostTime.ToString("MM-dd")]</span></a></p>
+                }
             </div>
 
             <!--热门爱拼目的地-->
             <h4>热门爱拼目的地</h4>
             <div class="col-md-12">
                 <h5>
-                    <a href="#">双流机场</a>
-                    <small><a href="#">春熙路</a></small>
-                    <small><a href="#">证从考场</a></small>
+                    <a href="~/car/search/tag/双流机场/page/1" target="_blank">双流机场</a>
+                    <small><a href="~/car/search/tag/春熙路/page/1" target="_blank">春熙路</a></small>
+                    <small><a href="~/car/search/tag/证从考场/page/1" target="_blank">证从考场</a></small>
                 </h5>
                 <h5>
-                    <small><a href="#">北站</a></small>
-                    <a href="#">万家湾</a>
-                    <small><a href="#">南站</a></small>
+                    <small><a href="~/car/search/tag/北站/page/1" target="_blank">北站</a></small>
+                    <a href="~/car/search/tag/万家湾/page/1" target="_blank">万家湾</a>
+                    <small><a href="~/car/search/tag/南站/page/1" target="_blank">南站</a></small>
                 </h5>
                 <h5>
-                    <small><a href="#">电子科大</a></small>
-                    <a href="#">川大（望江）</a>
-                    <small><a href="#">西南交大</a></small>
+                    <small><a href="~/car/search/tag/电子科大/page/1" target="_blank">电子科大</a></small>
+                    <a href="~/car/search/tag/川大（望江）/page/1" target="_blank">川大（望江）</a>
+                    <small><a href="~/car/search/tag/西南交大/page/1" target="_blank">西南交大</a></small>
                 </h5>
                 <h5>
-                    <small><a href="#">西南民大</a></small>
-                    <small><a href="#">川大（双流）</a></small>
-                    <a href="#">川师</a>
+                    <small><a href="~/car/search/tag/西南民大/page/1" target="_blank">西南民大</a></small>
+                    <small><a href="~/car/search/tag/川大（双流）/page/1" target="_blank">川大（双流）</a></small>
+                    <a href="~/car/search/tag/川师/page/1" target="_blank">川师</a>
                 </h5>
             </div>
 

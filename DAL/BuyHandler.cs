@@ -46,7 +46,8 @@ namespace DAL
                              orderby item.PostTime descending
                              select new user_item_pic
                              {
-                                 NickName = user.ＮickName,
+                                 IID = item.IID,
+                                 NickName = user.NickName,
                                  Title = item.Title,
                                  Detail = item.Detail,
                                  PostTime = item.PostTime,
@@ -74,13 +75,13 @@ namespace DAL
                                  Title = item.Title,
                                  Detail = item.Detail,
                                  PostTime = item.PostTime,
-                                 NickName = user.ＮickName
+                                 NickName = user.NickName
                              };
                 return result.ToList<user_item_pic>();
             }
         }
 
-        public List<user_item_pic> ShowItemByCID(int cid, int page)
+        public List<user_item_pic> ShowItemByCID(int cid, int page, int n)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
@@ -94,13 +95,13 @@ namespace DAL
                              select new user_item_pic
                              {
                                  IID = item.IID,
-                                 NickName = user.ＮickName,
+                                 NickName = user.NickName,
                                  CID = (int)item.CID,
                                  Title = item.Title,
                                  Detail = item.Detail,
                                  PostTime = item.PostTime
                              };
-                return result.Skip(7 * (page - 1)).Take(7).ToList<user_item_pic>();
+                return result.Skip(n * (page - 1)).Take(n).ToList<user_item_pic>();
             }
         }
 
@@ -118,7 +119,7 @@ namespace DAL
                              select new user_item_pic
                              {
                                  IID = item.IID,
-                                 NickName = user.ＮickName,
+                                 NickName = user.NickName,
                                  CID = (int)item.CID,
                                  Title = item.Title,
                                  Detail = item.Detail,
@@ -128,15 +129,28 @@ namespace DAL
             }
         }
 
-        public Item ShowItemInfo(Guid iid)
+        public List<user_item_pic> ShowItemInfo(Guid iid)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
-                var result = from o in db.Item
-                             where o.IID == iid && o.Status == 202
-                             orderby o.PostTime descending
-                             select o;
-                return result.Single();
+                GHYUsersDataContext db2 = new GHYUsersDataContext();
+                List<User> userList = db2.User.ToList<User>();
+                List<Item> itemList = db.Item.ToList<Item>();
+                var result = from item in itemList
+                             join user in userList on item.UID equals user.UserID
+                             where (item.IID == iid) && (item.Type == 2) && (item.Status == 202)
+                             orderby item.PostTime descending
+                             select new user_item_pic
+                             {
+                                 IID = item.IID,
+                                 Title = item.Title,
+                                 Detail = item.Detail,
+                                 PostTime = item.PostTime,
+                                 NickName = user.NickName,
+                                 QQ = item.QQ,
+                                 Tel = item.Tel
+                             };
+                return result.ToList<user_item_pic>();
             }
         }
 

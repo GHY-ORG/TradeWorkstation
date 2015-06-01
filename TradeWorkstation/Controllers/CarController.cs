@@ -27,6 +27,15 @@ namespace TradeWorkstation.Controllers
         [HttpGet]
         public ActionResult Add()
         {
+            //用户
+            if (Session["User"] == null)
+            {
+                return Redirect("~/User/PostLogin");
+            }
+            Guid userid = new Guid(Session["User"].ToString());
+            ViewBag.UserID = userid;
+            ViewBag.NickName = AccountStrategy.GetNickNameByUserID(userid);
+
             CarForm car = new CarForm();
             return View(car);
         }
@@ -35,6 +44,15 @@ namespace TradeWorkstation.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Add(CarForm car)
         {
+            //用户
+            if (Session["User"] == null)
+            {
+                return Redirect("~/User/PostLogin");
+            }
+            Guid userid = new Guid(Session["User"].ToString());
+            ViewBag.UserID = userid;
+            ViewBag.NickName = AccountStrategy.GetNickNameByUserID(userid);
+
             if (!car.agreement)
             {
                 return Content("<script>alert('请同意协议');history.go(-1);</script>");
@@ -44,6 +62,7 @@ namespace TradeWorkstation.Controllers
                 return Content("<script>alert('表单信息验证失败，请重新填写');history.go(-1);</script>");
             }
             Item item = new Item();
+            item.UID = new Guid(Session["User"].ToString());
             item.Title = car.title;
             item.RunTime = car.runtime;
             item.From = car.carFrom;
@@ -85,7 +104,16 @@ namespace TradeWorkstation.Controllers
         [Route("Search/Page/{page:int}")]
         public ActionResult Search(int page)
         {
-            ViewData.Model = carPoolService.Show(page);
+            //用户
+            if (Session["User"] == null)
+            {
+                return Redirect("~/User/PostLogin");
+            }
+            Guid userid = new Guid(Session["User"].ToString());
+            ViewBag.UserID = userid;
+            ViewBag.NickName = AccountStrategy.GetNickNameByUserID(userid);
+
+            ViewData.Model = carPoolService.Show(page,7);
             return View();
         }
 
@@ -93,6 +121,15 @@ namespace TradeWorkstation.Controllers
         [Route("Search")]
         public ActionResult Search(DateTime runtime, string from, string to)
         {
+            //用户
+            if (Session["User"] == null)
+            {
+                return Redirect("~/User/PostLogin");
+            }
+            Guid userid = new Guid(Session["User"].ToString());
+            ViewBag.UserID = userid;
+            ViewBag.NickName = AccountStrategy.GetNickNameByUserID(userid);
+
             ViewData.Model = carPoolService.ShowItemByInfo(runtime, from, to);
             return View();
         }
@@ -101,7 +138,33 @@ namespace TradeWorkstation.Controllers
         [Route("Search/Tag/{tag}/Page/{page:int}")]
         public ActionResult Search(string tag, int page)
         {
+            //用户
+            if (Session["User"] == null)
+            {
+                return Redirect("~/User/PostLogin");
+            }
+            Guid userid = new Guid(Session["User"].ToString());
+            ViewBag.UserID = userid;
+            ViewBag.NickName = AccountStrategy.GetNickNameByUserID(userid);
+
             ViewData.Model = carPoolService.ShowItemByTag(tag,page);
+            return View();
+        }
+
+        [HttpGet]
+        [Route("Search/IID/{iid}")]
+        public ActionResult Search(string iid)
+        {
+            //用户
+            if (Session["User"] == null)
+            {
+                return Redirect("~/User/PostLogin");
+            }
+            Guid userid = new Guid(Session["User"].ToString());
+            ViewBag.UserID = userid;
+            ViewBag.NickName = AccountStrategy.GetNickNameByUserID(userid);
+
+            ViewData.Model = carPoolService.ShowItemInfo(new Guid(iid));
             return View();
         }
         #endregion 拼车检索

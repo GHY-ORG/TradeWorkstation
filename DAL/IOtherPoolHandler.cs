@@ -21,20 +21,22 @@ namespace DAL
         /// <summary>
         /// 显示所有拼其他信息
         /// </summary>
+        /// <param name="page"></param>
+        /// <param name="n"></param>
         /// <returns></returns>
-        List<user_item_pic> Show(int page);
+        List<user_item_pic> Show(int page, int n);
         /// <summary>
         /// 显示用户自己的拼其他信息
         /// </summary>
         /// <param name="uid"></param>
         /// <returns></returns>
-        List<Item> ShowItemByUID(Guid uid);
+        List<user_item_pic> ShowItemByUID(Guid uid);
         /// <summary>
         /// 查看具体的拼其他信息
         /// </summary>
         /// <param name="iid"></param>
         /// <returns></returns>
-        Item ShowItemInfo(Guid iid);
+        List<user_item_pic> ShowItemInfo(Guid iid);
         /// <summary>
         /// 用户将拼其他信息的状态改为完成 403
         /// </summary>

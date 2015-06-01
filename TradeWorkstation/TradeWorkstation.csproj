@@ -42,6 +42,13 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\ExtensionFramework\GHY_SSO\bin\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\..\ExtensionFramework\GHY_SSO\bin\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Hub, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\ExtensionFramework\Hub\bin\Release\Hub.dll</HintPath>
@@ -178,9 +185,9 @@
     <Content Include="Resources\Site\css\publish.css" />
     <Content Include="Resources\Site\css\show.css" />
     <Content Include="Resources\Site\js\bzbanner.min.js" />
+    <Content Include="Resources\Site\js\common.js" />
     <Content Include="Resources\Site\js\detail.js" />
     <Content Include="Resources\Site\js\index.js" />
-    <Content Include="Resources\Site\js\jquery.scrollLoading.js" />
     <Content Include="Resources\Trunk\trunk.css" />
     <Content Include="Resources\Trunk\trunk.js" />
     <Content Include="Web.config" />
@@ -191,7 +198,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BuyController.cs" />
     <Compile Include="Controllers\CarController.cs" />
-    <Compile Include="Controllers\CenterController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OtherController.cs" />
     <Compile Include="Controllers\PicPoolController.cs" />
@@ -237,8 +244,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Center\" />
     <Folder Include="Views\PicPool\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj">

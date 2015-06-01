@@ -3,10 +3,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "商品详细信息-柳交所";
     ViewBag.Css = new string[]{
-        "~/Resources/Site/css/show.css"
+        "~/bundles/show_styles"
     };
     ViewBag.Js = new string[]{
-        "~/Resources/Site/js/detail.js"
+        "~/bundles/detail_scripts"
     };
 }
 
@@ -66,9 +66,12 @@
                 <h5>该分类更多二货</h5>
                 @foreach (var m in ViewData["class_other_goods"] as List<user_item_pic>)
                 {
-                    <div class="col-md-6 class-other-sell">
-                        <a href="~/Sell/Detail/ID/@m.IID" title="@m.Title"><img class="full-img" src="~/PicPool/Get/ID/@m.PID/Size/100x100" alt="@m.Title" /></a>
-                    </div>
+                    if (!@m.IID.Equals(@good.IID))
+                    {
+                        <div class="col-md-6 class-other-sell">
+                            <a href="~/Sell/Detail/ID/@m.IID" title="@m.Title"><img class="full-img" src="~/PicPool/Get/ID/@m.PID/Size/100x100" alt="@m.Title" /></a>
+                        </div>
+                    }
                 }
             </div>
         }

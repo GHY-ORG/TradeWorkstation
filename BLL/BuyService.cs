@@ -18,9 +18,13 @@ namespace BLL
         {
             return ibh.Show(page);
         }
-        public static List<user_item_pic> GetBuyList(int cid, int page)
+        public static List<user_item_pic> ShowItemByCID(int cid, int page, int n)
         {
-            return ibh.ShowItemByCID(cid, page);
+            return ibh.ShowItemByCID(cid, page, n);
+        }
+        public static List<user_item_pic> ShowItemInfo(Guid iid)
+        {
+            return ibh.ShowItemInfo(iid);
         }
         public static List<user_item_pic> GetSearchList(string input, int page)
         {

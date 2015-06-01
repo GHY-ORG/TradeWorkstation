@@ -30,11 +30,13 @@ namespace DAL
         /// <returns></returns>
         List<user_item_pic> ShowItemByUID(Guid uid);
         /// <summary>
-        /// 显示对应分类的求购信息
+        /// 显示对应分类的商品
         /// </summary>
-        /// <param name="cid"></param>
+        /// <param name="cid">分类id</param>
+        /// <param name="page">页码</param>
+        /// <param name="n">一页显示几个</param>
         /// <returns></returns>
-        List<user_item_pic> ShowItemByCID(int cid, int page);
+        List<user_item_pic> ShowItemByCID(int cid, int page, int n);
         /// <summary>
         /// 通过input显示求购信息
         /// </summary>
@@ -47,7 +49,7 @@ namespace DAL
         /// </summary>
         /// <param name="iid"></param>
         /// <returns></returns>
-        Item ShowItemInfo(Guid iid);
+        List<user_item_pic> ShowItemInfo(Guid iid);
         /// <summary>
         /// 用户将求购信息的状态改为完成 203
         /// </summary>

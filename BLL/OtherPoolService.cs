@@ -25,10 +25,20 @@ namespace BLL
         /// 分页显示拼其他信息
         /// </summary>
         /// <param name="page"></param>
+        /// <param name="n"></param>
         /// <returns></returns>
-        public List<user_item_pic> Show(int page)
+        public List<user_item_pic> Show(int page, int n)
         {
-            return otherPoolHandler.Show(page);
+            return otherPoolHandler.Show(page, n);
+        }
+        /// <summary>
+        /// 显示具体拼其他信息
+        /// </summary>
+        /// <param name="iid"></param>
+        /// <returns></returns>
+        public List<user_item_pic> ShowItemInfo(Guid iid)
+        {
+            return otherPoolHandler.ShowItemInfo(iid);
         }
     }
 }

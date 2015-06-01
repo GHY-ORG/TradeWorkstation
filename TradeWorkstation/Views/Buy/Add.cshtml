@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "求购表单-柳交所";
     ViewBag.Css = new string[]{
-        "~/Resources/Site/css/form.css"
+        "~/bundles/add_styles"
     };
 }
 <div class="container" id="location">
@@ -50,7 +50,9 @@
                 <div class="form-group row">
                     @Html.LabelFor(x => x.detail, new { @class = "col-md-2 control-label" })
                     <div class="col-md-9">
-                        @Html.TextBoxFor(x => x.detail, new { @class = "form-control", placeholder = "请填写商品详细信息" })
+                        @Html.TextAreaFor(x => x.detail, new { @class = "form-control", placeholder = "请填写商品详细信息", rows = "6" })
+                    </div>
+                    <div class="col-md-9 col-md-offset-2 error-text">
                         @Html.ValidationMessageFor(x => x.detail)
                     </div>
                 </div>
@@ -87,7 +89,7 @@
 <script type="text/javascript">
     var sec = [];
     sec[1] = [{ 'txt': '自行车', 'val': '9' }, { 'txt': '其他', 'val': '10' }];
-    sec[2] = [{ txt: '教科书', val: '11' }, { txt: '考研证书', val: '12' }, { txt: '考级证书', val: '13' }, { txt: '课外书', val: '14' }, { txt: '其他', val: '15' }];
+    sec[2] = [{ txt: '教科书', val: '11' }, { txt: '考研用书', val: '12' }, { txt: '考级考证', val: '13' }, { txt: '课外书', val: '14' }, { txt: '其他', val: '15' }];
     sec[3] = [{ txt: '手机', val: '16' }, { txt: '电脑', val: '17' }, { txt: '平板', val: '18' }, { txt: '游戏机', val: '19' }, { txt: '相机', val: '20' }, { txt: 'MP3/MP4', val: '21' }, { txt: '其他', val: '22' }];
     sec[4] = [{ txt: 'U盘', val: '23' }, { txt: '移动硬盘', val: '24' }, { txt: '鼠标', val: '25' }, { txt: '键盘', val: '27' }, { txt: '耳机', val: '28' }, { txt: '其他', val: '29' }];
     sec[5] = [{ txt: '小电器', val: '30' }, { txt: '小家具', val: '31' }, { txt: '运动', val: '32' }, { txt: '化妆品', val: '33' }, { txt: '其他', val: '34' }, ];

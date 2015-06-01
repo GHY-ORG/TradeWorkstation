@@ -22,8 +22,10 @@ namespace DAL
         /// <summary>
         /// 显示所有拼车信息
         /// </summary>
+        /// <param name="page"></param>
+        /// <param name="n">一页显示几个</param>
         /// <returns></returns>
-        List<user_item_pic> Show(int page);
+        List<user_item_pic> Show(int page, int n);
         /// <summary>
         /// 显示用户自己的拼车信息
         /// </summary>
@@ -50,7 +52,7 @@ namespace DAL
         /// </summary>
         /// <param name="iid"></param>
         /// <returns></returns>
-        Item ShowItemInfo(Guid iid);
+        List<user_item_pic> ShowItemInfo(Guid iid);
         /// <summary>
         /// 用户删除拼车信息 301
         /// </summary>

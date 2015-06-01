@@ -32,7 +32,7 @@ namespace DAL
             }
         }
 
-        public List<user_item_pic> Show(int page)
+        public List<user_item_pic> Show(int page,int n)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
@@ -45,36 +45,65 @@ namespace DAL
                              orderby item.PostTime descending
                              select new user_item_pic
                              {
-                                 NickName = user.ＮickName,
+                                 IID = item.IID,
+                                 NickName = user.NickName,
                                  Title = item.Title,
                                  Detail = item.Detail,
                                  PostTime = item.PostTime,
                                  QQ = item.QQ,
                                  Tel = item.Tel
                              };
-                return result.Skip(7 * (page - 1)).Take(7).ToList<user_item_pic>();
+                return result.Skip(n * (page - 1)).Take(n).ToList<user_item_pic>();
             }
         }
 
-        public List<Item> ShowItemByUID(Guid uid)
+        public List<user_item_pic> ShowItemByUID(Guid uid)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
-                var result = from o in db.Item
-                             where o.UID == uid && o.Type == 4 && o.Status == 402
-                             select o;
-                return result.ToList<Item>();
+                GHYUsersDataContext db2 = new GHYUsersDataContext();
+                List<User> userList = db2.User.ToList<User>();
+                List<Item> itemList = db.Item.ToList<Item>();
+                var result = from item in itemList
+                             join user in userList on item.UID equals user.UserID
+                             where (user.UserID == uid) && (item.Type == 4) && (item.Status == 402)
+                             orderby item.PostTime descending
+                             select new user_item_pic
+                             {
+                                 IID = item.IID,
+                                 NickName = user.NickName,
+                                 Title = item.Title,
+                                 Detail = item.Detail,
+                                 PostTime = item.PostTime,
+                                 QQ = item.QQ,
+                                 Tel = item.Tel
+                             };
+                return result.ToList<user_item_pic>();
             }
         }
 
-        public Item ShowItemInfo(Guid iid)
+        public List<user_item_pic> ShowItemInfo(Guid iid)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
-                var result = from o in db.Item
-                             where o.IID == iid && o.Status == 402
-                             select o;
-                return result.Single();
+                GHYUsersDataContext db2 = new GHYUsersDataContext();
+                List<User> userList = db2.User.ToList<User>();
+                List<Item> itemList = db.Item.ToList<Item>();
+                var result = from item in itemList
+                             join user in userList on item.UID equals user.UserID
+                             where (item.IID == iid) && (item.Type == 4) && (item.Status == 402)
+                             orderby item.PostTime descending
+                             select new user_item_pic
+                             {
+                                 IID = item.IID,
+                                 NickName = user.NickName,
+                                 Title = item.Title,
+                                 Detail = item.Detail,
+                                 PostTime = item.PostTime,
+                                 QQ = item.QQ,
+                                 Tel = item.Tel
+                             };
+                return result.ToList<user_item_pic>();
             }
         }
 

@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "出售表单-柳交所";
     ViewBag.Css = new string[]{
-        "~/Resources/Site/css/form.css"
+        "~/bundles/add_styles"
     };
 }
 <div class="container" id="location">
@@ -51,7 +51,9 @@
                 <div class="form-group row">
                     @Html.LabelFor(x => x.price, new { @class = "col-md-2 control-label label-list" })
                     <div class="col-md-9">
-                        @Html.TextBoxFor(x => x.price, new { @class = "form-control", placeholder = "请输入你的价格~" })
+                        @Html.TextBoxFor(x => x.price, new { @class = "form-control", placeholder = "请输入你的价格~", type = "number" })
+                    </div>
+                    <div class="col-md-9 col-md-offset-2 error-text">
                         @Html.ValidationMessageFor(x => x.price)
                     </div>
                 </div>
@@ -68,7 +70,9 @@
                 <div class="form-group row">
                     @Html.LabelFor(x => x.detail, new { @class = "col-md-2 control-label label-list" })
                     <div class="col-md-9">
-                        @Html.TextBoxFor(x => x.detail, new { @class = "form-control", placeholder = "请输入你的详细信息~" })
+                        @Html.TextAreaFor(x => x.detail, new { @class = "form-control", placeholder = "请输入你的详细信息~", rows = "6" })
+                    </div>
+                    <div class="col-md-9 col-md-offset-2 error-text">
                         @Html.ValidationMessageFor(x => x.detail)
                     </div>
                 </div>

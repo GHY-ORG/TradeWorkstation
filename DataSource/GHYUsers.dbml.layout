@@ -8,10 +8,10 @@
         <elementListCompartment Id="6f0372a4-d979-4738-a2c0-908da805c3dd" absoluteBounds="4.765, 1.335, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="672560e7-2132-48d1-b634-71a293618f28" absoluteBounds="1.375, 0.5, 2, 2.8308638509114581">
+    <classShape Id="8e4fbee1-b04e-450d-a783-ff3bac24493e" absoluteBounds="1.25, 0.75, 2, 2.8308638509114581">
       <DataClassMoniker Name="/GHYUsersDataContext/User" />
       <nestedChildShapes>
-        <elementListCompartment Id="775a6bbf-ba6d-44ba-ae4f-8965751c278c" absoluteBounds="1.3900000000000001, 0.96, 1.9700000000000002, 2.270863850911458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="6ea16c17-6629-466a-8d21-51dbdf0e33f8" absoluteBounds="1.2650000000000001, 1.21, 1.9700000000000002, 2.270863850911458" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>

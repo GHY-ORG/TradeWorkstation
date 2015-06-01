@@ -279,7 +279,7 @@ namespace DataSource
 		
 		private string _Password;
 		
-		private string _ＮickName;
+		private string _NickName;
 		
 		private string _StuNumber;
 		
@@ -305,8 +305,8 @@ namespace DataSource
     partial void OnEmailChanged();
     partial void OnPasswordChanging(string value);
     partial void OnPasswordChanged();
-    partial void OnＮickNameChanging(string value);
-    partial void OnＮickNameChanged();
+    partial void OnNickNameChanging(string value);
+    partial void OnNickNameChanged();
     partial void OnStuNumberChanging(string value);
     partial void OnStuNumberChanged();
     partial void OnAvatarChanging(string value);
@@ -388,22 +388,22 @@ namespace DataSource
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ＮickName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
-		public string ＮickName
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NickName", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string NickName
 		{
 			get
 			{
-				return this._ＮickName;
+				return this._NickName;
 			}
 			set
 			{
-				if ((this._ＮickName != value))
+				if ((this._NickName != value))
 				{
-					this.OnＮickNameChanging(value);
+					this.OnNickNameChanging(value);
 					this.SendPropertyChanging();
-					this._ＮickName = value;
-					this.SendPropertyChanged("ＮickName");
-					this.OnＮickNameChanged();
+					this._NickName = value;
+					this.SendPropertyChanged("NickName");
+					this.OnNickNameChanged();
 				}
 			}
 		}

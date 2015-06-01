@@ -15,7 +15,7 @@
       <Column Name="UserID" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Email" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="Password" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ＮickName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="NickName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="StuNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Avatar" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
       <Column Name="Sex" Type="System.Int32" DbType="Int" CanBeNull="true" />

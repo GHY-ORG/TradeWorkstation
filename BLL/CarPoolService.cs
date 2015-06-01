@@ -24,10 +24,12 @@ namespace BLL
         /// <summary>
         /// 显示所有未过期的拼车信息
         /// </summary>
+        /// <param name="page"></param>
+        /// <param name="n"></param>
         /// <returns></returns>
-        public List<user_item_pic> Show(int page)
+        public List<user_item_pic> Show(int page, int n)
         {
-            return carPoolHandler.Show(page);
+            return carPoolHandler.Show(page, n);
         }
         /// <summary>
         /// 拼车检索
@@ -49,6 +51,15 @@ namespace BLL
         public List<user_item_pic> ShowItemByTag(string tag, int page)
         {
             return carPoolHandler.ShowItemByTag(tag, page);
+        }
+        /// <summary>
+        /// 根据IID显示拼车信息
+        /// </summary>
+        /// <param name="iid"></param>
+        /// <returns></returns>
+        public List<user_item_pic> ShowItemInfo(Guid iid)
+        {
+            return carPoolHandler.ShowItemInfo(iid);
         }
     }
 }

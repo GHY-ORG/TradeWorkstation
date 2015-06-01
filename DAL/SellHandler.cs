@@ -33,7 +33,7 @@ namespace DAL
             }
         }
 
-        public List<user_item_pic> Show(int page)
+        public List<user_item_pic> Show(int page, int n)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
@@ -49,12 +49,12 @@ namespace DAL
                              select new user_item_pic
                              {
                                  IID = item.IID,
-                                 NickName = user.ＮickName,
+                                 NickName = user.NickName,
                                  Title = item.Title,
                                  Price = (int)item.Price,
                                  PID = pic.PID
                              };
-                return result.Skip(8 * (page - 1)).Take(8).ToList<user_item_pic>();
+                return result.Skip(n * (page - 1)).Take(n).ToList<user_item_pic>();
             }
         }
 
@@ -72,8 +72,9 @@ namespace DAL
                              where (item.IID == iid) && (pic.Order == 1) && (pic.Status == 1)
                              select new user_item_pic
                              {
+                                 IID = item.IID,
                                  UID = user.UserID,
-                                 NickName = user.ＮickName,
+                                 NickName = user.NickName,
                                  Title = item.Title,
                                  CID = (int)item.CID,
                                  Detail = item.Detail,
@@ -87,7 +88,7 @@ namespace DAL
             }
         }
 
-        public List<user_item_pic> ShowItemByUID(Guid uid, int page)
+        public List<user_item_pic> ShowItemByUID(Guid uid, int page, int n)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
@@ -106,11 +107,11 @@ namespace DAL
                                  Title = item.Title,
                                  PID = pic.PID
                              };
-                return result.Skip(8*(page-1)).Take(8).ToList<user_item_pic>();
+                return result.Skip(n*(page-1)).Take(n).ToList<user_item_pic>();
             }
         }
 
-        public List<user_item_pic> ShowItemByCID(int cid, int page)
+        public List<user_item_pic> ShowItemByCID(int cid, int page, int n)
         {
             using (TradeWorkstationDataContext db = new TradeWorkstationDataContext())
             {
@@ -126,13 +127,13 @@ namespace DAL
                              select new user_item_pic
                              {
                                  IID = item.IID,
-                                 NickName = user.ＮickName,
+                                 NickName = user.NickName,
                                  CID = (int)item.CID,
                                  Title = item.Title,
                                  Price = (int)item.Price,
                                  PID = pic.PID
                              };
-                return result.Skip(8*(page-1)).Take(8).ToList<user_item_pic>();
+                return result.Skip(n*(page-1)).Take(n).ToList<user_item_pic>();
             }
         }
 

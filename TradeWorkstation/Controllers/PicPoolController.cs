@@ -18,6 +18,11 @@ namespace TradeWorkstation.Controllers
         // GET: PicPool
         public ActionResult Index()
         {
+            //用户
+            if (Session["User"] == null)
+            {
+                return Redirect("~/User/PostLogin");
+            }
             return View();
         }
         /// <summary>
@@ -30,6 +35,11 @@ namespace TradeWorkstation.Controllers
         [Route("Get/ID/{id}/Size/{size}")]
         public ActionResult Get(string id, string size)
         {
+            //用户
+            if (Session["User"] == null)
+            {
+                return Redirect("~/User/PostLogin");
+            }
             var width = Int32.Parse(size.Split('x')[0]);
             var height = Int32.Parse(size.Split('x')[1]);
             Image img;

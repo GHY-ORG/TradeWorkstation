@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -8,12 +9,27 @@ using BLL;
 
 namespace TradeWorkstation.Controllers
 {
+    [Export]
     [RoutePrefix("Buy")]
     public class BuyController : Controller
     {
+        [Import]
+        public Hub.Interface.User.IAuthenticationStrategy AuthentiationStrategy { set; get; }
+
+        [Import]
+        public Hub.Interface.User.IAccountStrategy AccountStrategy { set; get; }
+
         [HttpGet]
         public ActionResult Add()
         {
+            //用户
+            if (Session["User"] == null)
+            {
+                return Redirect("~/User/PostLogin");
+            }
+            Guid userid = new Guid(Session["User"].ToString());
+            ViewBag.UserID = userid;
+            ViewBag.NickName = AccountStrategy.GetNickNameByUserID(userid);
             return View();
         }
 
@@ -21,6 +37,15 @@ namespace TradeWorkstation.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Add(Models.BuyForm bf)
         {
+            //用户
+            if (Session["User"] == null)
+            {
+                return Redirect("~/User/PostLogin");
+            }
+            Guid userid = new Guid(Session["User"].ToString());
+            ViewBag.UserID = userid;
+            ViewBag.NickName = AccountStrategy.GetNickNameByUserID(userid);
+
             if (!bf.agreement)
             {
                 return Content("<script>alert('请同意协议');history.go(-1);</script>");
@@ -34,7 +59,7 @@ namespace TradeWorkstation.Controllers
                 Item item = new Item();
                 item.Title = bf.title;
                 item.CID = bf.secondList == "0" ? Int32.Parse(bf.firstList) : Int32.Parse(bf.secondList);
-                item.UID = new Guid("2d7588e8-f353-47ed-902b-7d8441f0de30");
+                item.UID = new Guid(Session["User"].ToString());
                 item.Detail = bf.detail;
                 item.Tel = bf.tel;
                 string qq = bf.qq;
@@ -72,6 +97,15 @@ namespace TradeWorkstation.Controllers
         [Route("Search/Page/{page:int}")]
         public ActionResult Search(int page)
         {
+            //用户
+            if (Session["User"] == null)
+            {
+                return Redirect("~/User/PostLogin");
+            }
+            Guid userid = new Guid(Session["User"].ToString());
+            ViewBag.UserID = userid;
+            ViewBag.NickName = AccountStrategy.GetNickNameByUserID(userid);
+
             ViewData.Model = BuyService.Show(page);
             return View();
         }
@@ -80,7 +114,16 @@ namespace TradeWorkstation.Controllers
         [Route("Search/Cid/{cid}/Page/{page:int}")]
         public ActionResult Search(int cid, int page)
         {
-            ViewData.Model = BuyService.Show(page);
+            //用户
+            if (Session["User"] == null)
+            {
+                return Redirect("~/User/PostLogin");
+            }
+            Guid userid = new Guid(Session["User"].ToString());
+            ViewBag.UserID = userid;
+            ViewBag.NickName = AccountStrategy.GetNickNameByUserID(userid);
+
+            ViewData.Model = BuyService.ShowItemByCID(cid,page,7);
             return View();
         }
 
@@ -88,8 +131,34 @@ namespace TradeWorkstation.Controllers
         [Route("Search/Input/{input}/Page/{page:int}")]
         public ActionResult Search(string input, int page)
         {
+            //用户
+            if (Session["User"] == null)
+            {
+                return Redirect("~/User/PostLogin");
+            }
+            Guid userid = new Guid(Session["User"].ToString());
+            ViewBag.UserID = userid;
+            ViewBag.NickName = AccountStrategy.GetNickNameByUserID(userid);
+
             var vm = BuyService.GetSearchList(input, page);
             ViewData.Model = vm;
+            return View();
+        }
+
+        [HttpGet]
+        [Route("Search/IID/{iid}")]
+        public ActionResult Search(string iid)
+        {
+            //用户
+            if (Session["User"] == null)
+            {
+                return Redirect("~/User/PostLogin");
+            }
+            Guid userid = new Guid(Session["User"].ToString());
+            ViewBag.UserID = userid;
+            ViewBag.NickName = AccountStrategy.GetNickNameByUserID(userid);
+
+            ViewData.Model = BuyService.ShowItemInfo(new Guid(iid));
             return View();
         }
     }
